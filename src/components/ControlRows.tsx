@@ -25,15 +25,16 @@ export function ControlRows() {
   return (
     <>
       {/* SEC 14 — YOU CONTROL EVERYTHING YOURSELF */}
-      <section className="py-12 md:py-16 bg-white border-t border-slate-100">
+      <section className="pt-6 md:pt-8 pb-12 md:pb-16 bg-white border-t border-slate-100">
         <div className="max-w-[1160px] mx-auto px-4 sm:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10">
+            <div className="text-xs font-bold tracking-[0.18em] uppercase text-orange-600 mb-2">YOU&apos;RE IN CONTROL</div>
             <h2 className="text-4xl sm:text-5xl lg:text-[52px] font-bold font-serif-heading text-slate-900 leading-[1.12]">
               Change anything, any time.
               <br />
-              No phone call to us.
+              No phone call to us<span className="text-orange-600">.</span>
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-slate-600 mt-3.5 leading-relaxed max-w-2xl mx-auto">
               Every part of the system is yours to edit. Changes appear on every
               guest&apos;s phone straight away.
             </p>
