@@ -385,7 +385,7 @@ export function ControlRows() {
                 <img
                   src="/images/icons/Tips_v3.png"
                   alt="Tips icon"
-                  className="w-full h-full object-contain p-1.5"
+                  className="w-10 h-10 object-contain"
                 />
               </div>
               <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-1">Tips</h3>
