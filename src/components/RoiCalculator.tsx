@@ -327,7 +327,10 @@ export function RoiCalculator() {
           </div>
 
           {/* THE ANSWER */}
-          <div className="lg:col-span-6 bg-slate-900 text-white p-7 sm:p-9 rounded-[28px] shadow-xl flex flex-col justify-between space-y-6 min-h-[440px]">
+          <div className="lg:col-span-6 bg-slate-900 text-white p-7 sm:p-9 rounded-[28px] shadow-xl flex flex-col justify-between space-y-6 min-h-[440px] relative overflow-hidden">
+            {/* Orange top accent bar */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 to-orange-400" />
+
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Estimated value, every month</p>
               <p className="text-5xl sm:text-6xl font-black text-orange-500 tracking-tight">{money(displayTotal)}</p>
@@ -337,15 +340,30 @@ export function RoiCalculator() {
             </div>
 
             <div className="grid grid-cols-2 gap-4 py-6 border-y border-slate-800">
-              <div>
-                <p className="text-2xl sm:text-3xl font-extrabold text-white">{money(displayMoney)}</p>
-                <p className="text-xs text-slate-400 mt-1">Extra money coming in</p>
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 min-w-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="#f97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-2xl sm:text-3xl font-extrabold text-white">{money(displayMoney)}</p>
+                  <p className="text-xs text-slate-400 mt-1">Extra money coming in</p>
+                </div>
               </div>
-              <div>
-                <p className="text-2xl sm:text-3xl font-extrabold text-white">{hoursFmt(displayHours)}</p>
-                <p className="text-xs text-slate-400 mt-1">
-                  Waiter time saved, worth <span className="text-orange-400 font-semibold">{money(displayTimeVal)}</span>
-                </p>
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 min-w-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="#f97316" strokeWidth="2" />
+                    <path d="M12 6v6l4 2" stroke="#f97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-2xl sm:text-3xl font-extrabold text-white">{hoursFmt(displayHours)}</p>
+                  <p className="text-xs text-slate-400 mt-1">
+                    Waiter time given back, worth <span className="text-orange-400 font-semibold">{money(displayTimeVal)}</span>
+                  </p>
+                </div>
               </div>
             </div>
 
