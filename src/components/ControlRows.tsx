@@ -130,7 +130,7 @@ export function ControlRows() {
     {
       icon: (
         <svg className="w-4 h-4 text-[#f95722]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+          <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l me-0.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
           <circle cx="12" cy="12" r="3" />
         </svg>
       ),
@@ -142,12 +142,12 @@ export function ControlRows() {
   return (
     <>
       {/* SEC 14 — YOU CONTROL EVERYTHING YOURSELF */}
-      <section className="pt-14 md:pt-20 pb-20 md:pb-28 bg-[#fdfbf9] border-t border-slate-100 relative overflow-x-hidden">
-        {/* Soft Background Restaurant Image Fade on Left */}
+      <section className="pt-16 md:pt-24 pb-20 md:pb-28 bg-[#fdfbf9] border-t border-slate-100 relative overflow-x-hidden">
+        {/* Soft Background Restaurant Ambient Image Fade on Left */}
         <div className="absolute left-0 top-0 bottom-0 w-1/2 lg:w-5/12 pointer-events-none z-0 overflow-hidden opacity-30">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/hero_section/home_sec_1.png"
+            src="/images/you_are_in_control/left_restaurant_photo.png"
             alt="Restaurant ambient background"
             className="w-full h-full object-cover filter blur-[0.5px]"
           />
@@ -155,14 +155,14 @@ export function ControlRows() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#fdfbf9] via-transparent to-[#fdfbf9]" />
         </div>
 
-        {/* Decorative Top-Right Wave Pattern SVG */}
-        <div className="absolute top-0 right-0 w-[450px] h-[450px] pointer-events-none opacity-45 z-0">
-          <svg className="w-full h-full text-orange-200/50" viewBox="0 0 400 400" fill="none">
-            <path d="M100 0C150 100 250 150 400 200M50 0C100 120 220 180 400 250M0 0C50 150 180 220 400 300" stroke="currentColor" strokeWidth="1.5" />
+        {/* Decorative Bottom-Right Curved Wave Pattern SVG */}
+        <div className="absolute bottom-0 right-0 w-[450px] h-[450px] pointer-events-none opacity-40 z-0">
+          <svg className="w-full h-full text-orange-300/40" viewBox="0 0 400 400" fill="none">
+            <path d="M100 400C150 300 250 250 400 200M50 400C100 280 220 220 400 150M0 400C50 250 180 180 400 100" stroke="currentColor" strokeWidth="1.5" />
           </svg>
         </div>
 
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
             <div className="text-xs font-extrabold tracking-[0.2em] uppercase text-[#f95722] mb-3">
@@ -178,15 +178,15 @@ export function ControlRows() {
             </p>
           </div>
 
-          {/* Centered Feature Card Container with Absolute Right Phone Mockup */}
-          <div className="relative max-w-[1140px] mx-auto">
-            {/* White Feature Table Card (Centered, max-w-[760px]) */}
-            <div className="max-w-[760px] mx-auto lg:ml-8 xl:ml-12 lg:mr-auto bg-white/95 backdrop-blur-sm rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-200/50 overflow-hidden relative z-10">
+          {/* Feature Card & SINGLE Tilted Phone Mockup Flex Container */}
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-4 relative max-w-6xl mx-auto">
+            {/* White Feature Table Card */}
+            <div className="w-full lg:w-[65%] xl:w-[68%] bg-white/95 backdrop-blur-sm rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-200/50 overflow-hidden flex-none">
               <div className="divide-y divide-slate-100">
                 {rows.map((row, i) => (
                   <div
                     key={i}
-                    className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3.5 px-4 sm:px-6 py-3 hover:bg-orange-50/30 transition-colors"
+                    className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3.5 px-4 sm:px-5 py-3 hover:bg-orange-50/30 transition-colors"
                   >
                     <div className="flex items-center gap-2.5 flex-none">
                       <div className="w-4 h-4 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center flex-none">
@@ -202,7 +202,7 @@ export function ControlRows() {
 
                     <div className="hidden sm:block w-[1px] h-3.5 bg-slate-200/80 flex-none" />
 
-                    <div className="text-slate-600 text-xs sm:text-sm leading-relaxed pl-6 sm:pl-0">
+                    <div className="text-slate-600 text-xs leading-relaxed pl-6 sm:pl-0">
                       {row.v}
                     </div>
                   </div>
@@ -210,8 +210,8 @@ export function ControlRows() {
               </div>
             </div>
 
-            {/* Overlapping Tilted Phone Mockup (Desktop / Tablet: Absolute Right overlapping card by ~80px) */}
-            <div className="hidden lg:block absolute -right-4 xl:-right-8 top-1/2 -translate-y-1/2 w-[310px] xl:w-[335px] pointer-events-none z-20 transform rotate-[6deg] hover:rotate-[2deg] transition-transform duration-500">
+            {/* Crisp SINGLE Tilted Phone Mockup directly beside feature card */}
+            <div className="w-full lg:w-[32%] xl:w-[30%] max-w-[310px] lg:max-w-[335px] flex-none relative lg:-ml-10 transform lg:rotate-[6deg] hover:rotate-[2deg] transition-transform duration-500 z-20">
               <div className="relative rounded-[36px] bg-slate-900 p-2.5 shadow-2xl shadow-slate-900/35 border-4 border-slate-800">
                 {/* Phone Screen Mockup Container */}
                 <div className="rounded-[28px] overflow-hidden bg-slate-50 border border-slate-200 text-left">
@@ -228,7 +228,7 @@ export function ControlRows() {
                   {/* Dashboard Header */}
                   <div className="p-3.5 bg-white border-b border-slate-100">
                     <div className="flex items-center justify-between mb-0.5">
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400">Dashboard</span>
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400">DASHBOARD</span>
                       <div className="w-6 h-6 rounded-full bg-slate-100 border border-slate-200 overflow-hidden flex items-center justify-center text-[10px] font-bold text-slate-700">
                         A
                       </div>
