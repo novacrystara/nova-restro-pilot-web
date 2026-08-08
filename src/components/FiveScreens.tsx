@@ -3,27 +3,27 @@ import React from "react";
 export function FiveScreens() {
   const roles = [
     {
-      ico: "👤",
+      imgSrc: "/images/for_your_team/The guest.png",
       title: "The guest",
       desc: "The menu, their order, and the bill. On their own phone. No login.",
     },
     {
-      ico: "👨‍🍳",
+      imgSrc: "/images/for_your_team/The kitchen.png",
       title: "The kitchen",
       desc: "One list: what to cook next. Drinks to the bar, food to the chef.",
     },
     {
-      ico: "🧑‍💼",
+      imgSrc: "/images/for_your_team/The waiter.png",
       title: "The waiter",
       desc: "The floor, and what is ready to carry out right now.",
     },
     {
-      ico: "👔",
+      imgSrc: "/images/for_your_team/The manager.png",
       title: "The manager",
       desc: "A live map of every table, plus menu, staff, prices and reports.",
     },
     {
-      ico: "🏢",
+      imgSrc: "/images/for_your_team/The owner.png",
       title: "The owner",
       desc: "Every branch at once. Total sales. Which site is busiest.",
     },
@@ -43,13 +43,18 @@ export function FiveScreens() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 items-stretch">
           {roles.map((r, i) => (
-            <article key={i} className="bg-white p-7 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-orange-200 transition-all text-center flex flex-col items-center">
-              <span className="text-4xl mb-4 block" aria-hidden="true">
-                {r.ico}
-              </span>
-              <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-2">{r.title}</h3>
+            <article key={i} className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-orange-200 transition-all text-center flex flex-col items-center h-full group">
+              <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border border-slate-200/70 shadow-sm p-0.5 bg-white flex items-center justify-center mb-4 group-hover:scale-105 transition-transform flex-none">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={r.imgSrc}
+                  alt={r.title}
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold font-serif-heading text-slate-900 mb-2">{r.title}</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{r.desc}</p>
             </article>
           ))}
