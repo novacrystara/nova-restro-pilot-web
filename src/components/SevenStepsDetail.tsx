@@ -95,14 +95,14 @@ export function SevenStepsDetail() {
             </span>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-              {/* Left side Image */}
+              {/* Left side Image — Keep 3 pill cards fully visible, remove only below space */}
               <div className="lg:col-span-6 flex justify-center">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 max-w-[460px] w-full">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 max-w-[460px] max-h-[565px] sm:max-h-[575px] w-full">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/The_real_problem/The Chef AI chat on a phone.png"
                     alt="Chef AI chat assistant on phone"
-                    className="w-full h-auto object-cover rounded-3xl"
+                    className="w-full h-auto object-cover object-top rounded-3xl"
                   />
                 </div>
               </div>
@@ -287,7 +287,7 @@ export function SevenStepsDetail() {
               4
             </span>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
               {/* Left side Image */}
               <div className="lg:col-span-6 flex justify-center">
                 <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 max-w-[460px] w-full">
@@ -301,61 +301,119 @@ export function SevenStepsDetail() {
               </div>
 
               {/* Right side Content */}
-              <div className="lg:col-span-6 space-y-6">
-                <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f95722] mb-1">
+              <div className="lg:col-span-6 space-y-5 pt-1.5">
+                <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f95722] leading-none mb-1">
                   STEP FOUR — CHECK
                 </div>
 
                 <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold font-serif-heading text-slate-900 leading-[1.15] tracking-tight">
-                  Three checks before
-                  <br />
-                  anything is cooked<span className="text-[#f95722]">.</span>
+                  Three checks before anything is cooked<span className="text-[#f95722]">.</span>
                 </h2>
 
-                <p className="text-base sm:text-lg text-slate-500 leading-relaxed max-w-lg">
-                  This is the part most systems skip. It is the part that protects the restaurant.
-                </p>
+                <div className="space-y-0.5 text-base sm:text-[17px] text-slate-500 leading-relaxed">
+                  <p>This is the part most systems skip.</p>
+                  <p>It is the part that protects the restaurant.</p>
+                </div>
 
                 {/* 3 Cards Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-                  <div className="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm text-center">
-                    <div className="w-7 h-7 rounded-full bg-orange-50 text-[#f95722] font-bold flex items-center justify-center text-xs mx-auto mb-2">1</div>
-                    <h4 className="font-bold text-slate-900 text-xs mb-1">Is it available?</h4>
-                    <p className="text-[11px] text-slate-500 leading-tight">Sold-out dishes cannot be ordered.</p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                  {/* Card 1 */}
+                  <div className="bg-white/90 p-4 rounded-2xl border border-slate-100/90 shadow-sm text-left flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-3 mb-3.5">
+                        <div className="w-8 h-8 rounded-full bg-[#fff2e8] text-[#f95722] font-extrabold flex items-center justify-center text-sm">1</div>
+                        {/* 3D Isometric Box SVG */}
+                        <svg className="w-8 h-8 text-[#f95722]" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M16 3L4 9v12l12 6 12-6V9l-12-6z" />
+                          <path d="M16 15v12" />
+                          <path d="M4 9l12 6 12-6" />
+                          <path d="M10 6l12 6" />
+                          <path d="M8.5 14.5v3h4v-3" />
+                        </svg>
+                      </div>
+                      <h4 className="font-bold text-slate-900 text-sm mb-1">Is it available?</h4>
+                      <p className="text-xs text-slate-500 leading-snug">Sold-out dishes cannot be ordered.</p>
+                    </div>
                   </div>
 
-                  <div className="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm text-center">
-                    <div className="w-7 h-7 rounded-full bg-orange-50 text-[#f95722] font-bold flex items-center justify-center text-xs mx-auto mb-2">2</div>
-                    <h4 className="font-bold text-slate-900 text-xs mb-1">Is the order real?</h4>
-                    <p className="text-[11px] text-slate-500 leading-tight">The guest confirms with a code sent to their phone.</p>
+                  {/* Card 2 */}
+                  <div className="bg-white/90 p-4 rounded-2xl border border-slate-100/90 shadow-sm text-left flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-3 mb-3.5">
+                        <div className="w-8 h-8 rounded-full bg-[#fff2e8] text-[#f95722] font-extrabold flex items-center justify-center text-sm">2</div>
+                        {/* Smartphone with Notch & QR Code */}
+                        <svg className="w-8 h-8 text-[#f95722]" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                          <rect x="7" y="2" width="18" height="28" rx="4" ry="4" />
+                          <path d="M13 5h6" strokeWidth="2" strokeLinecap="round" />
+                          <circle cx="16" cy="26" r="1" fill="currentColor" />
+                          <rect x="11" y="9" width="4" height="4" rx="0.5" strokeWidth="1.5" />
+                          <rect x="17" y="9" width="4" height="4" rx="0.5" strokeWidth="1.5" />
+                          <rect x="11" y="15" width="4" height="4" rx="0.5" strokeWidth="1.5" />
+                          <rect x="17" y="15" width="4" height="4" rx="0.5" fill="currentColor" />
+                        </svg>
+                      </div>
+                      <h4 className="font-bold text-slate-900 text-sm mb-1">Is the order real?</h4>
+                      <p className="text-xs text-slate-500 leading-snug">The guest confirms with a code sent to their phone.</p>
+                    </div>
                   </div>
 
-                  <div className="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm text-center">
-                    <div className="w-7 h-7 rounded-full bg-orange-50 text-[#f95722] font-bold flex items-center justify-center text-xs mx-auto mb-2">3</div>
-                    <h4 className="font-bold text-slate-900 text-xs mb-1">Any allergy?</h4>
-                    <p className="text-[11px] text-slate-500 leading-tight">If yes, the order is locked until chef confirms.</p>
+                  {/* Card 3 */}
+                  <div className="bg-white/90 p-4 rounded-2xl border border-slate-100/90 shadow-sm text-left flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-3 mb-3.5">
+                        <div className="w-8 h-8 rounded-full bg-[#fff2e8] text-[#f95722] font-extrabold flex items-center justify-center text-sm">3</div>
+                        {/* Shield with Light Peach Fill & Checkmark */}
+                        <svg className="w-8 h-8 text-[#f95722]" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M16 29s11-5.5 11-14V7l-11-4-11 4v8c0 8.5 11 14 11 14z" fill="#fff2e8" />
+                          <path d="m11.5 15.5 3 3 6-6" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </div>
+                      <h4 className="font-bold text-slate-900 text-sm mb-1">Any allergy?</h4>
+                      <p className="text-xs text-slate-500 leading-snug">If yes, the order is locked until the chef confirms they read it.</p>
+                    </div>
                   </div>
                 </div>
 
-                {/* Allergy Lock Banner */}
-                <div className="bg-[#fff0f0] border border-rose-200/80 p-4 sm:p-5 rounded-2xl space-y-3 shadow-xs">
-                  <div className="flex items-start gap-3">
-                    <div className="w-7 h-7 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center flex-none mt-0.5 text-xs">
-                      🔒
+                {/* Allergy Lock Banner with Left Red Accent Line */}
+                <div className="bg-[#fff5f5] border border-red-100 border-l-[3.5px] border-l-red-500 p-4 sm:p-5 rounded-2xl space-y-4 shadow-xs">
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-8 h-8 rounded-full bg-red-100/80 text-red-500 flex items-center justify-center flex-none mt-0.5">
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                      </svg>
                     </div>
-                    <div className="text-slate-800 text-xs sm:text-sm leading-relaxed">
-                      <strong className="text-rose-900 font-bold">The allergy lock.</strong> The chef cannot press &quot;start cooking&quot; until they tap <em className="font-semibold text-rose-700">Acknowledge Allergy Notice</em>. Every step below is stamped with a time and saved forever.
-                    </div>
+                    <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
+                      <strong className="text-slate-900 font-bold">The allergy lock.</strong> The chef cannot press &quot;start cooking&quot; until they tap <em className="italic">Acknowledge Allergy Notice</em>. Every step below is stamped with a time and saved forever.
+                    </p>
                   </div>
 
-                  {/* 6 checkmark pills */}
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    <span className="text-[10px] font-medium px-2.5 py-1 bg-white border border-rose-100 rounded-full text-slate-700">✓ Guest declares</span>
-                    <span className="text-[10px] font-medium px-2.5 py-1 bg-white border border-rose-100 rounded-full text-slate-700">✓ Guest confirms</span>
-                    <span className="text-[10px] font-medium px-2.5 py-1 bg-white border border-rose-100 rounded-full text-slate-700">✓ Waiter attests</span>
-                    <span className="text-[10px] font-medium px-2.5 py-1 bg-white border border-rose-100 rounded-full text-slate-700">✓ Kitchen warned</span>
-                    <span className="text-[10px] font-medium px-2.5 py-1 bg-white border border-rose-100 rounded-full text-slate-700">✓ Kitchen acknowledges</span>
-                    <span className="text-[10px] font-medium px-2.5 py-1 bg-white border border-rose-100 rounded-full text-slate-700">✓ Guest sees proof</span>
+                  {/* 6 checkmark pills with red checkmarks */}
+                  <div className="flex flex-wrap gap-2 pt-0.5">
+                    <div className="bg-white border border-slate-100 rounded-full px-3 py-1 flex items-center gap-1.5 shadow-2xs">
+                      <span className="text-red-500 font-bold text-xs">✓</span>
+                      <span className="text-slate-800 font-medium text-xs sm:text-[12.5px]">Guest declares</span>
+                    </div>
+                    <div className="bg-white border border-slate-100 rounded-full px-3 py-1 flex items-center gap-1.5 shadow-2xs">
+                      <span className="text-red-500 font-bold text-xs">✓</span>
+                      <span className="text-slate-800 font-medium text-xs sm:text-[12.5px]">Guest confirms</span>
+                    </div>
+                    <div className="bg-white border border-slate-100 rounded-full px-3 py-1 flex items-center gap-1.5 shadow-2xs">
+                      <span className="text-red-500 font-bold text-xs">✓</span>
+                      <span className="text-slate-800 font-medium text-xs sm:text-[12.5px]">Waiter attests</span>
+                    </div>
+                    <div className="bg-white border border-slate-100 rounded-full px-3 py-1 flex items-center gap-1.5 shadow-2xs">
+                      <span className="text-red-500 font-bold text-xs">✓</span>
+                      <span className="text-slate-800 font-medium text-xs sm:text-[12.5px]">Kitchen warned</span>
+                    </div>
+                    <div className="bg-white border border-slate-100 rounded-full px-3 py-1 flex items-center gap-1.5 shadow-2xs">
+                      <span className="text-red-500 font-bold text-xs">✓</span>
+                      <span className="text-slate-800 font-medium text-xs sm:text-[12.5px]">Kitchen acknowledges</span>
+                    </div>
+                    <div className="bg-white border border-slate-100 rounded-full px-3 py-1 flex items-center gap-1.5 shadow-2xs">
+                      <span className="text-red-500 font-bold text-xs">✓</span>
+                      <span className="text-slate-800 font-medium text-xs sm:text-[12.5px]">Guest sees proof</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -384,10 +442,10 @@ export function SevenStepsDetail() {
               5
             </span>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
               {/* Left side Content */}
-              <div className="lg:col-span-6 space-y-6">
-                <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f95722] mb-1">
+              <div className="lg:col-span-6 space-y-5 pt-1.5">
+                <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f95722] leading-none mb-1">
                   STEP FIVE — COOK
                 </div>
 
@@ -399,6 +457,7 @@ export function SevenStepsDetail() {
                   No paper. No handwriting. No guessing what the ticket says.
                 </p>
 
+                {/* 3 Checkmark Items */}
                 <div className="space-y-3 pt-1 max-w-lg">
                   <div className="bg-white/90 border border-slate-100/90 shadow-sm rounded-2xl p-3.5 flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center flex-none mt-0.5">
@@ -414,7 +473,7 @@ export function SevenStepsDetail() {
                       <span className="text-xs font-bold">✓</span>
                     </div>
                     <span className="text-slate-600 font-medium text-sm sm:text-[15px]">
-                      Each dish is marked ready on its own, as it is plated.
+                      <strong className="font-bold text-slate-900">Each dish is marked ready on its own</strong>, as it is plated.
                     </span>
                   </div>
 
@@ -423,21 +482,66 @@ export function SevenStepsDetail() {
                       <span className="text-xs font-bold">✓</span>
                     </div>
                     <span className="text-slate-600 font-medium text-sm sm:text-[15px]">
-                      An order waiting too long turns red and beeps. Silence it for one hour; it comes back by itself.
+                      <strong className="font-bold text-slate-900">An order waiting too long turns red and beeps.</strong> Silence it for one hour, it comes back by itself.
                     </span>
+                  </div>
+                </div>
+
+                {/* 3 Pill Feature Box */}
+                <div className="bg-[#fff7f2] border border-orange-200/60 p-4 sm:p-5 rounded-2xl flex items-center justify-between gap-2 max-w-lg shadow-2xs">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-orange-200/60 text-[#f95722] flex items-center justify-center flex-none shadow-2xs">
+                      <svg className="w-5 h-5 text-[#f95722]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                      </svg>
+                    </div>
+                    <div className="flex flex-col text-left leading-[1.2] font-bold text-slate-900 text-xs sm:text-sm">
+                      <span>Live</span>
+                      <span>updates</span>
+                    </div>
+                  </div>
+
+                  <div className="w-[1px] h-9 bg-orange-200/50 flex-none" />
+
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-orange-200/60 text-[#f95722] flex items-center justify-center flex-none shadow-2xs">
+                      <svg className="w-5 h-5 text-[#f95722]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+                        <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+                      </svg>
+                    </div>
+                    <div className="flex flex-col text-left leading-[1.2] font-bold text-slate-900 text-xs sm:text-sm">
+                      <span>No</span>
+                      <span>delays</span>
+                    </div>
+                  </div>
+
+                  <div className="w-[1px] h-9 bg-orange-200/50 flex-none" />
+
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-orange-200/60 text-[#f95722] flex items-center justify-center flex-none shadow-2xs">
+                      <svg className="w-5 h-5 text-[#f95722]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                      </svg>
+                    </div>
+                    <div className="flex flex-col text-left leading-[1.2] font-bold text-slate-900 text-xs sm:text-sm">
+                      <span>Total</span>
+                      <span>clarity</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Right side Image */}
               <div className="lg:col-span-6 flex justify-center">
-                <ImagePlaceholder
-                  type="wide"
-                  tag="Image placeholder"
-                  what="The live kitchen display: order cards with elapsed timers, and one overdue card turned red."
-                  size="Suggested 1200 × 750 px"
-                  caption="The kitchen screen during service"
-                />
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 max-w-[460px] w-full">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/The_real_problem/step_5.png"
+                    alt="On the kitchen screen in three seconds KDS"
+                    className="w-full h-auto object-cover rounded-3xl"
+                  />
+                </div>
               </div>
             </div>
 
@@ -464,21 +568,23 @@ export function SevenStepsDetail() {
               6
             </span>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
               {/* Left side Image */}
-              <div className="lg:col-span-6 flex justify-center">
-                <ImagePlaceholder
-                  type="wide"
-                  tag="Image placeholder"
-                  what="The waiter dashboard showing &quot;Ready to serve&quot; items and the queue of table alerts."
-                  size="Suggested 1200 × 750 px"
-                  caption="What is ready to carry out, right now"
-                />
+              <div className="lg:col-span-6 flex flex-col items-center">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 max-w-[460px] w-full">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/The_real_problem/step_6.png"
+                    alt="The bread goes out hot waiter display"
+                    className="w-full h-auto object-cover rounded-3xl"
+                  />
+                </div>
+                <p className="text-xs text-slate-400 italic mt-3 text-center">What is ready to carry out, right now</p>
               </div>
 
               {/* Right side Content */}
-              <div className="lg:col-span-6 space-y-6">
-                <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f95722] mb-1">
+              <div className="lg:col-span-6 space-y-5 pt-1.5">
+                <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f95722] leading-none mb-1">
                   STEP SIX — SERVE
                 </div>
 
@@ -490,13 +596,14 @@ export function SevenStepsDetail() {
                   The waiter is told the second a dish is plated — not when they next walk past the pass.
                 </p>
 
+                {/* 3 Checkmark Items */}
                 <div className="space-y-3 pt-1 max-w-lg">
                   <div className="bg-white/90 border border-slate-100/90 shadow-sm rounded-2xl p-3.5 flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center flex-none mt-0.5">
                       <span className="text-xs font-bold">✓</span>
                     </div>
                     <span className="text-slate-600 font-medium text-sm sm:text-[15px]">
-                      Serve one dish now and leave the rest cooking.
+                      <strong className="font-bold text-slate-900">Serve one dish now</strong> and leave the rest cooking.
                     </span>
                   </div>
 
@@ -505,7 +612,7 @@ export function SevenStepsDetail() {
                       <span className="text-xs font-bold">✓</span>
                     </div>
                     <span className="text-slate-600 font-medium text-sm sm:text-[15px]">
-                      A guest who prefers to talk to a person can still order from the waiter with a guided flow.
+                      <strong className="font-bold text-slate-900">A guest who prefers to talk</strong> to a person can still order from the waiter — with a guided flow that will not let them skip the allergy question.
                     </span>
                   </div>
 
@@ -514,13 +621,25 @@ export function SevenStepsDetail() {
                       <span className="text-xs font-bold">✓</span>
                     </div>
                     <span className="text-slate-600 font-medium text-sm sm:text-[15px]">
-                      &quot;Call waiter&quot; and &quot;Bring the bill&quot; are one tap for the guest. Nobody waves an arm.
+                      <strong className="font-bold text-slate-900">&quot;Call waiter&quot; and &quot;Bring the bill&quot;</strong> are one tap for the guest. Nobody waves an arm.
                     </span>
                   </div>
                 </div>
 
-                <div className="bg-emerald-50 border-l-4 border-emerald-600 p-4 sm:p-5 rounded-r-2xl text-slate-900 text-sm sm:text-[15px] shadow-xs">
-                  <strong className="text-emerald-900 font-bold">Nothing is forgotten.</strong> If a bill request waits more than a minute, it moves up to the manager&apos;s screen by itself.
+                {/* Green Callout Box */}
+                <div className="bg-[#e8f7f0] border border-emerald-200/60 p-4 sm:p-5 rounded-2xl flex items-start gap-3.5 max-w-lg shadow-xs">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center flex-none mt-0.5">
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                      <polyline points="14 2 14 8 20 8" />
+                      <line x1="16" y1="13" x2="8" y2="13" />
+                      <line x1="16" y1="17" x2="8" y2="17" />
+                    </svg>
+                  </div>
+                  <div className="text-slate-700 text-xs sm:text-sm leading-snug">
+                    <strong className="text-slate-900 font-bold block text-sm mb-0.5">Nothing is forgotten.</strong>
+                    If a bill request waits more than a minute, it moves up to the manager&apos;s screen by itself.
+                  </div>
                 </div>
               </div>
             </div>
@@ -548,23 +667,22 @@ export function SevenStepsDetail() {
               7
             </span>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
               {/* Left side Content */}
-              <div className="lg:col-span-6 space-y-6">
-                <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f95722] mb-1">
+              <div className="lg:col-span-6 space-y-5 pt-1.5">
+                <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f95722] leading-none mb-1">
                   STEP SEVEN — PAY
                 </div>
 
                 <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold font-serif-heading text-slate-900 leading-[1.15] tracking-tight">
-                  Fifteen minutes becomes
-                  <br />
-                  ninety seconds<span className="text-[#f95722]">.</span>
+                  Fifteen minutes becomes ninety seconds<span className="text-[#f95722]">.</span>
                 </h2>
 
                 <p className="text-base sm:text-lg text-slate-500 leading-relaxed max-w-lg">
                   The guest pays from the phone they already have in their hand.
                 </p>
 
+                {/* 3 Checkmark Items */}
                 <div className="space-y-3 pt-1 max-w-lg">
                   <div className="bg-white/90 border border-slate-100/90 shadow-sm rounded-2xl p-3.5 flex items-start gap-3.5">
                     <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center flex-none mt-0.5">
@@ -594,35 +712,43 @@ export function SevenStepsDetail() {
                   </div>
                 </div>
 
-                <div className="bg-slate-50 border border-slate-200/80 p-5 rounded-2xl space-y-3 max-w-lg shadow-xs">
-                  <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-400">And then, by itself</h4>
-                  <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
-                    <li className="flex items-center gap-2"><span className="text-[#f95722] font-bold">·</span> Points are added to their loyalty account.</li>
-                    <li className="flex items-center gap-2"><span className="text-[#f95722] font-bold">·</span> The tax on the order is worked out and stored.</li>
-                    <li className="flex items-center gap-2"><span className="text-[#f95722] font-bold">·</span> The tip is written into the tips record.</li>
-                    <li className="flex items-center gap-2"><span className="text-[#f95722] font-bold">·</span> The dish is counted in tonight&apos;s sales.</li>
-                    <li className="flex items-center gap-2"><span className="text-[#f95722] font-bold">·</span> A review link appears at the right moment.</li>
+                {/* "And Then, By Itself" Box */}
+                <div className="bg-[#fff9f5] border border-orange-200/60 p-4 sm:p-5 rounded-2xl space-y-3 max-w-lg shadow-xs">
+                  <div className="flex items-center gap-2 text-[#f95722]">
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900">AND THEN, BY ITSELF</h4>
+                  </div>
+                  <ul className="space-y-2 text-xs sm:text-sm text-slate-600 pl-1">
+                    <li className="flex items-center gap-2"><span className="text-[#f95722] font-extrabold">•</span> Points are added to their loyalty account.</li>
+                    <li className="flex items-center gap-2"><span className="text-[#f95722] font-extrabold">•</span> The tax on the order is worked out and stored.</li>
+                    <li className="flex items-center gap-2"><span className="text-[#f95722] font-extrabold">•</span> The tip is written into the tips record.</li>
+                    <li className="flex items-center gap-2"><span className="text-[#f95722] font-extrabold">•</span> The dish is counted in tonight&apos;s sales.</li>
+                    <li className="flex items-center gap-2"><span className="text-[#f95722] font-extrabold">•</span> A review link appears at the right moment.</li>
                   </ul>
                 </div>
               </div>
 
               {/* Right side Image */}
-              <div className="lg:col-span-6 flex justify-center">
-                <ImagePlaceholder
-                  type="phone"
-                  tag="Image placeholder"
-                  what="The bill screen showing split options, custom tip percentages and standard payment methods."
-                  size="Suggested 600 × 1130 px"
-                  caption="Split, tip and pay in ninety seconds"
-                />
+              <div className="lg:col-span-6 flex flex-col items-center">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 max-w-[460px] w-full">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/The_real_problem/step_7.png"
+                    alt="Fifteen minutes becomes ninety seconds mobile pay screens"
+                    className="w-full h-auto object-cover rounded-3xl"
+                  />
+                </div>
+                <p className="text-xs text-slate-400 italic mt-3 text-center">Split, tip and pay, without waiting</p>
               </div>
             </div>
 
-            {/* Centered bottom transition bar & text */}
+            {/* Centered bottom final footer transition text */}
             <div className="mt-12 md:mt-16 text-center">
               <div className="w-8 h-[2.5px] bg-[#f95722] rounded-full mx-auto mb-3" />
               <p className="text-sm sm:text-base text-slate-400 italic font-serif-heading">
-                Seven steps. Now see what every person on your team gets.
+                Nobody typed any of that. It happened because service happened.
               </p>
             </div>
           </div>
