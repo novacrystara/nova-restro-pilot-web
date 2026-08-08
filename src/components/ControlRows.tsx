@@ -376,7 +376,7 @@ export function ControlRows() {
               <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/icons/tips.png"
+                  src="/images/icons/Tips_v2.png"
                   alt="Tips icon"
                   className="w-full h-full object-contain p-1.5"
                 />
