@@ -1,0 +1,3218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Nova Restro — One system for the whole restaurant</title>
+  <meta name="description"
+    content="A guest sits down, scans the code on the table, and orders from their own phone. The kitchen sees it in three seconds.">
+
+  <!--
+=====================================================================
+  NOVA RESTRO — PILOT WEBSITE (V2)
+  Built from NOVA_RESTRO_PILOT_WEBSITE_V2.md
+
+  This is ONE self-contained file. No CSS file, no JS file, no images
+  are loaded from anywhere. Just open it in a browser, or email it.
+
+  ---------------------------------------------------------------
+  HOW TO ADD THE REAL SCREENSHOTS
+  ---------------------------------------------------------------
+  Every picture on this page is a dashed placeholder box that says
+  exactly which screen belongs there. Search this file for:
+
+        <!-- REPLACE:
+
+  Each one sits directly above its placeholder. To use a real image,
+  delete the <div class="ph"> ... </div> block and put an <img> in
+  its place, for example:
+
+        <img src="images/kitchen-screen.png"
+             alt="The kitchen screen showing three orders">
+
+  If you want the file to stay shareable as a single file, convert
+  the image to a base64 data URI instead:
+
+        <img src="data:image/png;base64,iVBORw0KG..." alt="...">
+  ---------------------------------------------------------------
+  THEME: light only. There are no dark sections anywhere.
+=====================================================================
+-->
+
+  <style>
+    /* ================================================================
+   1. DESIGN TOKENS
+   ================================================================ */
+    :root {
+      color-scheme: light;
+
+      /* Colour — exactly as set out in the plan */
+      --white: #ffffff;
+      --grey-soft: #f8fafc;
+      --line: #e2e8f0;
+      --line-soft: #eef2f6;
+      --ink: #0f172a;
+      --ink-soft: #475569;
+      --ink-light: #94a3b8;
+      --brand: #ea580c;
+      --brand-dark: #c2410c;
+      --brand-tint: #fff7ed;
+      --green: #059669;
+      --green-tint: #ecfdf5;
+      --amber: #f59e0b;
+      --red: #e11d48;
+      --red-tint: #fff1f2;
+
+      /* Space */
+      --pad-section: 96px;
+      --max: 1120px;
+      --text: 720px;
+
+      /* Shape */
+      --r-sm: 10px;
+      --r: 16px;
+      --r-lg: 24px;
+      --shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 8px 24px -12px rgba(15, 23, 42, .12);
+      --shadow-lift: 0 2px 4px rgba(15, 23, 42, .05), 0 18px 40px -18px rgba(15, 23, 42, .18);
+    }
+
+    /* ================================================================
+   2. RESET + BASE
+   ================================================================ */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--white);
+      color: var(--ink-soft);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      font-size: 18px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: var(--ink);
+      margin: 0;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+      border-radius: var(--r);
+    }
+
+    strong {
+      color: var(--ink);
+      font-weight: 650;
+    }
+
+    ::selection {
+      background: #fed7aa;
+      color: var(--ink);
+    }
+
+    /* Keyboard focus — always visible */
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--brand);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    /* Skip link */
+    .skip {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 200;
+      background: var(--ink);
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 0 0 8px 0;
+    }
+
+    .skip:focus {
+      left: 0;
+    }
+
+    /* ================================================================
+   3. LAYOUT HELPERS
+   ================================================================ */
+    .wrap {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .sec {
+      padding: var(--pad-section) 0;
+      border-top: 1px solid transparent;
+    }
+
+    .sec--grey {
+      background: var(--grey-soft);
+    }
+
+    .sec--line {
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .narrow {
+      max-width: var(--text);
+    }
+
+    .mx {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Type scale */
+    .h-hero {
+      font-size: clamp(32px, 5.4vw, 52px);
+      font-weight: 800;
+      letter-spacing: -.03em;
+    }
+
+    .h-sec {
+      font-size: clamp(26px, 3.6vw, 36px);
+      font-weight: 700;
+    }
+
+    .h-card {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -.01em;
+    }
+
+    .sub {
+      font-size: clamp(17px, 1.6vw, 20px);
+      color: var(--ink-soft);
+    }
+
+    .small {
+      font-size: 15px;
+    }
+
+    .label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--brand);
+    }
+
+    .muted {
+      color: var(--ink-light);
+    }
+
+    .sec-head {
+      max-width: var(--text);
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+
+    .sec-head .sub {
+      margin-top: 16px;
+    }
+
+    .sec-head--left {
+      margin-left: 0;
+      text-align: left;
+    }
+
+    /* The small line that hands over to the next section */
+    .bridge {
+      margin-top: 56px;
+      text-align: center;
+      font-size: 16px;
+      color: var(--ink-light);
+      font-style: italic;
+    }
+
+    .bridge::before {
+      content: "";
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--line);
+      margin: 0 auto 20px;
+      border-radius: 2px;
+    }
+
+    /* ================================================================
+   4. BUTTONS + CHIPS
+   ================================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+      font-family: inherit;
+    }
+
+    .btn--primary {
+      background: var(--brand);
+      color: #fff;
+      box-shadow: 0 6px 18px -8px rgba(234, 88, 12, .7);
+    }
+
+    .btn--primary:hover {
+      background: var(--brand-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn--ghost {
+      background: var(--white);
+      color: var(--ink);
+      border-color: var(--line);
+    }
+
+    .btn--ghost:hover {
+      border-color: var(--ink-light);
+      transform: translateY(-1px);
+    }
+
+    .btn--sm {
+      min-height: 40px;
+      padding: 0 18px;
+      font-size: 15px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      margin-top: 28px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      color: var(--ink-soft);
+    }
+
+    .chip .tick {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    /* ================================================================
+   5. CARDS
+   ================================================================ */
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid-5 {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lift);
+    }
+
+    .card .ico {
+      font-size: 28px;
+      line-height: 1;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .card .h-card {
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 16px;
+    }
+
+    .card .cost {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line-soft);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--brand);
+    }
+
+    /* Highlight boxes */
+    .note {
+      border-left: 4px solid var(--brand);
+      background: var(--brand-tint);
+      border-radius: 0 var(--r) var(--r) 0;
+      padding: 24px 28px;
+      font-size: 17px;
+      color: var(--ink);
+    }
+
+    .note--red {
+      border-left-color: var(--red);
+      background: var(--red-tint);
+    }
+
+    .note--green {
+      border-left-color: var(--green);
+      background: var(--green-tint);
+    }
+
+    .note strong {
+      font-weight: 700;
+    }
+
+    /* ================================================================
+   6. IMAGE PLACEHOLDERS
+   ================================================================ */
+    .shot {
+      margin: 0;
+    }
+
+    .ph {
+      position: relative;
+      border: 2px dashed #cbd5e1;
+      border-radius: var(--r);
+      background:
+        repeating-linear-gradient(45deg, #fbfcfd 0 10px, #f4f7fa 10px 20px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 28px 22px;
+      color: var(--ink-light);
+      min-height: 200px;
+    }
+
+    .ph--phone {
+      aspect-ratio: 9/17;
+      max-width: 300px;
+      margin: 0 auto;
+      border-radius: 28px;
+    }
+
+    .ph--wide {
+      aspect-ratio: 16/10;
+    }
+
+    .ph--thumb {
+      aspect-ratio: 16/10;
+      min-height: 0;
+      padding: 14px;
+      border-radius: var(--r-sm);
+    }
+
+    .ph__tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--brand);
+      background: var(--brand-tint);
+      border: 1px solid #fed7aa;
+      border-radius: 999px;
+      padding: 5px 12px;
+      margin-bottom: 14px;
+    }
+
+    .ph__what {
+      font-size: 15px;
+      color: var(--ink-soft);
+      max-width: 34ch;
+      line-height: 1.5;
+    }
+
+    .ph__size {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--ink-light);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .ph--thumb .ph__what {
+      font-size: 13px;
+    }
+
+    .ph--thumb .ph__tag {
+      margin-bottom: 8px;
+      font-size: 10px;
+      padding: 3px 9px;
+    }
+
+    .shot figcaption {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--ink-light);
+    }
+
+    /* ================================================================
+   7. SEC 0 — NAVIGATION
+   ================================================================ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, .88);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav__in {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 17px;
+      letter-spacing: -.02em;
+    }
+
+    .brand__mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      flex: none;
+      background: var(--brand);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 800;
+      transform: rotate(45deg);
+    }
+
+    .brand__mark span {
+      transform: rotate(-45deg);
+    }
+
+    .nav__links {
+      display: flex;
+      gap: 26px;
+      margin-left: auto;
+    }
+
+    .nav__links a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      transition: color .15s;
+    }
+
+    .nav__links a:hover {
+      color: var(--brand);
+    }
+
+    .nav__cta {
+      margin-left: 8px;
+    }
+
+    .nav__burger {
+      display: none;
+      margin-left: auto;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--white);
+      cursor: pointer;
+      padding: 0;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav__burger span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--ink);
+      position: relative;
+    }
+
+    .nav__burger span::before,
+    .nav__burger span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 18px;
+      height: 2px;
+      background: var(--ink);
+    }
+
+    .nav__burger span::before {
+      top: -6px;
+    }
+
+    .nav__burger span::after {
+      top: 6px;
+    }
+
+    .nav__sheet {
+      display: none;
+      border-top: 1px solid var(--line);
+      background: var(--white);
+      padding: 14px 24px 22px;
+    }
+
+    .nav__sheet.open {
+      display: block;
+    }
+
+    .nav__sheet a {
+      display: block;
+      padding: 14px 0;
+      font-size: 17px;
+      color: var(--ink);
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .nav__sheet .btn {
+      width: 100%;
+      margin-top: 18px;
+    }
+
+    /* ================================================================
+   8. SEC 1 — HERO
+   ================================================================ */
+    .hero {
+      padding: clamp(56px, 8vw, 104px) 0 clamp(56px, 7vw, 96px);
+    }
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin-bottom: 24px;
+    }
+
+    .hero .sub {
+      max-width: 30em;
+    }
+
+    .hero__btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    /* ================================================================
+   9. SEC 4 — THE ONE REAL PROBLEM
+   ================================================================ */
+    .gap-list {
+      max-width: 640px;
+      margin: 44px auto 40px;
+    }
+
+    .gap-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 20px;
+      align-items: baseline;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .gap-row:last-child {
+      border-bottom: 0;
+    }
+
+    .gap-row dt {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 17px;
+    }
+
+    .gap-row dd {
+      margin: 0;
+      font-size: 17px;
+      position: relative;
+      padding-left: 26px;
+    }
+
+    .gap-row dd::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--ink-light);
+    }
+
+    /* ================================================================
+   10. SEC 5 — THE SEVEN STEPS MAP
+   ================================================================ */
+    .map {
+      position: relative;
+      margin-top: 8px;
+    }
+
+    .map__track {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 12px;
+      position: relative;
+    }
+
+    .map__track::before {
+      content: "";
+      position: absolute;
+      top: 22px;
+      left: 7%;
+      right: 7%;
+      height: 2px;
+      background: var(--brand);
+      opacity: .35;
+    }
+
+    .map__step {
+      position: relative;
+      text-align: center;
+    }
+
+    .map__step>a {
+      display: block;
+      color: inherit;
+    }
+
+    .map__num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      background: var(--white);
+      border: 2px solid var(--brand);
+      color: var(--brand);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 17px;
+      position: relative;
+      z-index: 1;
+      transition: background .18s ease, color .18s ease, transform .18s ease;
+    }
+
+    .map__step:hover .map__num {
+      background: var(--brand);
+      color: #fff;
+      transform: scale(1.06);
+    }
+
+    .map__word {
+      display: block;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .map__line {
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--ink-soft);
+    }
+
+    /* ================================================================
+   11. SEC 6–12 — THE SEVEN STEPS (shared template)
+   ================================================================ */
+    /* The seven step sections sit flush against each other and carry their
+   padding inside .step__body, so the orange rail can run edge to edge
+   and read as one continuous thread from step 1 to step 7. */
+    .step {
+      --step-pad: clamp(56px, 7vw, 88px);
+      padding: 0;
+    }
+
+    .step__in {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      align-items: stretch;
+    }
+
+    /* the orange thread down the left */
+    .rail {
+      position: relative;
+      padding-top: var(--step-pad);
+    }
+
+    .rail::before {
+      content: "";
+      position: absolute;
+      left: 23px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--brand);
+      opacity: .22;
+    }
+
+    /* first step: the thread starts at the number, not above it */
+    .step--first .rail::before {
+      top: calc(var(--step-pad) + 24px);
+    }
+
+    /* last step: the thread stops at the number */
+    .step--last .rail::before {
+      bottom: auto;
+      height: calc(var(--step-pad) + 24px);
+    }
+
+    .rail__num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 19px;
+      box-shadow: 0 0 0 6px var(--white);
+      position: relative;
+      z-index: 1;
+    }
+
+    .sec--grey .rail__num {
+      box-shadow: 0 0 0 6px var(--grey-soft);
+    }
+
+    .step__body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      padding: var(--step-pad) 0;
+    }
+
+    .step--flip .step__text {
+      order: 2;
+    }
+
+    .step--flip .step__shot {
+      order: 1;
+    }
+
+    /* the hand-over line sits inside the grid so the rail runs past it too */
+    .step__bridge {
+      grid-column: 1 / -1;
+      order: 3;
+    }
+
+    .step__text .label {
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .step__text h2 {
+      margin-bottom: 18px;
+    }
+
+    .step__text .sub {
+      margin-bottom: 26px;
+    }
+
+    .points li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 14px;
+      font-size: 17px;
+    }
+
+    .points li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .points li:last-child {
+      margin-bottom: 0;
+    }
+
+    .step__text .note {
+      margin-top: 28px;
+      font-size: 16px;
+    }
+
+    /* the quiet "and then, by itself" list in step 7 */
+    .auto-list {
+      margin-top: 28px;
+      padding: 22px 26px;
+      background: var(--grey-soft);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+    }
+
+    .sec--grey .auto-list {
+      background: var(--white);
+    }
+
+    .auto-list h4 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--ink-light);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .auto-list li {
+      font-size: 16px;
+      color: var(--ink-soft);
+      padding: 5px 0 5px 22px;
+      position: relative;
+    }
+
+    .auto-list li::before {
+      content: "·";
+      position: absolute;
+      left: 6px;
+      color: var(--brand);
+      font-weight: 800;
+    }
+
+    /* three numbered check cards in step 4 */
+    .checks {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .check {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 20px;
+    }
+
+    .check__n {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--brand-tint);
+      color: var(--brand);
+      font-weight: 800;
+      font-size: 14px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 12px;
+    }
+
+    .check h4 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .check p {
+      font-size: 15px;
+    }
+
+    /* the six-step allergy chain */
+    .chain {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .chain li {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid #fecdd3;
+      border-radius: 999px;
+      padding: 6px 14px;
+    }
+
+    /* ================================================================
+   12. SEC 13 — FIVE SCREENS
+   ================================================================ */
+    .who {
+      text-align: center;
+      padding: 26px 20px;
+    }
+
+    .who .ico {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .who h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .who p {
+      font-size: 15px;
+    }
+
+    /* ================================================================
+   13. SEC 14 — CONTROL ROWS
+   ================================================================ */
+    .rows {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 28px 240px 1fr;
+      gap: 18px;
+      align-items: baseline;
+      padding: 20px 4px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .row:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    .row__tick {
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .row__k {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 17px;
+    }
+
+    .row__v {
+      font-size: 16px;
+    }
+
+    .row code {
+      background: var(--grey-soft);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 1px 7px;
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    .sec--grey .row code {
+      background: var(--white);
+    }
+
+    /* ================================================================
+   14. SEC 16 — WHY DIFFERENT
+   ================================================================ */
+    .why {
+      position: relative;
+      padding: 30px 28px 28px;
+      overflow: hidden;
+    }
+
+    .why__n {
+      position: absolute;
+      top: 6px;
+      right: 18px;
+      font-size: 72px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--brand);
+      opacity: .10;
+      letter-spacing: -.04em;
+    }
+
+    .why h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      max-width: 20ch;
+      position: relative;
+    }
+
+    .why p {
+      font-size: 16px;
+      position: relative;
+    }
+
+    /* ================================================================
+   15. SEC 17 — FAQ ACCORDION
+   ================================================================ */
+    .faq {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .faq details {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .faq details:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    .faq summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 4px;
+      min-height: 44px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq summary::after {
+      content: "+";
+      flex: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--white);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--brand);
+      line-height: 1;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .faq details[open] summary::after {
+      content: "−";
+      background: var(--brand-tint);
+    }
+
+    .faq summary:hover {
+      color: var(--brand);
+    }
+
+    .faq .ans {
+      padding: 0 46px 24px 4px;
+      font-size: 17px;
+    }
+
+    /* ================================================================
+   16. SEC 18 — SEE IT WORKING
+   ================================================================ */
+    .demo {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .demo h3 {
+      font-size: 17px;
+      margin: 16px 0 6px;
+    }
+
+    .demo p {
+      font-size: 15px;
+      flex: 1;
+    }
+
+    .demo .btn {
+      margin-top: 18px;
+      width: 100%;
+    }
+
+    .cta {
+      margin-top: 56px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      padding: 44px 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta h3 {
+      font-size: 26px;
+      margin-bottom: 14px;
+    }
+
+    .cta p {
+      font-size: 17px;
+      margin-bottom: 26px;
+    }
+
+    .cta__act {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cta a.mail {
+      color: var(--brand);
+      font-weight: 600;
+      border-bottom: 1px solid #fed7aa;
+    }
+
+    /* ================================================================
+   17. SEC 19 — FOOTER (light, never dark)
+   ================================================================ */
+    .foot {
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      padding: 64px 0 32px;
+    }
+
+    .foot__grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .foot__about p {
+      font-size: 15px;
+      margin-top: 14px;
+      max-width: 26ch;
+    }
+
+    .foot h4 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--ink-light);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .foot li {
+      margin-bottom: 10px;
+    }
+
+    .foot li a {
+      font-size: 15px;
+      color: var(--ink-soft);
+    }
+
+    .foot li a:hover {
+      color: var(--brand);
+    }
+
+    .foot__base {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      justify-content: space-between;
+      font-size: 14px;
+      color: var(--ink-light);
+    }
+
+    /* ================================================================
+   17b. SEC 17 — ROI CALCULATOR
+   ================================================================ */
+    .roi__grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel__title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--ink-light);
+      margin-bottom: 26px;
+    }
+
+    /* sliders */
+    .field {
+      margin-bottom: 30px;
+    }
+
+    .field:last-child {
+      margin-bottom: 0;
+    }
+
+    .field__top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+
+    .field__label {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .field__val {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--brand);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -.02em;
+      line-height: 1;
+    }
+
+    .field__hint {
+      font-size: 14px;
+      color: var(--ink-light);
+      margin-top: 10px;
+    }
+
+    input[type=range] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      margin: 8px 0;
+      padding: 0;
+      background: var(--line);
+      border-radius: 999px;
+      accent-color: var(--brand);
+      cursor: pointer;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--brand);
+      border: 3px solid #fff;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, .25);
+      cursor: grab;
+    }
+
+    input[type=range]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--brand);
+      border: 3px solid #fff;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, .25);
+      cursor: grab;
+    }
+
+    input[type=range]::-moz-range-track {
+      height: 6px;
+      background: var(--line);
+      border-radius: 999px;
+    }
+
+    /* the answer */
+    .result {
+      background: var(--brand-tint);
+      border-color: #fed7aa;
+    }
+
+    .result__big {
+      font-size: clamp(38px, 6vw, 60px);
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -.035em;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .result__year {
+      font-size: 17px;
+      margin-top: 14px;
+    }
+
+    .result__split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .split {
+      background: var(--white);
+      border: 1px solid #fed7aa;
+      border-radius: var(--r);
+      padding: 18px;
+    }
+
+    .split__n {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -.02em;
+    }
+
+    .split__l {
+      font-size: 13px;
+      color: var(--ink-soft);
+      margin-top: 6px;
+      line-height: 1.45;
+    }
+
+    .result__foot {
+      font-size: 14px;
+      color: var(--ink-light);
+      margin-top: 22px;
+    }
+
+    /* breakdown cards */
+    .bd__n {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--brand);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -.025em;
+      margin: 12px 0 10px;
+      line-height: 1;
+    }
+
+    .bd p {
+      font-size: 15px;
+    }
+
+    /* assumptions + working out */
+    .fold {
+      margin-top: 26px;
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+    }
+
+    .fold>summary,
+    summary.fold-sum {
+      list-style: none;
+      cursor: pointer;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .fold>summary::-webkit-details-marker,
+    summary.fold-sum::-webkit-details-marker {
+      display: none;
+    }
+
+    .fold>summary::after,
+    summary.fold-sum::after {
+      content: "+";
+      color: var(--brand);
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .fold[open]>summary::after,
+    [open]>summary.fold-sum::after {
+      content: "−";
+    }
+
+    .fold>summary:hover,
+    summary.fold-sum:hover {
+      color: var(--brand);
+    }
+
+    .assump__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      padding-top: 22px;
+    }
+
+    .assump__grid label {
+      display: block;
+      font-size: 13px;
+      color: var(--ink-soft);
+      margin-bottom: 7px;
+      line-height: 1.4;
+    }
+
+    .assump__grid input {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--r-sm);
+      font: inherit;
+      font-size: 15px;
+      color: var(--ink);
+      background: var(--white);
+    }
+
+    .assump__grid input:focus {
+      outline: 2px solid var(--brand);
+      outline-offset: 1px;
+      border-color: var(--brand);
+    }
+
+    .math {
+      margin-top: 24px;
+    }
+
+    .math__row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: baseline;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 15px;
+    }
+
+    .math__row b {
+      color: var(--ink);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .math__row--head {
+      border-bottom: 0;
+      padding-bottom: 4px;
+      padding-top: 22px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--ink-light);
+    }
+
+    .math__row--total {
+      border-bottom: 0;
+      border-top: 2px solid var(--ink);
+      margin-top: 6px;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* ================================================================
+   18. MOTION (respects prefers-reduced-motion)
+   ================================================================ */
+    .rise {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .rise.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .rise {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      * {
+        animation: none !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+    /* ================================================================
+   19. RESPONSIVE — everything becomes one column
+   ================================================================ */
+    @media (max-width:1000px) {
+      .grid-5 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .map__track {
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: 36px;
+      }
+
+      .map__track::before {
+        display: none;
+      }
+
+      .foot__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+      }
+
+      .roi__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .assump__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width:860px) {
+      :root {
+        --pad-section: 56px;
+      }
+
+      body {
+        font-size: 16px;
+      }
+
+      .nav__links,
+      .nav__cta {
+        display: none;
+      }
+
+      .nav__burger {
+        display: flex;
+      }
+
+      .hero__grid {
+        grid-template-columns: 1fr;
+        gap: 44px;
+      }
+
+      .hero__shot {
+        order: 2;
+      }
+
+      .grid-3,
+      .grid-2,
+      .grid-4,
+      .grid-5 {
+        grid-template-columns: 1fr;
+      }
+
+      .map__track {
+        grid-template-columns: 1fr;
+        row-gap: 0;
+        position: relative;
+      }
+
+      .map__track::before {
+        display: block;
+        top: 22px;
+        bottom: 22px;
+        left: 21px;
+        right: auto;
+        width: 2px;
+        height: auto;
+      }
+
+      .map__step {
+        padding: 0 0 26px;
+      }
+
+      .map__step>a {
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        gap: 18px;
+        text-align: left;
+        align-items: start;
+      }
+
+      .map__num {
+        margin: 0;
+      }
+
+      .step__in {
+        grid-template-columns: 52px 1fr;
+        padding: 0 20px;
+      }
+
+      .rail::before {
+        left: 15px;
+      }
+
+      .step--first .rail::before {
+        top: calc(var(--step-pad) + 20px);
+      }
+
+      .step--last .rail::before {
+        height: calc(var(--step-pad) + 20px);
+      }
+
+      .rail__num {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+
+      .step__body {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      /* rule: on mobile the screenshot always sits BELOW the text */
+      .step--flip .step__text {
+        order: 1;
+      }
+
+      .step--flip .step__shot {
+        order: 2;
+      }
+
+      .checks {
+        grid-template-columns: 1fr;
+      }
+
+      .gap-row {
+        grid-template-columns: 1fr;
+        gap: 2px;
+        padding: 14px 0;
+      }
+
+      .gap-row dd {
+        padding-left: 0;
+      }
+
+      .gap-row dd::before {
+        display: none;
+      }
+
+      .row {
+        grid-template-columns: 24px 1fr;
+        row-gap: 4px;
+      }
+
+      .row__v {
+        grid-column: 2;
+      }
+
+      .roi__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        padding: 24px;
+      }
+
+      .result__split {
+        grid-template-columns: 1fr;
+      }
+
+      .assump__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .math__row {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .math__row b {
+        font-size: 16px;
+      }
+
+      .foot__grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .cta {
+        padding: 32px 22px;
+      }
+
+      .wrap {
+        padding: 0 20px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width:420px) {
+      .ph--phone {
+        max-width: 100%;
+      }
+    }
+
+    /* ================================================================
+   20. PRINT
+   ================================================================ */
+    @media print {
+
+      .nav,
+      .bridge {
+        display: none;
+      }
+
+      .sec {
+        padding: 24px 0;
+        break-inside: avoid;
+      }
+
+      .card,
+      .ph {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ==============================================================
+     SEC 0 — NAVIGATION BAR
+     ============================================================== -->
+  <header class="nav">
+    <div class="nav__in">
+      <a class="brand" href="#top">
+        <span class="brand__mark"><span>N</span></span>
+        Nova Restro
+      </a>
+
+      <nav class="nav__links" aria-label="Main">
+        <a href="#how">How it works</a>
+        <a href="#team">For your team</a>
+        <a href="#roi">What it's worth</a>
+        <a href="#questions">Questions</a>
+      </nav>
+
+      <a class="btn btn--primary btn--sm nav__cta" href="#see-it">See it working</a>
+
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="sheet">
+        <span></span>
+      </button>
+    </div>
+
+    <div class="nav__sheet" id="sheet">
+      <a href="#how">How it works</a>
+      <a href="#team">For your team</a>
+      <a href="#roi">What it's worth</a>
+      <a href="#questions">Questions</a>
+      <a class="btn btn--primary" href="#see-it">See it working</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ==============================================================
+     SEC 1 — HERO
+     One idea: your table takes the order.
+     ============================================================== -->
+    <section class="sec hero" id="top">
+      <div class="wrap">
+        <div class="hero__grid">
+
+          <div class="rise">
+            <h1 class="h-hero">Your table<br>takes the<br>order.</h1>
+            <p class="sub">A guest sits down, scans the code on the table, and orders from
+              their own phone. The kitchen sees it in three seconds.</p>
+
+            <div class="hero__btns">
+              <a class="btn btn--primary" href="#see-it">See it working</a>
+              <a class="btn btn--ghost" href="#how">How it works</a>
+            </div>
+
+            <div class="chips">
+              <span class="chip"><span class="tick">✓</span> No app to download</span>
+              <span class="chip"><span class="tick">✓</span> Works on any phone</span>
+              <span class="chip"><span class="tick">✓</span> Ready in one day</span>
+            </div>
+          </div>
+
+          <figure class="shot hero__shot rise">
+            <!-- REPLACE: hero image — the guest menu open on a phone -->
+            <div class="ph ph--phone">
+              <span class="ph__tag">Image placeholder</span>
+              <p class="ph__what">A phone showing the guest menu, with the restaurant name,
+                a dish photo and a price.</p>
+              <span class="ph__size">Suggested 600 × 1130 px</span>
+            </div>
+            <figcaption>The menu, on the guest's own phone</figcaption>
+          </figure>
+
+        </div>
+        <p class="bridge"></p>
+      </div>
+    </section>
+
+
+    <!-- ==============================================================
+     SEC 2 — WHAT NOVA RESTRO IS, IN ONE LINE
+     ============================================================== -->
+    <section class="sec sec--line">
+      <div class="wrap">
+        <div class="sec-head rise">
+          <h2 class="h-sec">One system for the whole restaurant.</h2>
+          <p class="sub">Nova Restro is one system that runs a restaurant. Guests order from
+            their phone. The kitchen gets the order instantly. Waiters know what to carry.
+            Managers see everything. Owners get the numbers, automatically.</p>
+        </div>
+
+        <div class="grid grid-3 rise">
+          <article class="card">
+            <span class="ico" aria-hidden="true">📱</span>
+            <h3 class="h-card">For your guests</h3>
+            <p>They order, track and pay from their own phone.</p>
+          </article>
+          <article class="card">
+            <span class="ico" aria-hidden="true">👨‍🍳</span>
+            <h3 class="h-card">For your team</h3>
+            <p>Kitchen, waiters and managers each get their own screen.</p>
+          </article>
+          <article class="card">
+            <span class="ico" aria-hidden="true">📊</span>
+            <h3 class="h-card">For you</h3>
+            <p>Sales, tax and tips are recorded while service happens.</p>
+          </article>
+        </div>
+
+        <p class="bridge">To see why this matters, look at a busy night without it.</p>
+      </div>
+    </section>
+
+
+    <!-- ==============================================================
+     SEC 3 — THE PROBLEM TONIGHT
+     Plain situations. No named people, no invented scenes.
+     ============================================================== -->
+    <section class="sec sec--grey">
+      <div class="wrap">
+        <div class="sec-head rise">
+          <h2 class="h-sec">A busy night, without a system.</h2>
+          <p class="sub">Four moments that happen in every restaurant, every week.</p>
+        </div>
+
+        <div class="grid grid-2 rise">
+          <article class="card">
+            <span class="ico" aria-hidden="true">🙋</span>
+            <h3 class="h-card">A table waits to catch a waiter's eye.</h3>
+            <p>They wanted a second drink and a dessert. The moment passed.</p>
+            <p class="cost">It costs: they order less.</p>
+          </article>
+          <article class="card">
+            <span class="ico" aria-hidden="true">❓</span>
+            <h3 class="h-card">Someone asks "does this have nuts?" Nobody is sure.</h3>
+            <p>The waiter goes to ask. The chef is busy. The answer comes back as a guess.</p>
+            <p class="cost">It costs: a safety risk.</p>
+          </article>
+          <article class="card">
+            <span class="ico" aria-hidden="true">🧾</span>
+            <h3 class="h-card">Six people split one bill. It takes fifteen minutes.</h3>
+            <p>Three card taps, one calculator, and a queue at the door.</p>
+            <p class="cost">It costs: the table can't be re-used.</p>
+          </article>
+          <article class="card">
+            <span class="ico" aria-hidden="true">🧮</span>
+            <h3 class="h-card">On Sunday the owner adds up receipts by hand.</h3>
+            <p>Sales, tax and tips, worked out from a pile of paper.</p>
+            <p class="cost">It costs: hours lost. Mistakes made.</p>
+          </article>
+        </div>
+
+        <p class="sub center narrow mx rise" style="margin-top:44px;">
+          Nothing here is anyone's fault. This is just how restaurants have always worked.
+        </p>
+
+        <p class="bridge">All four problems are actually the same problem.</p>
+      </div>
+    </section>
+
+
+    <!-- ==============================================================
+     SEC 4 — THE ONE REAL PROBLEM UNDERNEATH
+     The hinge of the page. Keep it almost empty.
+     ============================================================== -->
+    <section class="sec">
+      <div class="wrap">
+        <div class="sec-head rise" style="margin-bottom:0;">
+          <span class="label">The real problem</span>
+          <h2 class="h-sec" style="margin-top:14px;">The right person did not get<br>the right information in time.</h2>
+        </div>
+
+        <dl class="gap-list rise">
+          <div class="gap-row">
+            <dt>The guest</dt>
+            <dd>did not know what is in the dish.</dd>
+          </div>
+          <div class="gap-row">
+            <dt>The kitchen</dt>
+            <dd>did not know about the allergy.</dd>
+          </div>
+          <div class="gap-row">
+            <dt>The waiter</dt>
+            <dd>did not know the food was ready.</dd>
+          </div>
+          <div class="gap-row">
+            <dt>The owner</dt>
+            <dd>did not know what was sold.</dd>
+          </div>
+        </dl>
+
+        <div class="note narrow mx rise">
+          <strong>Nova Restro does one job:</strong> it puts the right information in front of
+          the right person, at the exact moment they need it.
+        </div>
+
+        <p class="bridge">Here is how that happens, in seven steps.</p>
+      </div>
+    </section>
+
+
+    <!-- ==============================================================
+     SEC 5 — HOW IT WORKS: THE SEVEN STEPS MAP
+     ============================================================== -->
+    <section class="sec sec--grey" id="how">
+      <div class="wrap">
+        <div class="sec-head rise">
+          <span class="label">How it works</span>
+          <h2 class="h-sec" style="margin-top:14px;">Seven steps. That is the whole system.</h2>
+          <p class="sub">Read these seven words and you already understand Nova Restro.
+            The next seven sections just show each one.</p>
+        </div>
+
+        <nav class="map rise" aria-label="The seven steps">
+          <ol class="map__track">
+            <li class="map__step"><a href="#step-1">
+                <span class="map__num">1</span>
+                <span><span class="map__word">Scan</span>
+                  <span class="map__line">The guest scans the code on the table.</span></span>
+              </a></li>
+            <li class="map__step"><a href="#step-2">
+                <span class="map__num">2</span>
+                <span><span class="map__word">Ask</span>
+                  <span class="map__line">They ask anything about the food.</span></span>
+              </a></li>
+            <li class="map__step"><a href="#step-3">
+                <span class="map__num">3</span>
+                <span><span class="map__word">Order</span>
+                  <span class="map__line">Everyone at the table orders onto one bill.</span></span>
+              </a></li>
+            <li class="map__step"><a href="#step-4">
+                <span class="map__num">4</span>
+                <span><span class="map__word">Check</span>
+                  <span class="map__line">Three safety checks run before cooking.</span></span>
+              </a></li>
+            <li class="map__step"><a href="#step-5">
+                <span class="map__num">5</span>
+                <span><span class="map__word">Cook</span>
+                  <span class="map__line">The kitchen sees the order in three seconds.</span></span>
+              </a></li>
+            <li class="map__step"><a href="#step-6">
+                <span class="map__num">6</span>
+                <span><span class="map__word">Serve</span>
+                  <span class="map__line">The waiter is told the moment food is ready.</span></span>
+              </a></li>
+            <li class="map__step"><a href="#step-7">
+                <span class="map__num">7</span>
+                <span><span class="map__word">Pay</span>
+                  <span class="map__line">The bill is split and paid from the phone.</span></span>
+              </a></li>
+          </ol>
+        </nav>
+
+        <p class="bridge">Let's take them one at a time.</p>
+      </div>
+    </section>
+
+
+    <!-- ==============================================================
+     PART 2 — THE SEVEN STEPS (Sec 6–12)
+     Same layout every time. Image side alternates. Background alternates.
+     ============================================================== -->
+
+    <!-- ---------- SEC 6 — STEP 1: SCAN ---------- -->
+    <section class="step step--first" id="step-1">
+      <div class="step__in">
+        <div class="rail">
+          <div class="rail__num">1</div>
+        </div>
+
+        <div class="step__body rise">
+          <div class="step__text">
+            <span class="label">Step one — Scan</span>
+            <h2 class="h-sec">Sit down. Scan.<br>The menu is there.</h2>
+            <p class="sub">There is a small code on every table. The guest points their camera
+              at it. The menu opens in one second.</p>
+            <ul class="points">
+              <li>No app to download.</li>
+              <li>No account to make.</li>
+              <li>Works on every phone.</li>
+            </ul>
+          </div>
+
+          <figure class="shot step__shot">
+            <!-- REPLACE: photo of the printed QR table stand beside a phone with the menu open -->
+            <div class="ph ph--wide">
+              <span class="ph__tag">Image placeholder</span>
+              <p class="ph__what">The printed QR table stand on a table, next to a phone
+                showing the restaurant menu opening.</p>
+              <span class="ph__size">Suggested 1200 × 750 px</span>
+            </div>
+            <figcaption>The table code and the menu it opens</figcaption>
+          </figure>
+
+          <p class="bridge step__bridge">Now they can see the food. But they have a question.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ---------- SEC 7 — STEP 2: ASK ---------- -->
+    <section class="step sec--grey step--flip" id="step-2">
+      <div class="step__in">
+        <div class="rail">
+          <div class="rail__num">2</div>
+        </div>
+
+        <div class="step__body rise">
+          <div class="step__text">
+            <span class="label">Step two — Ask</span>
+            <h2 class="h-sec">Every dish can answer questions.</h2>
+            <p class="sub">Guests can ask about ingredients, allergies or spice level and get an
+              answer in seconds. No waiting. No "I think so?"</p>
+            <ul class="points">
+              <li>The answers come from <strong>your</strong> kitchen notes, not from the internet.</li>
+              <li>Every dish shows ingredients, allergens and spice level (0–3 chillies).</li>
+              <li>Sold-out dishes are clearly marked, so nobody orders them.</li>
+            </ul>
+            <div class="note">
+              You write what your kitchen knows. The assistant only says what you wrote.
+              Nothing is invented.
+            </div>
+          </div>
+
+          <figure class="shot step__shot">
+            <!-- REPLACE: screenshot of the Chef AI chat with a real question and answer -->
+            <div class="ph ph--phone">
+              <span class="ph__tag">Image placeholder</span>
+              <p class="ph__what">The Chef AI chat on a phone: a guest asks about nuts,
+                and the answer appears with the dish's allergen list.</p>
+              <span class="ph__size">Suggested 600 × 1130 px</span>
+            </div>
+            <figcaption>Ask about any dish, get an answer in seconds</figcaption>
+          </figure>
+
+          <p class="bridge step__bridge">They are ready to order — and they are four people.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ---------- SEC 8 — STEP 3: ORDER ---------- -->
+    <section class="step" id="step-3">
+      <div class="step__in">
+        <div class="rail">
+          <div class="rail__num">3</div>
+        </div>
+
+        <div class="step__body rise">
+          <div class="step__text">
+            <span class="label">Step three — Order</span>
+            <h2 class="h-sec">Four people.<br>Four phones.<br>One bill.</h2>
+            <p class="sub">One guest shares the table code. Everyone orders from their own phone.
+              It all lands on one bill.</p>
+            <ul class="points">
+              <li>Nobody has to shout an order across the table.</li>
+              <li>Everyone can add a second drink later, in one tap.</li>
+              <li>Special requests — "extra spicy, no coriander" — reach the chef exactly as typed.</li>
+            </ul>
+          </div>
+
+          <figure class="shot step__shot">
+            <!-- REPLACE: screenshot of "Share the Table" plus the shared cart -->
+            <div class="ph ph--phone">
+              <span class="ph__tag">Image placeholder</span>
+              <p class="ph__what">The "Share the Table" screen with its QR code, and the shared
+                cart holding items added by more than one guest.</p>
+              <span class="ph__size">Suggested 600 × 1130 px</span>
+            </div>
+            <figcaption>One shared cart, filled from four phones</figcaption>
+          </figure>
+
+          <p class="bridge step__bridge">Before any of it reaches the kitchen, the system checks three things.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ---------- SEC 9 — STEP 4: CHECK ---------- -->
+    <section class="step sec--grey step--flip" id="step-4">
+      <div class="step__in">
+        <div class="rail">
+          <div class="rail__num">4</div>
+        </div>
+
+        <div class="step__body rise">
+          <div class="step__text">
+            <span class="label">Step four — Check</span>
+            <h2 class="h-sec">Three checks before anything is cooked.</h2>
+            <p class="sub">This is the part most systems skip. It is the part that protects
+              the restaurant.</p>
+
+            <div class="checks">
+              <div class="check">
+                <div class="check__n">1</div>
+                <h4>Is it available?</h4>
+                <p>Sold-out dishes cannot be ordered.</p>
+              </div>
+              <div class="check">
+                <div class="check__n">2</div>
+                <h4>Is the order real?</h4>
+                <p>The guest confirms with a code sent to their phone.</p>
+              </div>
+              <div class="check">
+                <div class="check__n">3</div>
+                <h4>Any allergy?</h4>
+                <p>If yes, the order is locked until the chef confirms they read it.</p>
+              </div>
+            </div>
+
+            <div class="note note--red">
+              <strong>The allergy lock.</strong> The chef cannot press "start cooking" until they
+              tap <em>Acknowledge Allergy Notice</em>. Every step below is stamped with a time
+              and saved forever.
+              <ul class="chain">
+                <li>Guest declares</li>
+                <li>Guest confirms</li>
+                <li>Waiter attests</li>
+                <li>Kitchen warned</li>
+                <li>Kitchen acknowledges</li>
+                <li>Guest sees proof</li>
+              </ul>
+            </div>
+          </div>
+
+          <figure class="shot step__shot">
+            <!-- REPLACE: screenshot of the kitchen screen with the red allergy banner -->
+            <div class="ph ph--wide">
+              <span class="ph__tag">Image placeholder</span>
+              <p class="ph__what">The kitchen screen showing an order with a red allergy banner
+                and the locked "Acknowledge Allergy Notice" button.</p>
+              <span class="ph__size">Suggested 1200 × 750 px</span>
+            </div>
+            <figcaption>The order stays locked until the chef confirms</figcaption>
+          </figure>
+
+          <p class="bridge step__bridge">Only now does the order reach the kitchen.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ---------- SEC 10 — STEP 5: COOK ---------- -->
+    <section class="step" id="step-5">
+      <div class="step__in">
+        <div class="rail">
+          <div class="rail__num">5</div>
+        </div>
+
+        <div class="step__body rise">
+          <div class="step__text">
+            <span class="label">Step five — Cook</span>
+            <h2 class="h-sec">On the kitchen screen in three seconds.</h2>
+            <p class="sub">No paper. No handwriting. No guessing what the ticket says.</p>
+            <ul class="points">
+              <li><strong>Drinks go to the bar. Food goes to the chef.</strong> Nobody scrolls
+                past ten curries to find one drink.</li>
+              <li>Each dish is marked ready on its own, as it is plated.</li>
+              <li>An order waiting too long turns red and beeps. Silence it for one hour;
+                it comes back by itself.</li>
+            </ul>
+          </div>
+
+          <figure class="shot step__shot">
+            <!-- REPLACE: screenshot of the live kitchen display -->
+            <div class="ph ph--wide">
+              <span class="ph__tag">Image placeholder</span>
+              <p class="ph__what">The live kitchen display: order cards with elapsed timers,
+                and one overdue card turned red.</p>
+              <span class="ph__size">Suggested 1200 × 750 px</span>
+            </div>
+            <figcaption>The kitchen screen during service</figcaption>
+          </figure>
+
+          <p class="bridge step__bridge">The moment a dish is ready, someone needs to know.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ---------- SEC 11 — STEP 6: SERVE ---------- -->
+    <section class="step sec--grey step--flip" id="step-6">
+      <div class="step__in">
+        <div class="rail">
+          <div class="rail__num">6</div>
+        </div>
+
+        <div class="step__body rise">
+          <div class="step__text">
+            <span class="label">Step six — Serve</span>
+            <h2 class="h-sec">The bread goes out hot.</h2>
+            <p class="sub">The waiter is told the second a dish is plated — not when they next
+              walk past the pass.</p>
+            <ul class="points">
+              <li>Serve one dish now and leave the rest cooking.</li>
+              <li>A guest who prefers to talk to a person can still order from the waiter —
+                with a guided flow that will not let them skip the allergy question.</li>
+              <li>"Call waiter" and "Bring the bill" are one tap for the guest.
+                Nobody waves an arm.</li>
+            </ul>
+            <div class="note note--green">
+              <strong>Nothing is forgotten.</strong> If a bill request waits more than a minute,
+              it moves up to the manager's screen by itself.
+            </div>
+          </div>
+
+          <figure class="shot step__shot">
+            <!-- REPLACE: screenshot of the waiter dashboard -->
+            <div class="ph ph--wide">
+              <span class="ph__tag">Image placeholder</span>
+              <p class="ph__what">The waiter dashboard showing "Ready to serve" items
+                and the queue of table alerts.</p>
+              <span class="ph__size">Suggested 1200 × 750 px</span>
+            </div>
+            <figcaption>What is ready to carry out, right now</figcaption>
+          </figure>
+
+          <p class="bridge step__bridge">The meal is finished. Now comes the slowest part of the night.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ---------- SEC 12 — STEP 7: PAY ---------- -->
+    <section class="step step--last" id="step-7">
+      <div class="step__in">
+        <div class="rail">
+          <div class="rail__num">7</div>
+        </div>
+
+        <div class="step__body rise">
+          <div class="step__text">
+            <span class="label">Step seven — Pay</span>
+            <h2 class="h-sec">Fifteen minutes becomes ninety seconds.</h2>
+            <p class="sub">The guest pays from the phone they already have in their hand.</p>
+            <ul class="points">
+              <li>Pay all of it, split it evenly between 2–10 people, or pay a custom amount.</li>
+              <li>Tip 10%, 12.5%, 15% or any amount — chosen privately, not while a waiter watches.</li>
+              <li>Prefer cash or card at the table? That option never goes away.</li>
+            </ul>
+
+            <div class="auto-list">
+              <h4>And then, by itself</h4>
+              <ul>
+                <li>Points are added to their loyalty account.</li>
+                <li>The tax on the order is worked out and stored.</li>
+                <li>The tip is written into the tips record.</li>
+                <li>The dish is counted in tonight's sales.</li>
+                <li>A review link appears at the right moment.</li>
+              </ul>
+            </div>
+          </div>
+
+          <figure class="shot step__shot">
+            <!-- REPLACE: screenshot of the bill screen with split and tip options -->
+            <div class="ph ph--phone">
+              <span class="ph__tag">Image placeholder</span>
+              <p class="ph__what">The bill on a phone: the items, the "split evenly between 4"
+                option, the tip buttons, and the pay button.</p>
+              <span class="ph__size">Suggested 600 × 1130 px</span>
+            </div>
+            <figcaption>Split, tip and pay, without waiting</figcaption>
+          </figure>
+
+          <div class="step__bridge">
+            <p class="sub center narrow mx" style="margin-top:56px;">
+              Nobody typed any of that. It happened because service happened.
+            </p>
+            <p class="bridge">That was one table. Here is what your team sees.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==============================================================
+     SEC 13 — FIVE PEOPLE, FIVE SCREENS
+     ============================================================== -->
+    <section class="sec sec--grey" id="team">
+      <div class="wrap">
+        <div class="sec-head rise">
+          <span class="label">For your team</span>
+          <h2 class="h-sec" style="margin-top:14px;">Everyone sees only what they need.</h2>
+          <p class="sub">One system, five different views. Nobody is shown a screen full of
+            things that are not their job.</p>
+        </div>
+
+        <div class="grid grid-5 rise">
+          <article class="card who">
+            <span class="ico" aria-hidden="true">👤</span>
+            <h3>The guest</h3>
+            <p>The menu, their order, and the bill. On their own phone. No login.</p>
+          </article>
+          <article class="card who">
+            <span class="ico" aria-hidden="true">👨‍🍳</span>
+            <h3>The kitchen</h3>
+            <p>One list: what to cook next. Drinks to the bar, food to the chef.</p>
+          </article>
+          <article class="card who">
+            <span class="ico" aria-hidden="true">🧑‍💼</span>
+            <h3>The waiter</h3>
+            <p>The floor, and what is ready to carry out right now.</p>
+          </article>
+          <article class="card who">
+            <span class="ico" aria-hidden="true">👔</span>
+            <h3>The manager</h3>
+            <p>A live map of every table, plus menu, staff, prices and reports.</p>
+          </article>
+          <article class="card who">
+            <span class="ico" aria-hidden="true">🏢</span>
+            <h3>The owner</h3>
+            <p>Every branch at once. Total sales. Which site is busiest.</p>
+          </article>
+        </div>
+
+        <p class="bridge">And all of it is yours to change.</p>
+      </div>
+    </section>
+
+
+    <!-- ==============================================================
+     SEC 14 — YOU CONTROL EVERYTHING YOURSELF
+     ============================================================== -->
+    <section class="sec">
+      <div class="wrap">
+        <div class="sec-head rise">
+          <h2 class="h-sec">Change anything, any time.<br>No phone call to us.</h2>
+          <p class="sub">Every part of the system is yours to edit. Changes appear on every
+            guest's phone straight away.</p>
+        </div>
+
+        <div class="rows rise">
+          <div class="row"><span class="row__tick">✓</span><span class="row__k">Your menu</span><span
+              class="row__v">Dishes, prices, photos, spice level, allergens, categories.</span></div>
+          <div class="row"><span class="row__tick">✓</span><span class="row__k">Sold out</span><span class="row__v">One
+              tap marks a dish sold out. Every phone updates instantly.</span></div>
+          <div class="row"><span class="row__tick">✓</span><span class="row__k">Your kitchen</span><span
+              class="row__v">How many prep stations you run, and which dish goes to which.</span></div>
+          <div class="row"><span class="row__tick">✓</span><span class="row__k">Your tables</span><span
+              class="row__v">Name them anything — <code>Table 1</code>, <code>Patio 2</code>, <code>VIP Booth A</code>.
+              Print a QR stand for each.</span></div>
+          <div class="row"><span class="row__tick">✓</span><span class="row__k">Your staff</span><span
+              class="row__v">Create logins for managers, waiters and kitchen staff.</span></div>
+          <div class="row"><span class="row__tick">✓</span><span class="row__k">Your rules</span><span class="row__v">Do
+              orders go straight to the kitchen, or does staff approve first?</span></div>
+          <div class="row"><span class="row__tick">✓</span><span class="row__k">Kitchen busy</span><span
+              class="row__v">Running 20 minutes late? Say so, and guests are warned before they order.</span></div>
+          <div class="row"><span class="row__tick">✓</span><span class="row__k">Your tax</span><span class="row__v">Set
+              your rate. Set a different rate for one menu category if you need to.</span></div>
+          <div class="row"><span class="row__tick">✓</span><span class="row__k">Your assistant</span><span
+              class="row__v">Write your kitchen notes. That is exactly what the assistant knows.</span></div>
+          <div class="row"><span class="row__tick">✓</span><span class="row__k">Your rewards</span><span
+              class="row__v">How many points per pound, and what they can be spent on.</span></div>
+          <div class="row"><span class="row__tick">✓</span><span class="row__k">Your brand</span><span
+              class="row__v">Name, tagline, logo, cover photo, currency, review link.</span></div>
+        </div>
+
+        <p class="bridge">While you run service, the paperwork writes itself.</p>
+      </div>
+    </section>
+
+
+    <!-- ==============================================================
+     SEC 15 — EVERYTHING IS WRITTEN DOWN AUTOMATICALLY
+     ============================================================== -->
+    <section class="sec sec--grey">
+      <div class="wrap">
+        <div class="sec-head rise">
+          <h2 class="h-sec">The paperwork is finished before you sit down to do it.</h2>
+          <p class="sub">The reports are not a separate job. They are made out of the service
+            you already ran.</p>
+        </div>
+
+        <div class="grid grid-4 rise">
+          <article class="card">
+            <span class="ico" aria-hidden="true">📈</span>
+            <h3 class="h-card">Sales</h3>
+            <p>Revenue, order count, average spend, best-selling dishes, repeat guests.</p>
+          </article>
+          <article class="card">
+            <span class="ico" aria-hidden="true">🧾</span>
+            <h3 class="h-card">Tax</h3>
+            <p>Day-by-day net, tax and gross. Download it as a spreadsheet.</p>
+          </article>
+          <article class="card">
+            <span class="ico" aria-hidden="true">💷</span>
+            <h3 class="h-card">Tips</h3>
+            <p>A permanent record of how tips were shared, for every period.</p>
+          </article>
+          <article class="card">
+            <span class="ico" aria-hidden="true">🎁</span>
+            <h3 class="h-card">Rewards</h3>
+            <p>Who your regulars are, what they earned, what they redeemed.</p>
+          </article>
+        </div>
+
+        <div class="note narrow mx rise" style="margin-top:36px;">
+          Tax is worked out on each order at the moment of sale, and stored with that order.
+          If your rate changes next year, last year's receipts stay correct.
+        </div>
+
+        <p class="bridge">So what makes this different from other systems?</p>
+      </div>
+    </section>
+
+
+    <!-- ==============================================================
+     SEC 16 — WHY NOVA RESTRO IS DIFFERENT
+     ============================================================== -->
+    <section class="sec">
+      <div class="wrap">
+        <div class="sec-head rise">
+          <h2 class="h-sec">Four things other systems do not do.</h2>
+        </div>
+
+        <div class="grid grid-2 rise">
+          <article class="card why">
+            <span class="why__n" aria-hidden="true">01</span>
+            <h3>The assistant knows your kitchen</h3>
+            <p>It answers from the notes your chef wrote. Not from the internet. Not guessed.</p>
+          </article>
+          <article class="card why">
+            <span class="why__n" aria-hidden="true">02</span>
+            <h3>Allergy safety is a chain, not a tick-box</h3>
+            <p>Six steps, each one recorded with a time. The chef cannot start cooking
+              until they confirm.</p>
+          </article>
+          <article class="card why">
+            <span class="why__n" aria-hidden="true">03</span>
+            <h3>It understands how a kitchen actually works</h3>
+            <p>Drinks go to the bar. Food goes to the hot section. Dishes are marked ready
+              one at a time.</p>
+          </article>
+          <article class="card why">
+            <span class="why__n" aria-hidden="true">04</span>
+            <h3>Nothing is quietly forgotten</h3>
+            <p>Late orders go red. Unanswered bill requests move up to the manager.
+              Ready food does not sit.</p>
+          </article>
+        </div>
+
+        <p class="bridge">All of that is the story. Now put your own numbers on it.</p>
+      </div>
+    </section>
+
+
+    <!-- ==============================================================
+     SEC 17 — WHAT IT IS WORTH (ROI CALCULATOR)
+
+     Every figure below is worked out live from the three sliders.
+     The assumptions are all editable and all shown, so nothing is
+     hidden. See the "How we worked this out" block at the bottom.
+     ============================================================== -->
+    <section class="sec sec--grey" id="roi">
+      <div class="wrap">
+
+        <div class="sec-head rise">
+          <span class="label">What it's worth</span>
+          <h2 class="h-sec" style="margin-top:14px;">Put your own numbers in.</h2>
+          <p class="sub">Move three sliders. We will show you what Nova Restro is likely to be
+            worth to your restaurant, every month, and exactly how we got there.</p>
+        </div>
+
+        <div class="roi__grid rise">
+
+          <!-- ---------- THE THREE INPUTS ---------- -->
+          <div class="panel">
+            <p class="panel__title">Your restaurant</p>
+
+            <div class="field">
+              <div class="field__top">
+                <label class="field__label" for="roi-orders">Orders a day</label>
+                <output class="field__val" id="out-orders" for="roi-orders">80</output>
+              </div>
+              <input type="range" id="roi-orders" min="10" max="400" step="5" value="80">
+              <p class="field__hint">How many orders your kitchen sends out on an average day.</p>
+            </div>
+
+            <div class="field">
+              <div class="field__top">
+                <label class="field__label" for="roi-value">Average order size</label>
+                <output class="field__val" id="out-value" for="roi-value">£24</output>
+              </div>
+              <input type="range" id="roi-value" min="5" max="120" step="1" value="24">
+              <p class="field__hint">What one order is worth on average, before tips.</p>
+            </div>
+
+            <div class="field">
+              <div class="field__top">
+                <label class="field__label" for="roi-loss">Revenue lost to wrong orders</label>
+                <output class="field__val" id="out-loss" for="roi-loss">2%</output>
+              </div>
+              <input type="range" id="roi-loss" min="0" max="8" step="0.5" value="2">
+              <p class="field__hint">Money written off for mistakes, remakes and comped dishes.</p>
+            </div>
+
+            <!-- Every assumption we use, out in the open and editable -->
+            <details class="fold">
+              <summary>Change our assumptions</summary>
+              <div class="assump__grid">
+                <div>
+                  <label for="a-days">Days open a month</label>
+                  <input type="number" id="a-days" value="30" min="1" max="31" step="1">
+                </div>
+                <div>
+                  <label for="a-mins">Minutes of staff time saved per order</label>
+                  <input type="number" id="a-mins" value="10" min="0" max="60" step="1">
+                </div>
+                <div>
+                  <label for="a-wage">Cost of an hour of waiter time (£)</label>
+                  <input type="number" id="a-wage" value="18" min="0" max="60" step="0.5">
+                </div>
+                <div>
+                  <label for="a-recov">Wrong-order loss we remove (%)</label>
+                  <input type="number" id="a-recov" value="80" min="0" max="100" step="5">
+                </div>
+                <div>
+                  <label for="a-ai">Order uplift from the menu assistant (%)</label>
+                  <input type="number" id="a-ai" value="3" min="0" max="10" step="0.5">
+                </div>
+                <div>
+                  <label for="a-new">New guests, as a share of orders (%)</label>
+                  <input type="number" id="a-new" value="50" min="0" max="100" step="5">
+                </div>
+                <div>
+                  <label for="a-rep">New guests who become regulars (%)</label>
+                  <input type="number" id="a-rep" value="10" min="0" max="100" step="1">
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <!-- ---------- THE ANSWER ---------- -->
+          <div class="panel result">
+            <p class="panel__title">Estimated value, every month</p>
+
+            <p class="result__big" id="out-total">£12,730</p>
+            <p class="result__year">That is about <strong id="out-year">£152,755</strong> a year.</p>
+
+            <div class="result__split">
+              <div class="split">
+                <p class="split__n" id="out-money">£5,530</p>
+                <p class="split__l">Extra money coming in</p>
+              </div>
+              <div class="split">
+                <p class="split__n" id="out-hours">400 hours</p>
+                <p class="split__l">Waiter time given back, worth <span id="out-timeval">£7,200</span></p>
+              </div>
+            </div>
+
+            <p class="result__foot">These are estimates, not a promise. They come from the
+              assumptions on the left, which you can change. Your real numbers will differ.</p>
+          </div>
+        </div>
+
+        <!-- ---------- WHERE THE MONEY COMES FROM ---------- -->
+        <div class="grid grid-4 rise" style="margin-top:24px;">
+          <article class="card bd">
+            <span class="ico" aria-hidden="true">⏱️</span>
+            <h3 class="h-card">Waiter time given back</h3>
+            <p class="bd__n" id="bd-time">£7,200</p>
+            <p>Ten minutes of staff time per order, no longer spent writing orders down and
+              walking to the kitchen.</p>
+          </article>
+
+          <article class="card bd">
+            <span class="ico" aria-hidden="true">✅</span>
+            <h3 class="h-card">Fewer wrong orders</h3>
+            <p class="bd__n" id="bd-refund">£922</p>
+            <p>Digital tickets cannot be misread. We remove most of the money you currently
+              write off for mistakes.</p>
+          </article>
+
+          <article class="card bd">
+            <span class="ico" aria-hidden="true">🤖</span>
+            <h3 class="h-card">Bigger orders</h3>
+            <p class="bd__n" id="bd-ai">£1,728</p>
+            <p>Guests who can ask the menu their own questions order more sides, more drinks
+              and more dessert.</p>
+          </article>
+
+          <article class="card bd">
+            <span class="ico" aria-hidden="true">🎁</span>
+            <h3 class="h-card">Guests who come back</h3>
+            <p class="bd__n" id="bd-loyal">£2,880</p>
+            <p>Loyalty points turn a slice of your new guests into regulars, and a regular
+              comes back again.</p>
+          </article>
+        </div>
+
+        <!-- ---------- THE ONE WE WILL NOT PUT A NUMBER ON ---------- -->
+        <div class="note note--green rise" style="margin-top:24px;">
+          <strong>😊 And one thing we will not put a number on.</strong>
+          Your team stops writing orders down and chasing the kitchen. They spend that time
+          with your guests instead. Better service, better reviews, better regulars — that is
+          real, but we are not going to invent a figure for it.
+        </div>
+
+        <!-- ---------- FULL WORKING OUT ---------- -->
+        <details class="panel math rise">
+          <summary class="fold-sum">How we worked this out</summary>
+
+          <div class="math__row math__row--head"><span>Starting from your numbers</span></div>
+          <div class="math__row"><span>Orders a month</span><b id="m-orders">2,400</b></div>
+          <div class="math__row"><span>Revenue a month</span><b id="m-rev">£57,600</b></div>
+
+          <div class="math__row math__row--head"><span>1 &nbsp;·&nbsp; Waiter time given back</span></div>
+          <div class="math__row"><span id="m-hours-l">2,400 orders × 10 minutes</span><b id="m-hours">400 hours</b>
+          </div>
+          <div class="math__row"><span id="m-time-l">400 hours × £18 an hour</span><b id="m-time">£7,200</b></div>
+
+          <div class="math__row math__row--head"><span>2 &nbsp;·&nbsp; Fewer wrong orders</span></div>
+          <div class="math__row"><span id="m-loss-l">Written off today — 2% of £57,600</span><b id="m-loss">£1,152</b>
+          </div>
+          <div class="math__row"><span id="m-refund-l">We remove 80% of that</span><b id="m-refund">£922</b></div>
+
+          <div class="math__row math__row--head"><span>3 &nbsp;·&nbsp; Bigger orders</span></div>
+          <div class="math__row"><span id="m-ai-l">3% more on £57,600</span><b id="m-ai">£1,728</b></div>
+
+          <div class="math__row math__row--head"><span>4 &nbsp;·&nbsp; Guests who come back</span></div>
+          <div class="math__row"><span id="m-new-l">New guests a month — 50% of 2,400 orders</span><b
+              id="m-new">1,200</b></div>
+          <div class="math__row"><span id="m-reg-l">Who become regulars — 10% of those</span><b id="m-reg">120</b></div>
+          <div class="math__row"><span id="m-loyal-l">One more visit each, at £24</span><b id="m-loyal">£2,880</b></div>
+
+          <div class="math__row math__row--total"><span>Total value a month</span><b id="m-total">£12,730</b></div>
+
+          <p class="small muted" style="margin-top:20px;">
+            Waiter time is counted at what that time costs you. It is time handed back to your
+            floor, not staff you have to let go. Everything else is money.
+          </p>
+        </details>
+
+        <p class="bridge">Here are the questions we are asked most.</p>
+      </div>
+    </section>
+
+
+    <!-- ==============================================================
+     SEC 18 — QUESTIONS PEOPLE ASK
+     Native <details> — keyboard accessible with no JavaScript.
+     ============================================================== -->
+    <section class="sec" id="questions">
+      <div class="wrap">
+        <div class="sec-head rise">
+          <h2 class="h-sec">Questions people ask.</h2>
+        </div>
+
+        <div class="faq rise">
+          <details>
+            <summary>Do guests need to download an app?</summary>
+            <p class="ans">No. It opens in the phone's browser. Nothing to install.</p>
+          </details>
+          <details>
+            <summary>What if a guest does not have a phone?</summary>
+            <p class="ans">The waiter takes the order on theirs. Same system, same safety checks.</p>
+          </details>
+          <details>
+            <summary>Do we lose our waiters' jobs?</summary>
+            <p class="ans">No. Waiters stop taking down orders and start looking after guests.</p>
+          </details>
+          <details>
+            <summary>What if the internet goes down?</summary>
+            <p class="ans">Staff can keep taking orders on the staff screens, and pay-at-table
+              always works.</p>
+          </details>
+          <details>
+            <summary>Can we still take cash?</summary>
+            <p class="ans">Yes. Card payment is a switch you turn on or off.</p>
+          </details>
+          <details>
+            <summary>How long does setup take?</summary>
+            <p class="ans">Your menu, tables and staff can be set up in a day.</p>
+          </details>
+          <details>
+            <summary>Does it work for a bar as well as a kitchen?</summary>
+            <p class="ans">Yes. You define your own prep stations and send each dish to the
+              right one.</p>
+          </details>
+          <details>
+            <summary>Do we need new hardware?</summary>
+            <p class="ans">A tablet or screen for the kitchen. Everything else you already have.</p>
+          </details>
+          <details>
+            <summary>Is our data ours?</summary>
+            <p class="ans">Yes. Your menu, your guests, your sales. You can export it.</p>
+          </details>
+        </div>
+
+        <p class="bridge">The fastest way to understand it is to open it.</p>
+      </div>
+    </section>
+
+
+    <!-- ==============================================================
+     SEC 19 — SEE IT WORKING
+     No prices anywhere on this page.
+     ============================================================== -->
+    <section class="sec sec--grey" id="see-it">
+      <div class="wrap">
+        <div class="sec-head rise">
+          <h2 class="h-sec">Open it and try it yourself.</h2>
+          <p class="sub">Four live screens. Real data. Nothing to install.</p>
+        </div>
+
+        <div class="grid grid-4 rise">
+          <article class="card demo">
+            <!-- REPLACE: thumbnail of the guest menu -->
+            <div class="ph ph--thumb">
+              <span class="ph__tag">Image</span>
+              <p class="ph__what">Guest menu thumbnail</p>
+            </div>
+            <h3>📱 Guest menu</h3>
+            <p>Scan a table and order like a guest would.</p>
+            <!-- REPLACE href with the real demo link -->
+            <a class="btn btn--ghost btn--sm" href="#">Open</a>
+          </article>
+
+          <article class="card demo">
+            <!-- REPLACE: thumbnail of the kitchen screen -->
+            <div class="ph ph--thumb">
+              <span class="ph__tag">Image</span>
+              <p class="ph__what">Kitchen screen thumbnail</p>
+            </div>
+            <h3>👨‍🍳 Kitchen screen</h3>
+            <p>Watch the order arrive and mark it ready.</p>
+            <!-- REPLACE href with the real demo link -->
+            <a class="btn btn--ghost btn--sm" href="#">Open</a>
+          </article>
+
+          <article class="card demo">
+            <!-- REPLACE: thumbnail of the waiter view -->
+            <div class="ph ph--thumb">
+              <span class="ph__tag">Image</span>
+              <p class="ph__what">Waiter view thumbnail</p>
+            </div>
+            <h3>🧑‍💼 Waiter view</h3>
+            <p>See what is ready to carry out.</p>
+            <!-- REPLACE href with the real demo link -->
+            <a class="btn btn--ghost btn--sm" href="#">Open</a>
+          </article>
+
+          <article class="card demo">
+            <!-- REPLACE: thumbnail of the manager panel -->
+            <div class="ph ph--thumb">
+              <span class="ph__tag">Image</span>
+              <p class="ph__what">Manager panel thumbnail</p>
+            </div>
+            <h3>👔 Manager panel</h3>
+            <p>The live floor map and the reports.</p>
+            <!-- REPLACE href with the real demo link -->
+            <a class="btn btn--ghost btn--sm" href="#">Open</a>
+          </article>
+        </div>
+
+        <div class="cta rise">
+          <h3>Want it in your restaurant?</h3>
+          <p>Tell us your restaurant name and how many tables you have.
+            We will set up a demo with your own menu.</p>
+          <div class="cta__act">
+            <a class="btn btn--primary" href="mailto:hello@novarestro.com?subject=Nova%20Restro%20walkthrough">Book a
+              walkthrough</a>
+            <a class="mail" href="mailto:hello@novarestro.com">hello@novarestro.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ==============================================================
+     SEC 20 — FOOTER (white, dark text — never a dark block)
+     ============================================================== -->
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__grid">
+        <div class="foot__about">
+          <a class="brand" href="#top">
+            <span class="brand__mark"><span>N</span></span>
+            Nova Restro
+          </a>
+          <p>One system for the whole restaurant.</p>
+        </div>
+
+        <div>
+          <h4>How it works</h4>
+          <ul>
+            <li><a href="#step-1">1. Scan</a></li>
+            <li><a href="#step-2">2. Ask</a></li>
+            <li><a href="#step-3">3. Order</a></li>
+            <li><a href="#step-4">4. Check</a></li>
+            <li><a href="#step-5">5. Cook</a></li>
+            <li><a href="#step-6">6. Serve</a></li>
+            <li><a href="#step-7">7. Pay</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>For your team</h4>
+          <ul>
+            <li><a href="#team">Guest</a></li>
+            <li><a href="#team">Kitchen</a></li>
+            <li><a href="#team">Waiter</a></li>
+            <li><a href="#team">Manager</a></li>
+            <li><a href="#team">Owner</a></li>
+            <li><a href="#roi">What it's worth</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <!-- REPLACE href values with the real pages when they exist -->
+            <li><a href="#">About</a></li>
+            <li><a href="mailto:hello@novarestro.com">Contact</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot__base">
+        <span>© 2026 Nova Restro</span>
+        <span>Built by NovaCrystara AI Labs</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    /* ================================================================
+       Only two small pieces of behaviour on the whole page.
+       ================================================================ */
+
+    /* 1. Mobile menu */
+    (function () {
+      var burger = document.getElementById('burger');
+      var sheet = document.getElementById('sheet');
+      if (!burger || !sheet) return;
+
+      burger.addEventListener('click', function () {
+        var open = sheet.classList.toggle('open');
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+
+      sheet.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          sheet.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+
+    /* 2. The ROI calculator.
+    
+          Model, in one place:
+            monthly orders   = orders a day        × days open
+            monthly revenue  = monthly orders      × average order size
+    
+            1  waiter time   = monthly orders      × minutes saved ÷ 60
+               worth         = hours               × hourly cost
+            2  written off   = monthly revenue     × loss %
+               recovered     = written off         × recovery %
+            3  order uplift  = monthly revenue     × uplift %
+            4  new guests    = monthly orders      × new-guest %
+               new regulars  = new guests          × repeat %
+               worth         = new regulars        × average order size
+    
+            money in    = recovered + uplift + loyalty
+            total value = money in  + waiter time value
+    */
+    (function () {
+      function $(id) { return document.getElementById(id); }
+
+      var input = {
+        orders: $('roi-orders'), value: $('roi-value'), loss: $('roi-loss'),
+        days: $('a-days'), mins: $('a-mins'), wage: $('a-wage'),
+        recov: $('a-recov'), ai: $('a-ai'), newg: $('a-new'), rep: $('a-rep')
+      };
+      if (!input.orders) return;
+
+      var gbp0 = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 });
+      var plain0 = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 0 });
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      var money = function (n) { return gbp0.format(Math.round(n)); };
+      var count = function (n) { return plain0.format(Math.round(n)); };
+      var hours = function (n) { return plain0.format(Math.round(n)) + (Math.round(n) === 1 ? ' hour' : ' hours'); };
+      var pct = function (n) { return (Math.round(n * 10) / 10) + '%'; };
+
+      /* read a control, falling back to its default if someone clears the box */
+      function val(el, fallback) {
+        var n = parseFloat(el.value);
+        return (isNaN(n) || n < 0) ? fallback : n;
+      }
+
+      function model() {
+        var N = val(input.orders, 80),
+          A = val(input.value, 24),
+          L = val(input.loss, 2) / 100,
+          D = val(input.days, 30),
+          W = val(input.mins, 10),
+          H = val(input.wage, 18),
+          R = val(input.recov, 80) / 100,
+          C = val(input.ai, 3) / 100,
+          Ng = val(input.newg, 50) / 100,
+          Rp = val(input.rep, 10) / 100;
+
+        var mOrders = N * D;
+        var mRev = mOrders * A;
+
+        var hrs = mOrders * W / 60;
+        var timeVal = hrs * H;
+        var writeOff = mRev * L;
+        var recovered = writeOff * R;
+        var uplift = mRev * C;
+        var newG = mOrders * Ng;
+        var newReg = newG * Rp;
+        var loyalty = newReg * A;
+
+        var cash = recovered + uplift + loyalty;
+
+        return {
+          N: N, A: A, L: L, D: D, W: W, H: H, R: R, C: C, Ng: Ng, Rp: Rp,
+          mOrders: mOrders, mRev: mRev,
+          hrs: hrs, timeVal: timeVal,
+          writeOff: writeOff, recovered: recovered,
+          uplift: uplift,
+          newG: newG, newReg: newReg, loyalty: loyalty,
+          cash: cash, total: cash + timeVal
+        };
+      }
+
+      /* number that counts up the first time you see it, then updates instantly */
+      var last = {};
+      function put(id, target, fmt, animate) {
+        var el = $(id); if (!el) return;
+        if (!animate || reduce) { el.textContent = fmt(target); last[id] = target; return; }
+        var from = last[id] || 0, t0 = null, dur = 750;
+        function frame(t) {
+          if (t0 === null) t0 = t;
+          var p = Math.min(1, (t - t0) / dur);
+          var e = 1 - Math.pow(1 - p, 3);
+          el.textContent = fmt(from + (target - from) * e);
+          if (p < 1) requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+        last[id] = target;
+      }
+
+      function render(animate) {
+        var m = model();
+
+        /* the slider read-outs */
+        $('out-orders').textContent = count(m.N);
+        $('out-value').textContent = money(m.A);
+        $('out-loss').textContent = pct(m.L * 100);
+
+        /* the answer */
+        put('out-total', m.total, money, animate);
+        put('out-year', m.total * 12, money, animate);
+        put('out-money', m.cash, money, animate);
+        put('out-hours', m.hrs, hours, animate);
+        put('out-timeval', m.timeVal, money, animate);
+
+        /* where it comes from */
+        put('bd-time', m.timeVal, money, animate);
+        put('bd-refund', m.recovered, money, animate);
+        put('bd-ai', m.uplift, money, animate);
+        put('bd-loyal', m.loyalty, money, animate);
+
+        /* the working out — figures and the sentences that describe them */
+        $('m-orders').textContent = count(m.mOrders);
+        $('m-rev').textContent = money(m.mRev);
+
+        $('m-hours-l').textContent = count(m.mOrders) + ' orders × ' + count(m.W) + ' minutes';
+        $('m-hours').textContent = hours(m.hrs);
+        $('m-time-l').textContent = hours(m.hrs) + ' × ' + money(m.H) + ' an hour';
+        $('m-time').textContent = money(m.timeVal);
+
+        $('m-loss-l').textContent = 'Written off today — ' + pct(m.L * 100) + ' of ' + money(m.mRev);
+        $('m-loss').textContent = money(m.writeOff);
+        $('m-refund-l').textContent = 'We remove ' + pct(m.R * 100) + ' of that';
+        $('m-refund').textContent = money(m.recovered);
+
+        $('m-ai-l').textContent = pct(m.C * 100) + ' more on ' + money(m.mRev);
+        $('m-ai').textContent = money(m.uplift);
+
+        $('m-new-l').textContent = 'New guests a month — ' + pct(m.Ng * 100) + ' of ' + count(m.mOrders) + ' orders';
+        $('m-new').textContent = count(m.newG);
+        $('m-reg-l').textContent = 'Who become regulars — ' + pct(m.Rp * 100) + ' of those';
+        $('m-reg').textContent = count(m.newReg);
+        $('m-loyal-l').textContent = 'One more visit each, at ' + money(m.A);
+        $('m-loyal').textContent = money(m.loyalty);
+
+        $('m-total').textContent = money(m.total);
+      }
+
+      Object.keys(input).forEach(function (k) {
+        if (input[k]) input[k].addEventListener('input', function () { render(false); });
+      });
+
+      render(false);
+
+      /* count the headline figures up once, when the section first comes into view */
+      var sec = document.getElementById('roi');
+      if (sec && !reduce && 'IntersectionObserver' in window) {
+        var seen = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) {
+            Object.keys(last).forEach(function (k) { last[k] = 0; });
+            render(true);
+            seen.disconnect();
+          }
+        }, { threshold: 0.2 });
+        seen.observe(sec);
+      }
+    })();
+
+    /* 3. Sections fade and rise as they come into view.
+          Skipped entirely if the visitor prefers reduced motion. */
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var items = document.querySelectorAll('.rise');
+
+      if (reduce || !('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
+
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+
+</body>
+
+</html>
