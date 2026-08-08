@@ -578,9 +578,6 @@ export function SevenStepsDetail() {
                     alt="The bread goes out hot waiter display"
                     className="w-full h-full object-cover object-top rounded-3xl"
                   />
-                  <span className="absolute bottom-3.5 left-1/2 -translate-x-1/2 bg-slate-900/70 text-white/95 text-[11px] sm:text-xs font-medium px-3.5 py-1 rounded-full backdrop-blur-md border border-white/20 shadow-sm pointer-events-none z-10 whitespace-nowrap">
-                    What is ready to carry out, right now
-                  </span>
                 </div>
               </div>
 
@@ -741,9 +738,6 @@ export function SevenStepsDetail() {
                     alt="Fifteen minutes becomes ninety seconds mobile pay screens"
                     className="w-full h-full object-cover object-top rounded-3xl"
                   />
-                  <span className="absolute bottom-3.5 left-1/2 -translate-x-1/2 bg-slate-900/70 text-white/95 text-[11px] sm:text-xs font-medium px-3.5 py-1 rounded-full backdrop-blur-md border border-white/20 shadow-sm pointer-events-none z-10 whitespace-nowrap">
-                    Split, tip and pay, without waiting
-                  </span>
                 </div>
               </div>
             </div>
