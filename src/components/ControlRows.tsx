@@ -382,9 +382,31 @@ export function ControlRows() {
             <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow text-center">
               <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs">
                 <svg className="w-10 h-10" viewBox="0 0 32 32" fill="none">
-                  <circle cx="16" cy="10" r="5" stroke="#1e293b" strokeWidth="2" fill="white" />
-                  <path d="M16 7.5V12.5M14.5 8.5C14.5 8 15.2 7.7 16 7.7C16.8 7.7 17.5 8 17.5 8.6C17.5 9.6 14.5 9.6 14.5 10.6C14.5 11.2 15.2 11.7 16 11.7C16.8 11.7 17.5 11.2 17.5 10.8" stroke="#f95722" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M6 19C7.5 17.5 10 17 13 17C15 17 18 18 20 18.5L25 17C26 16.7 27 17.5 26.5 18.5L24 23C23 24.5 21 25.5 19 25.5H13C10 25.5 7.5 23.5 6 21V19Z" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  {/* Top Coin Circle */}
+                  <circle cx="16" cy="11" r="5.5" stroke="#1e293b" strokeWidth="2.2" fill="white" />
+                  {/* Orange Dollar Sign */}
+                  <path
+                    d="M16 8.2V13.8M14.4 9.4C14.4 8.8 15.1 8.4 16 8.4C16.9 8.4 17.6 8.8 17.6 9.4C17.6 10.4 14.4 10.4 14.4 11.4C14.4 12 15.1 12.4 16 12.4C16.9 12.4 17.6 12 17.6 11.5"
+                    stroke="#f95722"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  {/* Bottom Hand Silhouette */}
+                  <path
+                    d="M6 17.5C9 15.2 14.5 15 18.5 16.8C20.5 17.6 21 18.4 19.5 19.2C18 20 15.5 20.2 12.5 19.5"
+                    stroke="#1e293b"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M8 21.5C11 23.2 15.5 23.4 20.5 21.5"
+                    stroke="#1e293b"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
               <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-1">Tips</h3>
