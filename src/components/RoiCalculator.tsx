@@ -176,7 +176,7 @@ export function RoiCalculator() {
   };
 
   return (
-    <section className="py-12 md:py-16 bg-[#F5F6F8] border-t border-slate-100" id="roi" ref={secRef}>
+    <section className="py-12 md:py-16 bg-white border-t border-slate-100" id="roi" ref={secRef}>
       <div className="max-w-[1160px] mx-auto px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
           <span className="text-xs font-bold uppercase tracking-[0.18em] text-orange-600">What it&apos;s worth</span>
