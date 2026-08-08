@@ -362,23 +362,15 @@ export function ControlRows() {
             <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow text-center">
               <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs">
                 <svg className="w-10 h-10" viewBox="0 0 32 32" fill="none">
-                  {/* Shield outline */}
-                  <path
-                    d="M16 3L5 8V15C5 21.6 9.8 27.7 16 29C22.2 27.7 27 21.6 27 15V8L16 3Z"
-                    stroke="#f95722"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="none"
-                  />
-                  {/* Checkmark */}
-                  <path
-                    d="M11 16L14.5 19.5L21 13"
-                    stroke="#f95722"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
+                  <path d="M9 5H21C22.1046 5 23 5.89543 23 7V17M9 5C7.89543 5 7 5.89543 7 7V25C7 26.1046 7.89543 27 9 27H18" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M11 10H17" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M11 14H15" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" />
+                  <rect x="17" y="16" width="9" height="10" rx="1.5" fill="white" stroke="#f95722" strokeWidth="1.8" />
+                  <rect x="19" y="18" width="5" height="1.8" fill="#f95722" />
+                  <circle cx="19.5" cy="22" r="0.7" fill="#f95722" />
+                  <circle cx="23.5" cy="22" r="0.7" fill="#f95722" />
+                  <circle cx="19.5" cy="24" r="0.7" fill="#f95722" />
+                  <circle cx="23.5" cy="24" r="0.7" fill="#f95722" />
                 </svg>
               </div>
               <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-1">Tax</h3>
@@ -418,9 +410,30 @@ export function ControlRows() {
             </article>
           </div>
 
-          <div className="bg-orange-50 border-l-4 border-orange-600 p-5 rounded-r-2xl text-slate-900 text-base max-w-3xl mx-auto mt-8 shadow-sm">
-            Tax is worked out on each order at the moment of sale, and stored with that order.
-            If your rate changes next year, last year&apos;s receipts stay correct.
+          <div className="bg-orange-50 border-l-4 border-orange-600 p-5 rounded-r-2xl max-w-3xl mx-auto mt-8 shadow-sm flex items-start gap-4">
+            <div className="w-12 h-12 min-w-12 rounded-full bg-white border border-orange-200 flex items-center justify-center shadow-xs">
+              <svg className="w-6 h-6" viewBox="0 0 32 32" fill="none">
+                <path
+                  d="M16 3L5 8V15C5 21.6 9.8 27.7 16 29C22.2 27.7 27 21.6 27 15V8L16 3Z"
+                  stroke="#f95722"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <path
+                  d="M11 16L14.5 19.5L21 13"
+                  stroke="#f95722"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <p className="text-slate-900 text-base leading-relaxed">
+              <span className="font-bold">Tax</span> is worked out on each order at the moment of sale, and stored with that order.
+              If your rate changes next year, last year&apos;s receipts stay correct.
+            </p>
           </div>
 
           <p className="text-center text-sm sm:text-base text-slate-400 italic mt-10 pt-6 border-t border-slate-200/60 max-w-md mx-auto">
