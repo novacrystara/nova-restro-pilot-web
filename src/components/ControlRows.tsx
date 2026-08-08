@@ -362,15 +362,23 @@ export function ControlRows() {
             <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow text-center">
               <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs">
                 <svg className="w-10 h-10" viewBox="0 0 32 32" fill="none">
-                  <path d="M9 5H21C22.1046 5 23 5.89543 23 7V17M9 5C7.89543 5 7 5.89543 7 7V25C7 26.1046 7.89543 27 9 27H18" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M11 10H17" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M11 14H15" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" />
-                  <rect x="17" y="16" width="9" height="10" rx="1.5" fill="white" stroke="#f95722" strokeWidth="1.8" />
-                  <rect x="19" y="18" width="5" height="1.8" fill="#f95722" />
-                  <circle cx="19.5" cy="22" r="0.7" fill="#f95722" />
-                  <circle cx="23.5" cy="22" r="0.7" fill="#f95722" />
-                  <circle cx="19.5" cy="24" r="0.7" fill="#f95722" />
-                  <circle cx="23.5" cy="24" r="0.7" fill="#f95722" />
+                  {/* Shield outline */}
+                  <path
+                    d="M16 3L5 8V15C5 21.6 9.8 27.7 16 29C22.2 27.7 27 21.6 27 15V8L16 3Z"
+                    stroke="#f95722"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fill="none"
+                  />
+                  {/* Checkmark */}
+                  <path
+                    d="M11 16L14.5 19.5L21 13"
+                    stroke="#f95722"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
               <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-1">Tax</h3>
