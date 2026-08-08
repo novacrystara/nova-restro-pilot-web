@@ -341,24 +341,63 @@ export function ControlRows() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
-              <span className="text-3xl block mb-4" role="img" aria-label="Sales">📈</span>
-              <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-2">Sales</h3>
+            {/* Sales Card */}
+            <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow text-center">
+              <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/icons/sales.png"
+                  alt="Sales icon"
+                  className="w-full h-full object-contain p-1.5"
+                />
+              </div>
+              <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-1">Sales</h3>
+              <div className="w-6 h-[2px] bg-slate-200 mx-auto mb-3" />
               <p className="text-sm text-slate-600 leading-relaxed">Revenue, order count, average spend, best-selling dishes, repeat guests.</p>
             </article>
-            <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
-              <span className="text-3xl block mb-4" role="img" aria-label="Tax">🧾</span>
-              <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-2">Tax</h3>
+
+            {/* Tax Card */}
+            <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow text-center">
+              <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/icons/Tax.png"
+                  alt="Tax icon"
+                  className="w-full h-full object-contain p-1.5"
+                />
+              </div>
+              <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-1">Tax</h3>
+              <div className="w-6 h-[2px] bg-slate-200 mx-auto mb-3" />
               <p className="text-sm text-slate-600 leading-relaxed">Day-by-day net, tax and gross. Download it as a spreadsheet.</p>
             </article>
-            <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
-              <span className="text-3xl block mb-4" role="img" aria-label="Tips">💷</span>
-              <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-2">Tips</h3>
+
+            {/* Tips Card */}
+            <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow text-center">
+              <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/icons/tips.png"
+                  alt="Tips icon"
+                  className="w-full h-full object-contain p-1.5"
+                />
+              </div>
+              <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-1">Tips</h3>
+              <div className="w-6 h-[2px] bg-slate-200 mx-auto mb-3" />
               <p className="text-sm text-slate-600 leading-relaxed">A permanent record of how tips were shared, for every period.</p>
             </article>
-            <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
-              <span className="text-3xl block mb-4" role="img" aria-label="Rewards">🎁</span>
-              <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-2">Rewards</h3>
+
+            {/* Rewards Card */}
+            <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow text-center">
+              <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/icons/Rewards.png"
+                  alt="Rewards icon"
+                  className="w-full h-full object-contain p-1.5"
+                />
+              </div>
+              <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-1">Rewards</h3>
+              <div className="w-6 h-[2px] bg-slate-200 mx-auto mb-3" />
               <p className="text-sm text-slate-600 leading-relaxed">Who your regulars are, what they earned, what they redeemed.</p>
             </article>
           </div>
