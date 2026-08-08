@@ -343,8 +343,8 @@ export function ControlRows() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Sales Card */}
             <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow text-center">
-              <div className="w-16 h-16 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-2xs">
-                <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
+              <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs">
+                <svg className="w-10 h-10" viewBox="0 0 32 32" fill="none">
                   <rect x="7" y="19" width="2.5" height="7" rx="1" fill="#1e293b" />
                   <rect x="12" y="15" width="2.5" height="11" rx="1" fill="#1e293b" />
                   <rect x="17" y="17" width="2.5" height="9" rx="1" fill="#1e293b" />
@@ -360,8 +360,8 @@ export function ControlRows() {
 
             {/* Tax Card */}
             <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow text-center">
-              <div className="w-16 h-16 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-2xs">
-                <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
+              <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs">
+                <svg className="w-10 h-10" viewBox="0 0 32 32" fill="none">
                   <path d="M9 5H21C22.1046 5 23 5.89543 23 7V17M9 5C7.89543 5 7 5.89543 7 7V25C7 26.1046 7.89543 27 9 27H18" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M11 10H17" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" />
                   <path d="M11 14H15" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" />
@@ -380,12 +380,11 @@ export function ControlRows() {
 
             {/* Tips Card */}
             <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow text-center">
-              <div className="w-16 h-16 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-2xs">
-                <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
-                  <path d="M6 21C8 19 12 18 16 18C20 18 23 19.5 26 21" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M8 21L12 24.5C14 26 18 26 20 24.5L24 21" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <circle cx="16" cy="11" r="5" stroke="#1e293b" strokeWidth="2" fill="white" />
-                  <path d="M16 8.2V13.8M14.5 9.5C14.5 9 15.2 8.5 16 8.5C16.8 8.5 17.5 9 17.5 9.6C17.5 10.6 14.5 10.6 14.5 11.6C14.5 12.2 15.2 12.7 16 12.7C16.8 12.7 17.5 12.2 17.5 11.8" stroke="#f95722" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs">
+                <svg className="w-10 h-10" viewBox="0 0 32 32" fill="none">
+                  <circle cx="16" cy="10" r="5" stroke="#1e293b" strokeWidth="2" fill="white" />
+                  <path d="M16 7.5V12.5M14.5 8.5C14.5 8 15.2 7.7 16 7.7C16.8 7.7 17.5 8 17.5 8.6C17.5 9.6 14.5 9.6 14.5 10.6C14.5 11.2 15.2 11.7 16 11.7C16.8 11.7 17.5 11.2 17.5 10.8" stroke="#f95722" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M6 19C7.5 17.5 10 17 13 17C15 17 18 18 20 18.5L25 17C26 16.7 27 17.5 26.5 18.5L24 23C23 24.5 21 25.5 19 25.5H13C10 25.5 7.5 23.5 6 21V19Z" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-1">Tips</h3>
@@ -395,8 +394,8 @@ export function ControlRows() {
 
             {/* Rewards Card */}
             <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow text-center">
-              <div className="w-16 h-16 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-2xs">
-                <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
+              <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs">
+                <svg className="w-10 h-10" viewBox="0 0 32 32" fill="none">
                   <rect x="7" y="14" width="18" height="12" rx="1.5" stroke="#1e293b" strokeWidth="2" fill="white" />
                   <path d="M5 10H27V14H5V10Z" fill="white" stroke="#1e293b" strokeWidth="2" strokeLinejoin="round" />
                   <path d="M16 10V26" stroke="#f95722" strokeWidth="2" />
