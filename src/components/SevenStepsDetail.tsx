@@ -534,7 +534,7 @@ export function SevenStepsDetail() {
 
               {/* Right side Image */}
               <div className="lg:col-span-6 flex justify-center">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[500px] h-[460px] sm:h-[480px]">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[500px] h-[490px] sm:h-[515px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/The_real_problem/step_5.png"
@@ -571,7 +571,7 @@ export function SevenStepsDetail() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
               {/* Left side Image */}
               <div className="lg:col-span-6 flex flex-col items-center">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[500px] h-[460px] sm:h-[485px]">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[500px] h-[475px] sm:h-[495px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/The_real_problem/step_6.png"
