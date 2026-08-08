@@ -380,34 +380,13 @@ export function ControlRows() {
 
             {/* Tips Card */}
             <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow text-center">
-              <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs">
-                <svg className="w-10 h-10" viewBox="0 0 32 32" fill="none">
-                  {/* Top Coin Circle */}
-                  <circle cx="16" cy="11" r="5.5" stroke="#1e293b" strokeWidth="2.2" fill="white" />
-                  {/* Orange Dollar Sign */}
-                  <path
-                    d="M16 8.2V13.8M14.4 9.4C14.4 8.8 15.1 8.4 16 8.4C16.9 8.4 17.6 8.8 17.6 9.4C17.6 10.4 14.4 10.4 14.4 11.4C14.4 12 15.1 12.4 16 12.4C16.9 12.4 17.6 12 17.6 11.5"
-                    stroke="#f95722"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  {/* Bottom Hand Silhouette */}
-                  <path
-                    d="M6 17.5C9 15.2 14.5 15 18.5 16.8C20.5 17.6 21 18.4 19.5 19.2C18 20 15.5 20.2 12.5 19.5"
-                    stroke="#1e293b"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M8 21.5C11 23.2 15.5 23.4 20.5 21.5"
-                    stroke="#1e293b"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+              <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/you_are_in_control/exact_tips_icon.png"
+                  alt="Tips icon"
+                  className="w-full h-full object-contain p-1.5"
+                />
               </div>
               <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-1">Tips</h3>
               <div className="w-6 h-[2px] bg-slate-200 mx-auto mb-3" />
