@@ -570,16 +570,18 @@ export function SevenStepsDetail() {
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
               {/* Left side Image */}
-              <div className="lg:col-span-6 flex flex-col items-center">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[500px] h-[475px] sm:h-[495px]">
+              <div className="lg:col-span-6 flex justify-center">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[500px] h-[465px] sm:h-[485px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/The_real_problem/step_6.png"
                     alt="The bread goes out hot waiter display"
                     className="w-full h-full object-cover object-top rounded-3xl"
                   />
+                  <span className="absolute bottom-3.5 left-1/2 -translate-x-1/2 bg-slate-900/70 text-white/95 text-[11px] sm:text-xs font-medium px-3.5 py-1 rounded-full backdrop-blur-md border border-white/20 shadow-sm pointer-events-none z-10 whitespace-nowrap">
+                    What is ready to carry out, right now
+                  </span>
                 </div>
-                <p className="text-xs text-slate-400 italic mt-2.5 text-center">What is ready to carry out, right now</p>
               </div>
 
               {/* Right side Content */}
@@ -731,7 +733,7 @@ export function SevenStepsDetail() {
               </div>
 
               {/* Right side Image */}
-              <div className="lg:col-span-6 flex flex-col items-center">
+              <div className="lg:col-span-6 flex justify-center">
                 <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[500px] h-[520px] sm:h-[545px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -739,8 +741,10 @@ export function SevenStepsDetail() {
                     alt="Fifteen minutes becomes ninety seconds mobile pay screens"
                     className="w-full h-full object-cover object-top rounded-3xl"
                   />
+                  <span className="absolute bottom-3.5 left-1/2 -translate-x-1/2 bg-slate-900/70 text-white/95 text-[11px] sm:text-xs font-medium px-3.5 py-1 rounded-full backdrop-blur-md border border-white/20 shadow-sm pointer-events-none z-10 whitespace-nowrap">
+                    Split, tip and pay, without waiting
+                  </span>
                 </div>
-                <p className="text-xs text-slate-400 italic mt-2.5 text-center">Split, tip and pay, without waiting</p>
               </div>
             </div>
 
