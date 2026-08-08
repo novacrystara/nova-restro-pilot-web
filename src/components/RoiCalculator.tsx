@@ -176,7 +176,7 @@ export function RoiCalculator() {
   };
 
   return (
-    <section className="py-12 md:py-16 bg-slate-50 border-t border-slate-100" id="roi" ref={secRef}>
+    <section className="py-12 md:py-16 bg-[#F5F6F8] border-t border-slate-100" id="roi" ref={secRef}>
       <div className="max-w-[1160px] mx-auto px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
           <span className="text-xs font-bold uppercase tracking-[0.18em] text-orange-600">What it&apos;s worth</span>
@@ -189,9 +189,9 @@ export function RoiCalculator() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* THE THREE INPUTS */}
-          <div className="lg:col-span-6 bg-white p-7 sm:p-9 rounded-[28px] border border-slate-200/90 shadow-sm space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+          {/* LEFT CARD — YOUR RESTAURANT */}
+          <div className="bg-white p-7 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
             <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Your restaurant</p>
 
             <div className="space-y-2">
@@ -199,7 +199,7 @@ export function RoiCalculator() {
                 <label className="font-bold text-slate-900 text-base" htmlFor="roi-orders">
                   Orders a day
                 </label>
-                <output className="font-extrabold text-orange-600 text-lg" htmlFor="roi-orders">
+                <output className="font-extrabold text-slate-900 text-lg" htmlFor="roi-orders">
                   {count(orders)}
                 </output>
               </div>
@@ -211,9 +211,9 @@ export function RoiCalculator() {
                 step="5"
                 value={orders}
                 onChange={(e) => setOrders(Number(e.target.value))}
-                className="w-full accent-orange-600 cursor-pointer h-2 bg-slate-100 rounded-lg"
+                className="w-full accent-orange-600 cursor-pointer h-2 bg-slate-200 rounded-lg"
               />
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-slate-400">
                 How many orders your kitchen sends out on an average day.
               </p>
             </div>
@@ -235,9 +235,9 @@ export function RoiCalculator() {
                 step="1"
                 value={value}
                 onChange={(e) => setValue(Number(e.target.value))}
-                className="w-full accent-orange-600 cursor-pointer h-2 bg-slate-100 rounded-lg"
+                className="w-full accent-orange-600 cursor-pointer h-2 bg-slate-200 rounded-lg"
               />
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-slate-400">
                 What one order is worth on average, before tips.
               </p>
             </div>
@@ -259,112 +259,79 @@ export function RoiCalculator() {
                 step="0.5"
                 value={loss}
                 onChange={(e) => setLoss(Number(e.target.value))}
-                className="w-full accent-orange-600 cursor-pointer h-2 bg-slate-100 rounded-lg"
+                className="w-full accent-orange-600 cursor-pointer h-2 bg-slate-200 rounded-lg"
               />
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-slate-400">
                 Money written off for mistakes, remakes and comped dishes.
               </p>
             </div>
 
             {/* Editable assumptions fold */}
             <details className="pt-4 border-t border-slate-100 group">
-              <summary className="text-sm font-semibold text-orange-600 cursor-pointer select-none group-open:mb-4">Change our assumptions</summary>
+              <summary className="text-sm font-semibold text-slate-900 cursor-pointer select-none group-open:mb-4 flex items-center justify-between">
+                Change our assumptions
+                <svg className="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </summary>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                 <div>
                   <label htmlFor="a-days" className="block text-slate-600 font-medium mb-1">Days open a month</label>
-                  <input
-                    type="number"
-                    id="a-days"
-                    value={days}
-                    min="1"
-                    max="31"
-                    step="1"
-                    onChange={(e) => setDays(Number(e.target.value))}
-                    className="w-full p-2 border border-slate-200 rounded-lg"
-                  />
+                  <input type="number" id="a-days" value={days} min="1" max="31" step="1" onChange={(e) => setDays(Number(e.target.value))} className="w-full p-2 border border-slate-200 rounded-lg" />
                 </div>
                 <div>
                   <label htmlFor="a-mins" className="block text-slate-600 font-medium mb-1">Minutes saved per order</label>
-                  <input
-                    type="number"
-                    id="a-mins"
-                    value={mins}
-                    min="0"
-                    max="60"
-                    step="1"
-                    onChange={(e) => setMins(Number(e.target.value))}
-                    className="w-full p-2 border border-slate-200 rounded-lg"
-                  />
+                  <input type="number" id="a-mins" value={mins} min="0" max="60" step="1" onChange={(e) => setMins(Number(e.target.value))} className="w-full p-2 border border-slate-200 rounded-lg" />
                 </div>
                 <div>
                   <label htmlFor="a-wage" className="block text-slate-600 font-medium mb-1">Waiter hourly wage (£)</label>
-                  <input
-                    type="number"
-                    id="a-wage"
-                    value={wage}
-                    min="0"
-                    max="60"
-                    step="0.5"
-                    onChange={(e) => setWage(Number(e.target.value))}
-                    className="w-full p-2 border border-slate-200 rounded-lg"
-                  />
+                  <input type="number" id="a-wage" value={wage} min="0" max="60" step="0.5" onChange={(e) => setWage(Number(e.target.value))} className="w-full p-2 border border-slate-200 rounded-lg" />
                 </div>
                 <div>
                   <label htmlFor="a-recov" className="block text-slate-600 font-medium mb-1">Wrong-order loss removed (%)</label>
-                  <input
-                    type="number"
-                    id="a-recov"
-                    value={recov}
-                    min="0"
-                    max="100"
-                    step="5"
-                    onChange={(e) => setRecov(Number(e.target.value))}
-                    className="w-full p-2 border border-slate-200 rounded-lg"
-                  />
+                  <input type="number" id="a-recov" value={recov} min="0" max="100" step="5" onChange={(e) => setRecov(Number(e.target.value))} className="w-full p-2 border border-slate-200 rounded-lg" />
                 </div>
               </div>
             </details>
           </div>
 
-          {/* THE ANSWER */}
-          <div className="lg:col-span-6 bg-slate-900 text-white p-7 sm:p-9 rounded-[28px] shadow-xl flex flex-col justify-between space-y-6 min-h-[440px] relative overflow-hidden">
-            {/* Orange top accent bar */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 to-orange-400" />
+          {/* RIGHT CARD — THE ANSWER */}
+          <div className="bg-[#07132B] text-white p-7 rounded-3xl shadow-xl flex flex-col justify-between space-y-6 relative overflow-hidden">
+            {/* Orange top accent border */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-orange-500" />
 
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-orange-500 mb-2">Estimated value, every month</p>
-              <p className="text-5xl sm:text-6xl font-black text-white tracking-tight">{money(displayTotal)}</p>
-              <p className="text-base text-slate-300 mt-2">
+              <p className="text-xs font-bold uppercase tracking-wider text-orange-500 mb-3">Estimated value, every month</p>
+              <p className="text-5xl sm:text-6xl font-black text-white tracking-tight leading-none">{money(displayTotal)}</p>
+              <p className="text-sm text-slate-300 mt-3">
                 That is about <strong className="text-white font-bold">{money(displayYear)}</strong> a year.
               </p>
             </div>
 
-            {/* Two equal stat cards */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white rounded-2xl p-5 text-center flex flex-col items-center">
-                <div className="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center mb-3">
+            {/* Two equal stat sub-cards */}
+            <div className="grid grid-cols-2 gap-3">
+              <div className="bg-white rounded-2xl p-4 sm:p-5 text-center flex flex-col items-center">
+                <div className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center mb-2">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
                     <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="#f95722" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
-                <p className="text-xl sm:text-2xl font-extrabold text-slate-900">{money(displayMoney)}</p>
-                <p className="text-xs text-slate-500 mt-1 leading-snug">Extra money coming in</p>
+                <p className="text-lg sm:text-xl font-extrabold text-slate-900">{money(displayMoney)}</p>
+                <p className="text-[11px] text-slate-500 mt-1 leading-snug">Extra money coming in</p>
               </div>
-              <div className="bg-white rounded-2xl p-5 text-center flex flex-col items-center">
-                <div className="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center mb-3">
+              <div className="bg-white rounded-2xl p-4 sm:p-5 text-center flex flex-col items-center">
+                <div className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center mb-2">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
                     <circle cx="12" cy="12" r="10" stroke="#f95722" strokeWidth="2" />
                     <path d="M12 6v6l4 2" stroke="#f95722" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
-                <p className="text-xl sm:text-2xl font-extrabold text-slate-900">{hoursFmt(displayHours)}</p>
-                <p className="text-xs text-slate-500 mt-1 leading-snug">
+                <p className="text-lg sm:text-xl font-extrabold text-slate-900">{hoursFmt(displayHours)}</p>
+                <p className="text-[11px] text-slate-500 mt-1 leading-snug">
                   Waiter time given back, worth <span className="text-orange-600 font-semibold">{money(displayTimeVal)}</span>
                 </p>
               </div>
             </div>
 
-            <p className="text-xs text-slate-500 leading-relaxed">
+            <p className="text-xs text-slate-400 leading-relaxed">
               These are estimates, not a promise. They come from the assumptions on the left, which you can change. Your real numbers will differ.
             </p>
           </div>
