@@ -92,12 +92,12 @@ export function FiveScreens() {
           {roles.map((r, i) => (
             <article key={i} className="bg-white p-5 sm:p-6 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-orange-200 transition-all text-center flex flex-col items-center justify-between h-full group">
               <div className="flex flex-col items-center w-full">
-                <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border border-slate-200/70 shadow-sm p-0.5 bg-white flex items-center justify-center mb-4 group-hover:scale-105 transition-transform flex-none">
+                <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden border border-slate-200/70 shadow-sm p-1 bg-white flex items-center justify-center mb-4 group-hover:scale-105 transition-transform flex-none">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={r.imgSrc}
                     alt={r.title}
-                    className="w-full h-full object-cover rounded-full"
+                    className="w-full h-full object-contain rounded-full"
                   />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold font-serif-heading text-slate-900 mb-2">{r.title}</h3>
@@ -113,9 +113,13 @@ export function FiveScreens() {
           ))}
         </div>
 
-        <p className="text-center text-sm sm:text-base text-slate-400 italic mt-10 pt-6 border-t border-slate-200/60 max-w-md mx-auto">
-          And all of it is yours to change.
-        </p>
+        {/* Centered bottom transition bar & text */}
+        <div className="mt-12 md:mt-16 text-center">
+          <div className="w-8 h-[2.5px] bg-[#f95722] rounded-full mx-auto mb-3" />
+          <p className="text-sm sm:text-base text-slate-400 italic font-serif-heading">
+            And all of it is yours to change.
+          </p>
+        </div>
       </div>
     </section>
   );
