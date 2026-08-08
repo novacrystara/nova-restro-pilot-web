@@ -341,71 +341,24 @@ export function ControlRows() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Sales Card */}
-            <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow text-center">
-              <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs">
-                <svg className="w-10 h-10" viewBox="0 0 32 32" fill="none">
-                  <rect x="7" y="19" width="2.5" height="7" rx="1" fill="#1e293b" />
-                  <rect x="12" y="15" width="2.5" height="11" rx="1" fill="#1e293b" />
-                  <rect x="17" y="17" width="2.5" height="9" rx="1" fill="#1e293b" />
-                  <rect x="22" y="12" width="2.5" height="14" rx="1" fill="#1e293b" />
-                  <path d="M6 18L12 12L17 15L25 7" stroke="#f95722" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M20 7H25V12" stroke="#f95722" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-1">Sales</h3>
-              <div className="w-6 h-[2px] bg-slate-200 mx-auto mb-3" />
+            <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+              <span className="text-3xl block mb-4" role="img" aria-label="Sales">📈</span>
+              <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-2">Sales</h3>
               <p className="text-sm text-slate-600 leading-relaxed">Revenue, order count, average spend, best-selling dishes, repeat guests.</p>
             </article>
-
-            {/* Tax Card */}
-            <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow text-center">
-              <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs">
-                <svg className="w-10 h-10" viewBox="0 0 32 32" fill="none">
-                  <path d="M9 5H21C22.1046 5 23 5.89543 23 7V17M9 5C7.89543 5 7 5.89543 7 7V25C7 26.1046 7.89543 27 9 27H18" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M11 10H17" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M11 14H15" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" />
-                  <rect x="17" y="16" width="9" height="10" rx="1.5" fill="white" stroke="#f95722" strokeWidth="1.8" />
-                  <rect x="19" y="18" width="5" height="1.8" fill="#f95722" />
-                  <circle cx="19.5" cy="22" r="0.7" fill="#f95722" />
-                  <circle cx="23.5" cy="22" r="0.7" fill="#f95722" />
-                  <circle cx="19.5" cy="24" r="0.7" fill="#f95722" />
-                  <circle cx="23.5" cy="24" r="0.7" fill="#f95722" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-1">Tax</h3>
-              <div className="w-6 h-[2px] bg-slate-200 mx-auto mb-3" />
+            <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+              <span className="text-3xl block mb-4" role="img" aria-label="Tax">🧾</span>
+              <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-2">Tax</h3>
               <p className="text-sm text-slate-600 leading-relaxed">Day-by-day net, tax and gross. Download it as a spreadsheet.</p>
             </article>
-
-            {/* Tips Card */}
-            <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow text-center">
-              <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/you_are_in_control/exact_tips_icon.png"
-                  alt="Tips icon"
-                  className="w-full h-full object-contain p-1.5"
-                />
-              </div>
-              <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-1">Tips</h3>
-              <div className="w-6 h-[2px] bg-slate-200 mx-auto mb-3" />
+            <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+              <span className="text-3xl block mb-4" role="img" aria-label="Tips">💷</span>
+              <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-2">Tips</h3>
               <p className="text-sm text-slate-600 leading-relaxed">A permanent record of how tips were shared, for every period.</p>
             </article>
-
-            {/* Rewards Card */}
-            <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md transition-shadow text-center">
-              <div className="w-20 h-20 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mx-auto mb-4 shadow-xs">
-                <svg className="w-10 h-10" viewBox="0 0 32 32" fill="none">
-                  <rect x="7" y="14" width="18" height="12" rx="1.5" stroke="#1e293b" strokeWidth="2" fill="white" />
-                  <path d="M5 10H27V14H5V10Z" fill="white" stroke="#1e293b" strokeWidth="2" strokeLinejoin="round" />
-                  <path d="M16 10V26" stroke="#f95722" strokeWidth="2" />
-                  <path d="M16 10C14 7.5 10 7.5 10 9C10 10.5 16 10 16 10Z" stroke="#f95722" strokeWidth="1.6" strokeLinecap="round" fill="none" />
-                  <path d="M16 10C18 7.5 22 7.5 22 9C22 10.5 16 10 16 10Z" stroke="#f95722" strokeWidth="1.6" strokeLinecap="round" fill="none" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-1">Rewards</h3>
-              <div className="w-6 h-[2px] bg-slate-200 mx-auto mb-3" />
+            <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+              <span className="text-3xl block mb-4" role="img" aria-label="Rewards">🎁</span>
+              <h3 className="text-xl font-bold font-serif-heading text-slate-900 mb-2">Rewards</h3>
               <p className="text-sm text-slate-600 leading-relaxed">Who your regulars are, what they earned, what they redeemed.</p>
             </article>
           </div>
