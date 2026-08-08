@@ -189,57 +189,59 @@ export function SevenStepsDetail() {
               3
             </span>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
               {/* Left side Content */}
-              <div className="lg:col-span-6 space-y-6">
-                <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f95722] mb-1">
-                  STEP THREE — ORDER
-                </div>
-
-                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold font-serif-heading text-slate-900 leading-[1.15] tracking-tight">
-                  Four people.
-                  <br />
-                  Four phones.
-                  <br />
-                  One bill<span className="text-[#f95722]">.</span>
-                </h2>
-
-                <p className="text-base sm:text-lg text-slate-500 leading-relaxed max-w-lg">
-                  One guest shares the table code. Everyone orders from their own phone. It all lands on one bill.
-                </p>
-
-                {/* 3 Checkmark Items */}
-                <div className="space-y-3 pt-1 max-w-lg">
-                  <div className="bg-white/90 border border-slate-100/90 shadow-sm rounded-2xl p-3.5 flex items-start gap-3.5">
-                    <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center flex-none mt-0.5">
-                      <span className="text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-slate-600 font-medium text-sm sm:text-[15px]">
-                      Nobody has to shout an order across the table.
-                    </span>
+              <div className="lg:col-span-6 flex flex-col justify-between h-full pt-1.5 space-y-4">
+                <div className="space-y-4">
+                  <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f95722] leading-none mb-1">
+                    STEP THREE — ORDER
                   </div>
 
-                  <div className="bg-white/90 border border-slate-100/90 shadow-sm rounded-2xl p-3.5 flex items-start gap-3.5">
-                    <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center flex-none mt-0.5">
-                      <span className="text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-slate-600 font-medium text-sm sm:text-[15px]">
-                      Everyone can add a second drink later, in one tap.
-                    </span>
-                  </div>
+                  <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold font-serif-heading text-slate-900 leading-[1.15] tracking-tight">
+                    Four people.
+                    <br />
+                    Four phones.
+                    <br />
+                    One bill<span className="text-[#f95722]">.</span>
+                  </h2>
 
-                  <div className="bg-white/90 border border-slate-100/90 shadow-sm rounded-2xl p-3.5 flex items-start gap-3.5">
-                    <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center flex-none mt-0.5">
-                      <span className="text-xs font-bold">✓</span>
+                  <p className="text-base sm:text-lg text-slate-500 leading-relaxed max-w-lg">
+                    One guest shares the table code. Everyone orders from their own phone. It all lands on one bill.
+                  </p>
+
+                  {/* 3 Checkmark Items */}
+                  <div className="space-y-3 pt-1 max-w-lg">
+                    <div className="bg-white/90 border border-slate-100/90 shadow-sm rounded-2xl p-3.5 flex items-start gap-3.5">
+                      <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center flex-none mt-0.5">
+                        <span className="text-xs font-bold">✓</span>
+                      </div>
+                      <span className="text-slate-600 font-medium text-sm sm:text-[15px]">
+                        Nobody has to shout an order across the table.
+                      </span>
                     </div>
-                    <span className="text-slate-600 font-medium text-sm sm:text-[15px]">
-                      Special requests — &quot;extra spicy, no coriander&quot; — reach the chef exactly as typed.
-                    </span>
+
+                    <div className="bg-white/90 border border-slate-100/90 shadow-sm rounded-2xl p-3.5 flex items-start gap-3.5">
+                      <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center flex-none mt-0.5">
+                        <span className="text-xs font-bold">✓</span>
+                      </div>
+                      <span className="text-slate-600 font-medium text-sm sm:text-[15px]">
+                        Everyone can add a second drink later, in one tap.
+                      </span>
+                    </div>
+
+                    <div className="bg-white/90 border border-slate-100/90 shadow-sm rounded-2xl p-3.5 flex items-start gap-3.5">
+                      <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center flex-none mt-0.5">
+                        <span className="text-xs font-bold">✓</span>
+                      </div>
+                      <span className="text-slate-600 font-medium text-sm sm:text-[15px]">
+                        Special requests — &quot;extra spicy, no coriander&quot; — reach the chef exactly as typed.
+                      </span>
+                    </div>
                   </div>
                 </div>
 
                 {/* Callout Box */}
-                <div className="bg-[#fff8f3] border border-orange-200/60 p-3.5 sm:p-4 rounded-2xl flex items-center gap-3 max-w-md shadow-xs">
+                <div className="bg-[#fff8f3] border border-orange-200/60 p-3.5 sm:p-4 rounded-2xl flex items-center gap-3 max-w-md shadow-xs mt-auto">
                   <div className="w-8 h-8 rounded-full bg-[#fff2e8] flex items-center justify-center flex-none text-[#f95722]">
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
@@ -252,13 +254,13 @@ export function SevenStepsDetail() {
               </div>
 
               {/* Right side Image */}
-              <div className="lg:col-span-6 flex justify-center">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 max-w-[460px] w-full">
+              <div className="lg:col-span-6 flex flex-col h-full">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full h-full flex-1 min-h-[400px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/The_real_problem/Four people four mobiles one bill.png"
                     alt="Four people four mobiles one bill"
-                    className="w-full h-auto object-cover rounded-3xl"
+                    className="w-full h-full object-cover object-top rounded-3xl"
                   />
                 </div>
               </div>
@@ -287,95 +289,97 @@ export function SevenStepsDetail() {
               4
             </span>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
               {/* Left side Image */}
-              <div className="lg:col-span-6 flex justify-center">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 max-w-[460px] w-full">
+              <div className="lg:col-span-6 flex flex-col h-full">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full h-full flex-1 min-h-[400px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/The_real_problem/Three checks before anything is cooked.png"
                     alt="Three checks before anything is cooked KDS display"
-                    className="w-full h-auto object-cover rounded-3xl"
+                    className="w-full h-full object-cover object-top rounded-3xl"
                   />
                 </div>
               </div>
 
               {/* Right side Content */}
-              <div className="lg:col-span-6 space-y-5 pt-1.5">
-                <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f95722] leading-none mb-1">
-                  STEP FOUR — CHECK
-                </div>
-
-                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold font-serif-heading text-slate-900 leading-[1.15] tracking-tight">
-                  Three checks before anything is cooked<span className="text-[#f95722]">.</span>
-                </h2>
-
-                <div className="space-y-0.5 text-base sm:text-[17px] text-slate-500 leading-relaxed">
-                  <p>This is the part most systems skip.</p>
-                  <p>It is the part that protects the restaurant.</p>
-                </div>
-
-                {/* 3 Cards Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-                  {/* Card 1 */}
-                  <div className="bg-white/90 p-4 rounded-2xl border border-slate-100/90 shadow-sm text-left flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center gap-3 mb-3.5">
-                        <div className="w-8 h-8 rounded-full bg-[#fff2e8] text-[#f95722] font-extrabold flex items-center justify-center text-sm">1</div>
-                        {/* 3D Isometric Box SVG */}
-                        <svg className="w-8 h-8 text-[#f95722]" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M16 3L4 9v12l12 6 12-6V9l-12-6z" />
-                          <path d="M16 15v12" />
-                          <path d="M4 9l12 6 12-6" />
-                          <path d="M10 6l12 6" />
-                          <path d="M8.5 14.5v3h4v-3" />
-                        </svg>
-                      </div>
-                      <h4 className="font-bold text-slate-900 text-sm mb-1">Is it available?</h4>
-                      <p className="text-xs text-slate-500 leading-snug">Sold-out dishes cannot be ordered.</p>
-                    </div>
+              <div className="lg:col-span-6 flex flex-col justify-between h-full pt-1.5 space-y-4">
+                <div className="space-y-4">
+                  <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f95722] leading-none mb-1">
+                    STEP FOUR — CHECK
                   </div>
 
-                  {/* Card 2 */}
-                  <div className="bg-white/90 p-4 rounded-2xl border border-slate-100/90 shadow-sm text-left flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center gap-3 mb-3.5">
-                        <div className="w-8 h-8 rounded-full bg-[#fff2e8] text-[#f95722] font-extrabold flex items-center justify-center text-sm">2</div>
-                        {/* Smartphone with Notch & QR Code */}
-                        <svg className="w-8 h-8 text-[#f95722]" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                          <rect x="7" y="2" width="18" height="28" rx="4" ry="4" />
-                          <path d="M13 5h6" strokeWidth="2" strokeLinecap="round" />
-                          <circle cx="16" cy="26" r="1" fill="currentColor" />
-                          <rect x="11" y="9" width="4" height="4" rx="0.5" strokeWidth="1.5" />
-                          <rect x="17" y="9" width="4" height="4" rx="0.5" strokeWidth="1.5" />
-                          <rect x="11" y="15" width="4" height="4" rx="0.5" strokeWidth="1.5" />
-                          <rect x="17" y="15" width="4" height="4" rx="0.5" fill="currentColor" />
-                        </svg>
-                      </div>
-                      <h4 className="font-bold text-slate-900 text-sm mb-1">Is the order real?</h4>
-                      <p className="text-xs text-slate-500 leading-snug">The guest confirms with a code sent to their phone.</p>
-                    </div>
+                  <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold font-serif-heading text-slate-900 leading-[1.15] tracking-tight">
+                    Three checks before anything is cooked<span className="text-[#f95722]">.</span>
+                  </h2>
+
+                  <div className="space-y-0.5 text-base sm:text-[17px] text-slate-500 leading-relaxed">
+                    <p>This is the part most systems skip.</p>
+                    <p>It is the part that protects the restaurant.</p>
                   </div>
 
-                  {/* Card 3 */}
-                  <div className="bg-white/90 p-4 rounded-2xl border border-slate-100/90 shadow-sm text-left flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center gap-3 mb-3.5">
-                        <div className="w-8 h-8 rounded-full bg-[#fff2e8] text-[#f95722] font-extrabold flex items-center justify-center text-sm">3</div>
-                        {/* Shield with Light Peach Fill & Checkmark */}
-                        <svg className="w-8 h-8 text-[#f95722]" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M16 29s11-5.5 11-14V7l-11-4-11 4v8c0 8.5 11 14 11 14z" fill="#fff2e8" />
-                          <path d="m11.5 15.5 3 3 6-6" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
+                  {/* 3 Cards Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                    {/* Card 1 */}
+                    <div className="bg-white/90 p-4 rounded-2xl border border-slate-100/90 shadow-sm text-left flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center gap-3 mb-3.5">
+                          <div className="w-8 h-8 rounded-full bg-[#fff2e8] text-[#f95722] font-extrabold flex items-center justify-center text-sm">1</div>
+                          {/* 3D Isometric Box SVG */}
+                          <svg className="w-8 h-8 text-[#f95722]" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M16 3L4 9v12l12 6 12-6V9l-12-6z" />
+                            <path d="M16 15v12" />
+                            <path d="M4 9l12 6 12-6" />
+                            <path d="M10 6l12 6" />
+                            <path d="M8.5 14.5v3h4v-3" />
+                          </svg>
+                        </div>
+                        <h4 className="font-bold text-slate-900 text-sm mb-1">Is it available?</h4>
+                        <p className="text-xs text-slate-500 leading-snug">Sold-out dishes cannot be ordered.</p>
                       </div>
-                      <h4 className="font-bold text-slate-900 text-sm mb-1">Any allergy?</h4>
-                      <p className="text-xs text-slate-500 leading-snug">If yes, the order is locked until the chef confirms they read it.</p>
+                    </div>
+
+                    {/* Card 2 */}
+                    <div className="bg-white/90 p-4 rounded-2xl border border-slate-100/90 shadow-sm text-left flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center gap-3 mb-3.5">
+                          <div className="w-8 h-8 rounded-full bg-[#fff2e8] text-[#f95722] font-extrabold flex items-center justify-center text-sm">2</div>
+                          {/* Smartphone with Notch & QR Code */}
+                          <svg className="w-8 h-8 text-[#f95722]" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <rect x="7" y="2" width="18" height="28" rx="4" ry="4" />
+                            <path d="M13 5h6" strokeWidth="2" strokeLinecap="round" />
+                            <circle cx="16" cy="26" r="1" fill="currentColor" />
+                            <rect x="11" y="9" width="4" height="4" rx="0.5" strokeWidth="1.5" />
+                            <rect x="17" y="9" width="4" height="4" rx="0.5" strokeWidth="1.5" />
+                            <rect x="11" y="15" width="4" height="4" rx="0.5" strokeWidth="1.5" />
+                            <rect x="17" y="15" width="4" height="4" rx="0.5" fill="currentColor" />
+                          </svg>
+                        </div>
+                        <h4 className="font-bold text-slate-900 text-sm mb-1">Is the order real?</h4>
+                        <p className="text-xs text-slate-500 leading-snug">The guest confirms with a code sent to their phone.</p>
+                      </div>
+                    </div>
+
+                    {/* Card 3 */}
+                    <div className="bg-white/90 p-4 rounded-2xl border border-slate-100/90 shadow-sm text-left flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center gap-3 mb-3.5">
+                          <div className="w-8 h-8 rounded-full bg-[#fff2e8] text-[#f95722] font-extrabold flex items-center justify-center text-sm">3</div>
+                          {/* Shield with Light Peach Fill & Checkmark */}
+                          <svg className="w-8 h-8 text-[#f95722]" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M16 29s11-5.5 11-14V7l-11-4-11 4v8c0 8.5 11 14 11 14z" fill="#fff2e8" />
+                            <path d="m11.5 15.5 3 3 6-6" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </div>
+                        <h4 className="font-bold text-slate-900 text-sm mb-1">Any allergy?</h4>
+                        <p className="text-xs text-slate-500 leading-snug">If yes, the order is locked until the chef confirms they read it.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Allergy Lock Banner with Left Red Accent Line */}
-                <div className="bg-[#fff5f5] border border-red-100 border-l-[3.5px] border-l-red-500 p-4 sm:p-5 rounded-2xl space-y-4 shadow-xs">
+                <div className="bg-[#fff5f5] border border-red-100 border-l-[3.5px] border-l-red-500 p-4 sm:p-5 rounded-2xl space-y-4 shadow-xs mt-auto">
                   <div className="flex items-start gap-3.5">
                     <div className="w-8 h-8 rounded-full bg-red-100/80 text-red-500 flex items-center justify-center flex-none mt-0.5">
                       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
