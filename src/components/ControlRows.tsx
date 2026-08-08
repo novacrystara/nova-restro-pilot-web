@@ -142,7 +142,7 @@ export function ControlRows() {
   return (
     <>
       {/* SEC 14 — YOU CONTROL EVERYTHING YOURSELF */}
-      <section className="pt-16 md:pt-24 pb-20 md:pb-28 bg-[#fdfbf9] border-t border-slate-100 relative overflow-x-hidden">
+      <section className="pt-4 md:pt-6 pb-16 md:pb-24 bg-[#fdfbf9] border-t border-slate-100 relative overflow-x-hidden">
         {/* Soft Background Restaurant Ambient Image Fade on Left */}
         <div className="absolute left-0 top-0 bottom-0 w-1/2 lg:w-5/12 pointer-events-none z-0 overflow-hidden opacity-30">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -164,8 +164,8 @@ export function ControlRows() {
 
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
           {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-            <div className="text-xs font-extrabold tracking-[0.2em] uppercase text-[#f95722] mb-3">
+          <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12">
+            <div className="text-xs font-extrabold tracking-[0.2em] uppercase text-[#f95722] mb-2">
               YOU&apos;RE IN CONTROL
             </div>
             <h2 className="text-4xl sm:text-5xl lg:text-[52px] font-bold font-serif-heading text-slate-900 leading-[1.12] tracking-tight">
@@ -173,7 +173,7 @@ export function ControlRows() {
               <br />
               No phone call to us<span className="text-[#f95722]">.</span>
             </h2>
-            <p className="text-base sm:text-lg text-slate-500 mt-4 leading-relaxed max-w-2xl mx-auto font-medium">
+            <p className="text-base sm:text-lg text-slate-500 mt-3.5 leading-relaxed max-w-2xl mx-auto font-medium">
               Every part of the system is yours to edit. Changes appear on every guest&apos;s phone straight away.
             </p>
           </div>
