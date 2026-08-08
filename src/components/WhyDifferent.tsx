@@ -79,9 +79,12 @@ export function WhyDifferent() {
           ))}
         </div>
 
-        <p className="text-center text-sm sm:text-base text-slate-400 italic mt-10 pt-6 border-t border-slate-100 max-w-md mx-auto">
-          All of that is the story. Now put your own numbers on it.
-        </p>
+        <div className="flex flex-col items-center mt-10 pt-6">
+          <div className="w-12 h-[3px] bg-orange-500 rounded-full mb-4" />
+          <p className="text-center text-sm sm:text-base text-slate-400 italic max-w-md">
+            All of that is the story. Now put your own numbers on it.
+          </p>
+        </div>
       </div>
     </section>
   );
