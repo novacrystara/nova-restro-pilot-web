@@ -444,53 +444,51 @@ export function SevenStepsDetail() {
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
               {/* Left side Content */}
-              <div className="lg:col-span-6 space-y-5 pt-1.5 flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f95722] leading-none mb-1">
-                    STEP FIVE — COOK
+              <div className="lg:col-span-6 space-y-4 pt-1.5">
+                <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f95722] leading-none mb-1">
+                  STEP FIVE — COOK
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold font-serif-heading text-slate-900 leading-[1.15] tracking-tight">
+                  On the kitchen screen in three seconds<span className="text-[#f95722]">.</span>
+                </h2>
+
+                <p className="text-base sm:text-lg text-slate-500 leading-relaxed max-w-lg">
+                  No paper. No handwriting. No guessing what the ticket says.
+                </p>
+
+                {/* 3 Checkmark Items */}
+                <div className="space-y-3 pt-1 max-w-lg">
+                  <div className="bg-white/90 border border-slate-100/90 shadow-sm rounded-2xl p-3.5 flex items-start gap-3.5">
+                    <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center flex-none mt-0.5">
+                      <span className="text-xs font-bold">✓</span>
+                    </div>
+                    <span className="text-slate-600 font-medium text-sm sm:text-[15px]">
+                      <strong className="font-bold text-slate-900">Drinks go to the bar. Food goes to the chef.</strong> Nobody scrolls past ten curries to find one drink.
+                    </span>
                   </div>
 
-                  <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold font-serif-heading text-slate-900 leading-[1.15] tracking-tight">
-                    On the kitchen screen in three seconds<span className="text-[#f95722]">.</span>
-                  </h2>
-
-                  <p className="text-base sm:text-lg text-slate-500 leading-relaxed max-w-lg">
-                    No paper. No handwriting. No guessing what the ticket says.
-                  </p>
-
-                  {/* 3 Checkmark Items */}
-                  <div className="space-y-3 pt-1 max-w-lg">
-                    <div className="bg-white/90 border border-slate-100/90 shadow-sm rounded-2xl p-3.5 flex items-start gap-3.5">
-                      <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center flex-none mt-0.5">
-                        <span className="text-xs font-bold">✓</span>
-                      </div>
-                      <span className="text-slate-600 font-medium text-sm sm:text-[15px]">
-                        <strong className="font-bold text-slate-900">Drinks go to the bar. Food goes to the chef.</strong> Nobody scrolls past ten curries to find one drink.
-                      </span>
+                  <div className="bg-white/90 border border-slate-100/90 shadow-sm rounded-2xl p-3.5 flex items-start gap-3.5">
+                    <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center flex-none mt-0.5">
+                      <span className="text-xs font-bold">✓</span>
                     </div>
+                    <span className="text-slate-600 font-medium text-sm sm:text-[15px]">
+                      <strong className="font-bold text-slate-900">Each dish is marked ready on its own</strong>, as it is plated.
+                    </span>
+                  </div>
 
-                    <div className="bg-white/90 border border-slate-100/90 shadow-sm rounded-2xl p-3.5 flex items-start gap-3.5">
-                      <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center flex-none mt-0.5">
-                        <span className="text-xs font-bold">✓</span>
-                      </div>
-                      <span className="text-slate-600 font-medium text-sm sm:text-[15px]">
-                        <strong className="font-bold text-slate-900">Each dish is marked ready on its own</strong>, as it is plated.
-                      </span>
+                  <div className="bg-white/90 border border-slate-100/90 shadow-sm rounded-2xl p-3.5 flex items-start gap-3.5">
+                    <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center flex-none mt-0.5">
+                      <span className="text-xs font-bold">✓</span>
                     </div>
-
-                    <div className="bg-white/90 border border-slate-100/90 shadow-sm rounded-2xl p-3.5 flex items-start gap-3.5">
-                      <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center flex-none mt-0.5">
-                        <span className="text-xs font-bold">✓</span>
-                      </div>
-                      <span className="text-slate-600 font-medium text-sm sm:text-[15px]">
-                        <strong className="font-bold text-slate-900">An order waiting too long turns red and beeps.</strong> Silence it for one hour, it comes back by itself.
-                      </span>
-                    </div>
+                    <span className="text-slate-600 font-medium text-sm sm:text-[15px]">
+                      <strong className="font-bold text-slate-900">An order waiting too long turns red and beeps.</strong> Silence it for one hour, it comes back by itself.
+                    </span>
                   </div>
                 </div>
 
                 {/* 3 Pill Feature Box */}
-                <div className="bg-[#fff7f2] border border-orange-200/60 p-4 sm:p-5 rounded-2xl flex items-center justify-between gap-2 max-w-lg shadow-2xs mt-4">
+                <div className="bg-[#fff7f2] border border-orange-200/60 p-4 sm:p-5 rounded-2xl flex items-center justify-between gap-2 max-w-lg shadow-2xs">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-orange-200/60 text-[#f95722] flex items-center justify-center flex-none shadow-2xs">
                       <svg className="w-5 h-5 text-[#f95722]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -534,14 +532,14 @@ export function SevenStepsDetail() {
                 </div>
               </div>
 
-              {/* Right side Image (Same top and bottom line height alignment) */}
+              {/* Right side Image */}
               <div className="lg:col-span-6 flex justify-center">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[520px] lg:max-w-none h-[490px] sm:h-[515px] lg:h-[530px]">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[500px] h-[460px] sm:h-[480px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/The_real_problem/step_5.png"
                     alt="On the kitchen screen in three seconds KDS"
-                    className="w-full h-full object-cover object-center rounded-3xl"
+                    className="w-full h-full object-cover object-top rounded-3xl"
                   />
                 </div>
               </div>
@@ -573,19 +571,19 @@ export function SevenStepsDetail() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
               {/* Left side Image */}
               <div className="lg:col-span-6 flex flex-col items-center">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[520px] lg:max-w-none h-[490px] sm:h-[515px] lg:h-[530px]">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[500px] h-[460px] sm:h-[485px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/The_real_problem/step_6.png"
                     alt="The bread goes out hot waiter display"
-                    className="w-full h-full object-cover object-center rounded-3xl"
+                    className="w-full h-full object-cover object-top rounded-3xl"
                   />
                 </div>
-                <p className="text-xs text-slate-400 italic mt-3 text-center">What is ready to carry out, right now</p>
+                <p className="text-xs text-slate-400 italic mt-2.5 text-center">What is ready to carry out, right now</p>
               </div>
 
               {/* Right side Content */}
-              <div className="lg:col-span-6 space-y-5 pt-1.5">
+              <div className="lg:col-span-6 space-y-4 pt-1.5">
                 <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f95722] leading-none mb-1">
                   STEP SIX — SERVE
                 </div>
@@ -671,7 +669,7 @@ export function SevenStepsDetail() {
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
               {/* Left side Content */}
-              <div className="lg:col-span-6 space-y-5 pt-1.5">
+              <div className="lg:col-span-6 space-y-4 pt-1.5">
                 <div className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f95722] leading-none mb-1">
                   STEP SEVEN — PAY
                 </div>
@@ -732,17 +730,17 @@ export function SevenStepsDetail() {
                 </div>
               </div>
 
-              {/* Right side Image (Same top and bottom line height alignment) */}
+              {/* Right side Image */}
               <div className="lg:col-span-6 flex flex-col items-center">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[520px] lg:max-w-none h-[490px] sm:h-[515px] lg:h-[530px]">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[500px] h-[520px] sm:h-[545px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/The_real_problem/step_7.png"
                     alt="Fifteen minutes becomes ninety seconds mobile pay screens"
-                    className="w-full h-full object-cover object-center rounded-3xl"
+                    className="w-full h-full object-cover object-top rounded-3xl"
                   />
                 </div>
-                <p className="text-xs text-slate-400 italic mt-3 text-center">Split, tip and pay, without waiting</p>
+                <p className="text-xs text-slate-400 italic mt-2.5 text-center">Split, tip and pay, without waiting</p>
               </div>
             </div>
 
