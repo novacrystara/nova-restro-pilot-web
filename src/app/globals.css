@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────────────────────────────────────
+   DESIGN TOKENS
+───────────────────────────────────────────────────────────────────────────── */
 @theme {
   --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-serif: var(--font-serif), "Playfair Display", Georgia, serif;
@@ -9,8 +12,17 @@
   --color-ink: #0f172a;
   --color-ink-soft: #475569;
   --color-ink-light: #94a3b8;
+
+  /* Scroll animation timing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-apple: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --reveal-duration: 0.75s;
+  --reveal-stagger: 0.1s;
 }
 
+/* ─────────────────────────────────────────────────────────────────────────────
+   BASE RESET & SCROLL
+───────────────────────────────────────────────────────────────────────────── */
 @layer base {
 
   *,
@@ -21,8 +33,11 @@
 
   html {
     -webkit-text-size-adjust: 100%;
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth is REMOVED — Lenis controls this */
+    scroll-behavior: auto;
     overflow-x: hidden;
+    /* Use dvh for correct mobile viewport */
+    min-height: 100dvh;
   }
 
   body {
@@ -35,31 +50,250 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: transparent;
-    -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
+    min-height: 100dvh;
+
+    /* GPU composite layer for the scroll root */
+    will-change: scroll-position;
+
+    /* Prevent overscroll bounce on mobile Chrome */
+    overscroll-behavior: none;
   }
 
-  h1,
-  h2,
-  h3,
-  h4 {
+  /* Overscroll bounce: allow on iOS Safari (feels natural), block on Chrome */
+  @supports (-webkit-overflow-scrolling: touch) {
+    body {
+      overscroll-behavior: auto;
+    }
+  }
+
+  h1, h2, h3, h4 {
     color: #0f172a;
     margin: 0;
     line-height: 1.12;
     letter-spacing: -0.03em;
   }
+
+  /* Smooth focus ring — doesn't fight smooth scroll */
+  :focus-visible {
+    outline: 2px solid #ea580c;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
 }
 
-/* Custom Tailwind Utility Helper for Playfair Display Serif Headings */
+/* ─────────────────────────────────────────────────────────────────────────────
+   GPU ACCELERATION UTILITIES
+   Use transform + opacity ONLY — never animate top/left/width/height.
+───────────────────────────────────────────────────────────────────────────── */
+.transform-gpu {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, opacity;
+}
+
+/* Stacking context isolation — prevents filter/opacity layer bleed */
+.isolate-gpu {
+  isolation: isolate;
+  contain: layout style;
+}
+
+/* Applied to sections that are heavy compositors (hero images, parallax) */
+.composite-layer {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SCROLL REVEAL — FADE UP SYSTEM
+   Works with ScrollReveal.tsx IntersectionObserver.
+   .rise = the class applied to elements.
+   .rise.in = the visible state (added by JS).
+   Staggered children use data-delay attribute or --stagger CSS var.
+───────────────────────────────────────────────────────────────────────────── */
+.rise {
+  opacity: 0;
+  transform: translate3d(0, 32px, 0);
+  transition:
+    opacity var(--reveal-duration) var(--ease-out-expo),
+    transform var(--reveal-duration) var(--ease-out-expo);
+  /* Promote to own layer to avoid layout recalc during transition */
+  will-change: opacity, transform;
+}
+
+.rise.in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Stagger delays for card groups */
+.rise[data-delay="1"] { transition-delay: 0.05s; }
+.rise[data-delay="2"] { transition-delay: 0.10s; }
+.rise[data-delay="3"] { transition-delay: 0.15s; }
+.rise[data-delay="4"] { transition-delay: 0.20s; }
+.rise[data-delay="5"] { transition-delay: 0.25s; }
+.rise[data-delay="6"] { transition-delay: 0.30s; }
+.rise[data-delay="7"] { transition-delay: 0.35s; }
+
+/* Fade-only variant (no vertical movement) */
+.fade {
+  opacity: 0;
+  transition: opacity var(--reveal-duration) var(--ease-out-expo);
+  will-change: opacity;
+}
+
+.fade.in {
+  opacity: 1;
+}
+
+/* Rise from the left */
+.rise-left {
+  opacity: 0;
+  transform: translate3d(-28px, 0, 0);
+  transition:
+    opacity var(--reveal-duration) var(--ease-out-expo),
+    transform var(--reveal-duration) var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.rise-left.in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Rise from the right */
+.rise-right {
+  opacity: 0;
+  transform: translate3d(28px, 0, 0);
+  transition:
+    opacity var(--reveal-duration) var(--ease-out-expo),
+    transform var(--reveal-duration) var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.rise-right.in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Scale-up variant (for cards, icons) */
+.scale-in {
+  opacity: 0;
+  transform: scale3d(0.94, 0.94, 1);
+  transition:
+    opacity var(--reveal-duration) var(--ease-out-expo),
+    transform var(--reveal-duration) var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.scale-in.in {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PARALLAX — very subtle, GPU-only
+   Driven by JS via CSS custom properties. The element reads --parallax-y.
+───────────────────────────────────────────────────────────────────────────── */
+.parallax {
+  transform: translate3d(0, var(--parallax-y, 0px), 0);
+  will-change: transform;
+  transition: transform 0ms linear; /* Keeps it synchronised with scroll */
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SECTION PERFORMANCE CONTAINMENT
+   Applied to large, independent sections to limit browser layout recalc scope.
+───────────────────────────────────────────────────────────────────────────── */
+section {
+  contain: layout style;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   IMAGES — prevent layout shift, GPU decode
+───────────────────────────────────────────────────────────────────────────── */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  /* Prevent CLS on images without explicit dimensions */
+  content-visibility: auto;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   MOBILE VIEWPORT FIX
+   100dvh accounts for collapsing browser chrome on iOS Safari.
+───────────────────────────────────────────────────────────────────────────── */
+.min-h-screen {
+  min-height: 100dvh;
+}
+
+.h-screen {
+  height: 100dvh;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   STICKY ELEMENT ANTI-FLICKER
+   Sticky elements can flicker during Lenis scroll. Promote to GPU layer.
+───────────────────────────────────────────────────────────────────────────── */
+[style*="position: sticky"],
+.sticky {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SCROLLBAR STYLING
+   Thin, minimal scrollbar that doesn't fight Lenis.
+───────────────────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   REDUCED MOTION OVERRIDES
+   When user prefers-reduced-motion, disable ALL animations/transitions.
+───────────────────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Immediately reveal all .rise elements — no need for JS to add .in */
+  .rise,
+  .rise-left,
+  .rise-right,
+  .scale-in,
+  .fade {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   CUSTOM TAILWIND UTILITIES
+───────────────────────────────────────────────────────────────────────────── */
 .font-serif-heading {
   font-family: var(--font-serif), "Playfair Display", Georgia, serif !important;
   font-weight: 700;
   letter-spacing: -0.025em;
-}
-
-/* Apple iOS GPU acceleration helper */
-.transform-gpu {
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  will-change: transform, opacity;
 }

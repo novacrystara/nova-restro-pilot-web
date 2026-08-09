@@ -30,8 +30,8 @@ export default function Home() {
         <ControlRows />
         <WhyDifferent />
         <RoiCalculator />
-        <FaqSection />
         <DemoCta />
+        <FaqSection />
       </main>
 
       <Footer />

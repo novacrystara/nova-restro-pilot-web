@@ -55,7 +55,7 @@ export function WhyDifferent() {
   return (
     <section className="py-12 md:py-16 bg-white border-t border-slate-100">
       <div className="max-w-[1160px] mx-auto px-4 sm:px-6">
-        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12 rise">
           <div className="text-xs font-bold tracking-[0.18em] uppercase text-orange-600 mb-3">WHY NOVA RESTRO</div>
           <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold font-serif-heading text-slate-900 tracking-tight">
             Four things other systems do not do<span className="text-orange-600">.</span>
@@ -64,7 +64,7 @@ export function WhyDifferent() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {items.map((item, i) => (
-            <article key={i} className="relative bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-orange-200 transition-all">
+            <article key={i} className="relative bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-orange-200 transition-all rise" data-delay={String(i + 1)}>
               <div className="flex items-start justify-between gap-4 mb-3">
                 <div className="flex items-start gap-4">
                   <span className="text-2xl font-extrabold text-orange-600 leading-none mt-1">{item.num}</span>

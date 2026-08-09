@@ -4,7 +4,7 @@ export function Overview() {
   return (
     <section className="py-12 md:py-16 bg-[#faf8f5]/60 border-t border-slate-100" id="overview">
       <div className="max-w-[1160px] mx-auto px-4 sm:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12 rise">
           {/* Orange top accent dash */}
           <div className="w-8 h-[2.5px] bg-orange-600 rounded-full mx-auto mb-3" />
 
@@ -32,7 +32,7 @@ export function Overview() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {/* Card 1: For your guests */}
-          <article className="bg-white/90 p-8 sm:p-10 rounded-[28px] border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all flex flex-col justify-between group cursor-pointer min-h-[380px] relative">
+          <article className="bg-white/90 p-8 sm:p-10 rounded-[28px] border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all flex flex-col justify-between group cursor-pointer min-h-[380px] relative scale-in" data-delay="1">
             <div>
               {/* Round Circle Icon Container with Soft Orange Glow */}
               <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-b from-[#fffaf4] to-[#fbf5eb] flex items-center justify-center mb-6 border border-amber-100/80 shadow-[0_10px_25px_-5px_rgba(234,88,12,0.15)] group-hover:scale-105 transition-transform">
@@ -53,7 +53,7 @@ export function Overview() {
           </article>
 
           {/* Card 2: For your team (Middle Card with Soft Warm Tint Background matching Reference Image) */}
-          <article className="bg-gradient-to-b from-[#fffbf7] via-white to-white p-8 sm:p-10 rounded-[28px] border border-orange-100/90 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all flex flex-col justify-between group cursor-pointer min-h-[380px] relative">
+          <article className="bg-gradient-to-b from-[#fffbf7] via-white to-white p-8 sm:p-10 rounded-[28px] border border-orange-100/90 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all flex flex-col justify-between group cursor-pointer min-h-[380px] relative scale-in" data-delay="2">
             <div>
               {/* Round Circle Icon Container with Soft Orange Glow */}
               <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-b from-[#fffaf4] to-[#fbf5eb] flex items-center justify-center mb-6 border border-amber-100/80 shadow-[0_10px_25px_-5px_rgba(234,88,12,0.15)] group-hover:scale-105 transition-transform">
@@ -74,7 +74,7 @@ export function Overview() {
           </article>
 
           {/* Card 3: For you */}
-          <article className="bg-white/90 p-8 sm:p-10 rounded-[28px] border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all flex flex-col justify-between group cursor-pointer min-h-[380px] relative">
+          <article className="bg-white/90 p-8 sm:p-10 rounded-[28px] border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all flex flex-col justify-between group cursor-pointer min-h-[380px] relative scale-in" data-delay="3">
             <div>
               {/* Round Circle Icon Container with Soft Orange Glow */}
               <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-b from-[#fffaf4] to-[#fbf5eb] flex items-center justify-center mb-6 border border-amber-100/80 shadow-[0_10px_25px_-5px_rgba(234,88,12,0.15)] group-hover:scale-105 transition-transform">
@@ -95,7 +95,7 @@ export function Overview() {
           </article>
         </div>
 
-        <p className="text-center text-sm sm:text-base text-slate-400 italic mt-12 pt-6 border-t border-slate-100 max-w-md mx-auto">
+        <p className="text-center text-sm sm:text-base text-slate-400 italic mt-12 pt-6 border-t border-slate-100 max-w-md mx-auto rise">
           To see why this matters, look at a{" "}
           <span className="text-orange-600 font-bold not-italic">busy night</span>{" "}
           without it.

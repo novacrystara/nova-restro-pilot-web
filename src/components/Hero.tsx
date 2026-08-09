@@ -20,7 +20,7 @@ export function Hero() {
       <div className="relative z-2 max-w-[1160px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-[280px] xs:max-w-xs sm:max-w-xl lg:max-w-2xl">
           {/* Serif Headline matching 'One system for the whole restaurant' font typography */}
-          <h1 className="text-[28px] xs:text-[34px] sm:text-5xl lg:text-[62px] font-serif-heading text-slate-900 leading-[1.08] tracking-tight">
+          <h1 className="text-[28px] xs:text-[34px] sm:text-5xl lg:text-[62px] font-serif-heading text-slate-900 leading-[1.08] tracking-tight rise">
             Your table
             <br />
             takes the
@@ -29,7 +29,7 @@ export function Hero() {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xs sm:text-lg lg:text-xl text-slate-700 font-medium mt-3 sm:mt-5 leading-relaxed">
+          <p className="text-xs sm:text-lg lg:text-xl text-slate-700 font-medium mt-3 sm:mt-5 leading-relaxed rise" data-delay="1">
             A guest sits down, scans the code on the table,
             <br className="hidden sm:inline" />
             and orders from their own phone.
@@ -38,7 +38,7 @@ export function Hero() {
           </p>
 
           {/* CTA Action Buttons */}
-          <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 mt-5 sm:mt-8">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 mt-5 sm:mt-8 rise" data-delay="2">
             <a
               className="inline-flex items-center justify-center min-h-[44px] sm:min-h-[48px] px-6 sm:px-8 rounded-full bg-[#ea580c] hover:bg-[#c2410c] !text-white text-xs sm:text-base font-semibold transition-all transform-gpu hover:-translate-y-0.5 shadow-lg shadow-orange-600/35 active:scale-95"
               href="#see-it"
@@ -54,7 +54,7 @@ export function Hero() {
           </div>
 
           {/* Feature Badge Chips */}
-          <div className="flex flex-wrap items-center gap-x-3 sm:gap-x-6 gap-y-2 mt-5 sm:mt-8 text-[11px] sm:text-base font-medium text-slate-700">
+          <div className="flex flex-wrap items-center gap-x-3 sm:gap-x-6 gap-y-2 mt-5 sm:mt-8 text-[11px] sm:text-base font-medium text-slate-700 rise" data-delay="3">
             <span className="inline-flex items-center gap-1 sm:gap-2">
               <span className="text-emerald-600 font-extrabold text-xs sm:text-base">✓</span> No app to download
             </span>

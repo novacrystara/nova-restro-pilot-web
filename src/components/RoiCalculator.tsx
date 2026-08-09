@@ -270,7 +270,7 @@ export function RoiCalculator() {
             <details className="pt-4 border-t border-slate-100 group">
               <summary className="text-sm font-semibold text-slate-900 cursor-pointer select-none group-open:mb-4 flex items-center justify-between">
                 Change our assumptions
-                <svg className="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                <svg className="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg>
               </summary>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                 <div>
@@ -293,23 +293,23 @@ export function RoiCalculator() {
             </details>
           </div>
 
-          {/* RIGHT CARD — THE ANSWER */}
-          <div className="bg-[#07132B] text-white p-7 rounded-3xl shadow-xl flex flex-col justify-between space-y-6 relative overflow-hidden">
+          {/* RIGHT CARD — THE ANSWER (WHITE CARD) */}
+          <div className="bg-white text-slate-900 p-7 rounded-3xl border border-slate-200/80 shadow-md flex flex-col justify-between space-y-6 relative overflow-hidden">
             {/* Orange top accent border */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-orange-500" />
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-orange-600" />
 
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-orange-500 mb-3">Estimated value, every month</p>
-              <p className="text-5xl sm:text-6xl font-black text-white tracking-tight leading-none">{money(displayTotal)}</p>
-              <p className="text-sm text-slate-300 mt-3">
-                That is about <strong className="text-white font-bold">{money(displayYear)}</strong> a year.
+              <p className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-3">Estimated value, every month</p>
+              <p className="text-5xl sm:text-6xl font-black text-slate-900 tracking-tight leading-none">{money(displayTotal)}</p>
+              <p className="text-sm text-slate-600 mt-3">
+                That is about <strong className="text-slate-900 font-bold">{money(displayYear)}</strong> a year.
               </p>
             </div>
 
             {/* Two equal stat sub-cards */}
             <div className="grid grid-cols-2 gap-3">
-              <div className="bg-white rounded-2xl p-4 sm:p-5 text-center flex flex-col items-center">
-                <div className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center mb-2">
+              <div className="bg-slate-50/80 border border-slate-200/70 rounded-2xl p-4 sm:p-5 text-center flex flex-col items-center">
+                <div className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-2xs flex items-center justify-center mb-2">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
                     <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="#f95722" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
@@ -317,8 +317,8 @@ export function RoiCalculator() {
                 <p className="text-lg sm:text-xl font-extrabold text-slate-900">{money(displayMoney)}</p>
                 <p className="text-[11px] text-slate-500 mt-1 leading-snug">Extra money coming in</p>
               </div>
-              <div className="bg-white rounded-2xl p-4 sm:p-5 text-center flex flex-col items-center">
-                <div className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center mb-2">
+              <div className="bg-slate-50/80 border border-slate-200/70 rounded-2xl p-4 sm:p-5 text-center flex flex-col items-center">
+                <div className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-2xs flex items-center justify-center mb-2">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
                     <circle cx="12" cy="12" r="10" stroke="#f95722" strokeWidth="2" />
                     <path d="M12 6v6l4 2" stroke="#f95722" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -339,39 +339,200 @@ export function RoiCalculator() {
 
         {/* WHERE THE MONEY COMES FROM */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-          <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-sm">
-            <span className="text-3xl block mb-3" role="img" aria-label="Timer">⏱️</span>
-            <h3 className="text-lg font-bold font-serif-heading text-slate-900">Waiter time given back</h3>
-            <p className="text-2xl font-black text-orange-600 my-2">{money(displayBdTime)}</p>
-            <p className="text-xs text-slate-600 leading-relaxed">Ten minutes of staff time per order, no longer spent writing orders down.</p>
+          {/* Card 1: Waiter time given back */}
+          <article className="bg-white p-6 sm:p-7 rounded-[28px] border border-slate-200/80 shadow-sm text-center flex flex-col items-center justify-between h-full group hover:shadow-md transition-shadow">
+            <div className="flex flex-col items-center w-full">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-slate-50/80 border border-slate-200/60 shadow-2xs flex items-center justify-center mb-5 p-3.5 group-hover:scale-105 transition-transform">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/icons_2/user profile 2.png"
+                  alt="Waiter time given back icon"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold font-serif-heading text-slate-900 mb-2 leading-snug">
+                Waiter time<br />given back
+              </h3>
+              <p className="text-2xl font-black text-[#f95722] mb-3">{money(displayBdTime)}</p>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-[220px] mx-auto">
+                Ten minutes of staff time per order, no longer spent writing orders down and walking to the kitchen.
+              </p>
+            </div>
           </article>
 
-          <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-sm">
-            <span className="text-3xl block mb-3" role="img" aria-label="Check">✅</span>
-            <h3 className="text-lg font-bold font-serif-heading text-slate-900">Fewer wrong orders</h3>
-            <p className="text-2xl font-black text-orange-600 my-2">{money(displayBdRefund)}</p>
-            <p className="text-xs text-slate-600 leading-relaxed">Digital tickets cannot be misread. We remove most write-offs.</p>
+          {/* Card 2: Fewer wrong orders */}
+          <article className="bg-white p-6 sm:p-7 rounded-[28px] border border-slate-200/80 shadow-sm text-center flex flex-col items-center justify-between h-full group hover:shadow-md transition-shadow">
+            <div className="flex flex-col items-center w-full">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-slate-50/80 border border-slate-200/60 shadow-2xs flex items-center justify-center mb-5 p-3.5 group-hover:scale-105 transition-transform">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/icons_2/checkbox.png"
+                  alt="Fewer wrong orders icon"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold font-serif-heading text-slate-900 mb-2 leading-snug">
+                Fewer wrong<br />orders
+              </h3>
+              <p className="text-2xl font-black text-[#16a34a] mb-3">{money(displayBdRefund)}</p>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-[220px] mx-auto">
+                Digital tickets cannot be misread. We remove most of the money you currently write off for mistakes.
+              </p>
+            </div>
           </article>
 
-          <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-sm">
-            <span className="text-3xl block mb-3" role="img" aria-label="Robot">🤖</span>
-            <h3 className="text-lg font-bold font-serif-heading text-slate-900">Bigger orders</h3>
-            <p className="text-2xl font-black text-orange-600 my-2">{money(displayBdAi)}</p>
-            <p className="text-xs text-slate-600 leading-relaxed">Guests asking the menu questions order more sides, drinks and dessert.</p>
+          {/* Card 3: Bigger orders */}
+          <article className="bg-white p-6 sm:p-7 rounded-[28px] border border-slate-200/80 shadow-sm text-center flex flex-col items-center justify-between h-full group hover:shadow-md transition-shadow">
+            <div className="flex flex-col items-center w-full">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-slate-50/80 border border-slate-200/60 shadow-2xs flex items-center justify-center mb-5 p-3.5 group-hover:scale-105 transition-transform">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/icons_2/growth chart 2.png"
+                  alt="Bigger orders icon"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold font-serif-heading text-slate-900 mb-2 leading-snug">
+                Bigger orders
+              </h3>
+              <p className="text-2xl font-black text-[#2563eb] mb-3">{money(displayBdAi)}</p>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-[220px] mx-auto">
+                Guests who can ask the menu their own questions order more sides, more drinks and more dessert.
+              </p>
+            </div>
           </article>
 
-          <article className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-sm">
-            <span className="text-3xl block mb-3" role="img" aria-label="Gift">🎁</span>
-            <h3 className="text-lg font-bold font-serif-heading text-slate-900">Guests who come back</h3>
-            <p className="text-2xl font-black text-orange-600 my-2">{money(displayBdLoyal)}</p>
-            <p className="text-xs text-slate-600 leading-relaxed">Loyalty points turn new guests into regulars who return.</p>
+          {/* Card 4: Guests who come back */}
+          <article className="bg-white p-6 sm:p-7 rounded-[28px] border border-slate-200/80 shadow-sm text-center flex flex-col items-center justify-between h-full group hover:shadow-md transition-shadow">
+            <div className="flex flex-col items-center w-full">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-slate-50/80 border border-slate-200/60 shadow-2xs flex items-center justify-center mb-5 p-3.5 group-hover:scale-105 transition-transform">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/icons_2/gift.png"
+                  alt="Guests who come back icon"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold font-serif-heading text-slate-900 mb-2 leading-snug">
+                Guests who<br />come back
+              </h3>
+              <p className="text-2xl font-black text-[#f95722] mb-3">{money(displayBdLoyal)}</p>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-[220px] mx-auto">
+                Loyalty points turn a slice of your new guests into regulars, and a regular comes back again.
+              </p>
+            </div>
           </article>
         </div>
 
         {/* GREEN NOTE */}
-        <div className="bg-emerald-50 border-l-4 border-emerald-600 p-5 rounded-r-2xl text-slate-900 text-base max-w-4xl mx-auto mt-8 shadow-sm">
-          <strong className="text-emerald-900 font-bold">😊 And one thing we will not put a number on.</strong> Your team stops writing orders down and chasing the kitchen. They spend that time with your guests instead. Better service, better reviews, better regulars.
+        <div className="bg-emerald-50/80 border-l-4 border-emerald-600 p-5 sm:p-6 rounded-r-2xl text-slate-900 text-sm sm:text-base max-w-4xl mx-auto mt-8 shadow-2xs">
+          <strong className="text-emerald-950 font-bold">🤩 And one thing we will not put a number on.</strong> Your team stops writing orders down and chasing the kitchen. They spend that time with your guests instead. Better service, better reviews, better regulars — that is real, but we are not going to invent a figure for it.
         </div>
+
+        {/* HOW WE WORKED THIS OUT - COLLAPSIBLE ACCORDION */}
+        <details className="bg-white rounded-3xl border border-slate-200/80 shadow-sm max-w-4xl mx-auto mt-5 group overflow-hidden transition-all">
+          <summary className="p-4 sm:p-5 flex items-center justify-between cursor-pointer select-none list-none hover:bg-slate-50/50 transition-colors">
+            <div className="flex items-center gap-3.5 sm:gap-4">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-100/80 border border-slate-200/60 flex items-center justify-center text-slate-700 flex-none shadow-2xs">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                  <line x1="10" y1="9" x2="8" y2="9"/>
+                </svg>
+              </div>
+              <div className="text-left">
+                <h3 className="font-bold text-slate-900 text-sm sm:text-base">How we worked this out</h3>
+                <p className="text-xs sm:text-sm text-slate-500 mt-0.5">Open the detail behind these numbers.</p>
+              </div>
+            </div>
+            <div className="w-8 h-8 rounded-full flex items-center justify-center text-slate-400 group-open:rotate-180 transition-transform">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </div>
+          </summary>
+
+          <div className="px-5 sm:px-6 pb-6 pt-2 border-t border-slate-100 text-xs sm:text-sm text-slate-700 space-y-4">
+            <div className="divide-y divide-slate-100">
+              {/* Header section */}
+              <div className="py-2.5 bg-slate-50/80 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-slate-500 mb-2 mt-2">
+                Starting from your numbers
+              </div>
+              <div className="py-2.5 px-4 flex items-center justify-between">
+                <span className="text-slate-600">Orders a month</span>
+                <span className="font-bold text-slate-900">{count(model.mOrders)}</span>
+              </div>
+              <div className="py-2.5 px-4 flex items-center justify-between">
+                <span className="text-slate-600">Revenue a month</span>
+                <span className="font-bold text-slate-900">{money(model.mRev)}</span>
+              </div>
+
+              {/* Step 1 */}
+              <div className="py-2.5 bg-slate-50/80 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-slate-500 mb-2 mt-4">
+                1 · Waiter time given back
+              </div>
+              <div className="py-2.5 px-4 flex items-center justify-between">
+                <span className="text-slate-600">{count(model.mOrders)} orders × {mins} minutes</span>
+                <span className="font-bold text-slate-900">{hoursFmt(model.hrs)}</span>
+              </div>
+              <div className="py-2.5 px-4 flex items-center justify-between">
+                <span className="text-slate-600">{hoursFmt(model.hrs)} × {money(wage)} an hour</span>
+                <span className="font-bold text-[#f95722]">{money(model.timeVal)}</span>
+              </div>
+
+              {/* Step 2 */}
+              <div className="py-2.5 bg-slate-50/80 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-slate-500 mb-2 mt-4">
+                2 · Fewer wrong orders
+              </div>
+              <div className="py-2.5 px-4 flex items-center justify-between">
+                <span className="text-slate-600">Written off today — {pct(loss)} of {money(model.mRev)}</span>
+                <span className="font-bold text-slate-900">{money(model.writeOff)}</span>
+              </div>
+              <div className="py-2.5 px-4 flex items-center justify-between">
+                <span className="text-slate-600">We remove {pct(recov)} of that</span>
+                <span className="font-bold text-[#16a34a]">{money(model.recovered)}</span>
+              </div>
+
+              {/* Step 3 */}
+              <div className="py-2.5 bg-slate-50/80 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-slate-500 mb-2 mt-4">
+                3 · Bigger orders
+              </div>
+              <div className="py-2.5 px-4 flex items-center justify-between">
+                <span className="text-slate-600">{pct(ai)} more on {money(model.mRev)}</span>
+                <span className="font-bold text-[#2563eb]">{money(model.uplift)}</span>
+              </div>
+
+              {/* Step 4 */}
+              <div className="py-2.5 bg-slate-50/80 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-slate-500 mb-2 mt-4">
+                4 · Guests who come back
+              </div>
+              <div className="py-2.5 px-4 flex items-center justify-between">
+                <span className="text-slate-600">New guests a month — {pct(newg)} of {count(model.mOrders)} orders</span>
+                <span className="font-bold text-slate-900">{count(model.newG)}</span>
+              </div>
+              <div className="py-2.5 px-4 flex items-center justify-between">
+                <span className="text-slate-600">Who become regulars — {pct(rep)} of those</span>
+                <span className="font-bold text-slate-900">{count(model.newReg)}</span>
+              </div>
+              <div className="py-2.5 px-4 flex items-center justify-between">
+                <span className="text-slate-600">One more visit each, at {money(value)}</span>
+                <span className="font-bold text-[#f95722]">{money(model.loyalty)}</span>
+              </div>
+
+              {/* Total row */}
+              <div className="py-3.5 px-4 bg-orange-50/60 border border-orange-100 rounded-xl flex items-center justify-between mt-4">
+                <span className="font-bold text-slate-900 text-sm sm:text-base">Total value a month</span>
+                <span className="font-black text-[#f95722] text-lg sm:text-xl">{money(model.total)}</span>
+              </div>
+            </div>
+
+            <p className="text-xs text-slate-500 pt-2 leading-relaxed">
+              Waiter time is counted at what that time costs you. It is time handed back to your floor, not staff you have to let go. Everything else is money.
+            </p>
+          </div>
+        </details>
 
         <p className="text-center text-sm sm:text-base text-slate-400 italic mt-10 pt-6 border-t border-slate-200/60 max-w-md mx-auto">
           Here are the questions we are asked most.
