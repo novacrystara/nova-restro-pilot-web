@@ -180,7 +180,7 @@ export function RoiCalculator() {
       <div className="max-w-[1160px] mx-auto px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
           <span className="text-xs font-bold uppercase tracking-[0.18em] text-orange-600">What it&apos;s worth</span>
-          <h2 className="text-4xl sm:text-5xl lg:text-[52px] font-bold font-serif-heading text-slate-900 leading-[1.12] mt-3">
+          <h2 className="text-3xl sm:text-5xl lg:text-[52px] font-bold font-serif-heading text-slate-900 leading-[1.12] mt-3 break-words">
             Put your own numbers in.
           </h2>
           <p className="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-2xl mx-auto">
@@ -300,7 +300,7 @@ export function RoiCalculator() {
 
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-orange-600 mb-3">Estimated value, every month</p>
-              <p className="text-5xl sm:text-6xl font-black text-slate-900 tracking-tight leading-none">{money(displayTotal)}</p>
+              <p className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-none tabular-nums break-all">{money(displayTotal)}</p>
               <p className="text-sm text-slate-600 mt-3">
                 That is about <strong className="text-slate-900 font-bold">{money(displayYear)}</strong> a year.
               </p>
@@ -308,24 +308,24 @@ export function RoiCalculator() {
 
             {/* Two equal stat sub-cards */}
             <div className="grid grid-cols-2 gap-3">
-              <div className="bg-slate-50/80 border border-slate-200/70 rounded-2xl p-4 sm:p-5 text-center flex flex-col items-center">
-                <div className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-2xs flex items-center justify-center mb-2">
+              <div className="bg-slate-50/80 border border-slate-200/70 rounded-2xl p-4 sm:p-5 text-center flex flex-col items-center min-w-0">
+                <div className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-2xs flex items-center justify-center mb-2 flex-none">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
                     <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="#f95722" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
-                <p className="text-lg sm:text-xl font-extrabold text-slate-900">{money(displayMoney)}</p>
+                <p className="text-lg sm:text-xl font-extrabold text-slate-900 break-words w-full">{money(displayMoney)}</p>
                 <p className="text-[11px] text-slate-500 mt-1 leading-snug">Extra money coming in</p>
               </div>
-              <div className="bg-slate-50/80 border border-slate-200/70 rounded-2xl p-4 sm:p-5 text-center flex flex-col items-center">
-                <div className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-2xs flex items-center justify-center mb-2">
+              <div className="bg-slate-50/80 border border-slate-200/70 rounded-2xl p-4 sm:p-5 text-center flex flex-col items-center min-w-0">
+                <div className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-2xs flex items-center justify-center mb-2 flex-none">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
                     <circle cx="12" cy="12" r="10" stroke="#f95722" strokeWidth="2" />
                     <path d="M12 6v6l4 2" stroke="#f95722" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
-                <p className="text-lg sm:text-xl font-extrabold text-slate-900">{hoursFmt(displayHours)}</p>
-                <p className="text-[11px] text-slate-500 mt-1 leading-snug">
+                <p className="text-lg sm:text-xl font-extrabold text-slate-900 break-words w-full">{hoursFmt(displayHours)}</p>
+                <p className="text-[11px] text-slate-500 mt-1 leading-snug break-words">
                   Waiter time given back, worth <span className="text-orange-600 font-semibold">{money(displayTimeVal)}</span>
                 </p>
               </div>
@@ -435,11 +435,11 @@ export function RoiCalculator() {
             <div className="flex items-center gap-3.5 sm:gap-4">
               <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-100/80 border border-slate-200/60 flex items-center justify-center text-slate-700 flex-none shadow-2xs">
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
-                  <polyline points="14 2 14 8 20 8"/>
-                  <line x1="16" y1="13" x2="8" y2="13"/>
-                  <line x1="16" y1="17" x2="8" y2="17"/>
-                  <line x1="10" y1="9" x2="8" y2="9"/>
+                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                  <line x1="10" y1="9" x2="8" y2="9" />
                 </svg>
               </div>
               <div className="text-left">
@@ -449,7 +449,7 @@ export function RoiCalculator() {
             </div>
             <div className="w-8 h-8 rounded-full flex items-center justify-center text-slate-400 group-open:rotate-180 transition-transform">
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M6 9l6 6 6-6"/>
+                <path d="M6 9l6 6 6-6" />
               </svg>
             </div>
           </summary>

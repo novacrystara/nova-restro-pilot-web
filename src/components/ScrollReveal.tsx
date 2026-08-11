@@ -44,7 +44,14 @@ export function ScrollReveal() {
       }
     );
 
-    items.forEach((el) => revealObserver.observe(el));
+    items.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add("in");
+      } else {
+        revealObserver.observe(el);
+      }
+    });
 
     /* ── Parallax ─────────────────────────────────────────────────────────── */
     if (reducedMotion) return;

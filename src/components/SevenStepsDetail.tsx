@@ -68,7 +68,7 @@ export function SevenStepsDetail() {
 
               {/* Right side Image */}
               <div className="lg:col-span-6 flex justify-center">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 max-w-[460px] w-full">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[300px] sm:max-w-[460px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/The_real_problem/2nd_1.png"
@@ -97,7 +97,7 @@ export function SevenStepsDetail() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
               {/* Left side Image — Keep 3 pill cards fully visible, remove only below space */}
               <div className="lg:col-span-6 flex justify-center">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 max-w-[460px] max-h-[565px] sm:max-h-[575px] w-full">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[280px] sm:max-w-[460px] max-h-[400px] sm:max-h-[565px] lg:max-h-[575px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/The_real_problem/The Chef AI chat on a phone.png"
@@ -254,8 +254,8 @@ export function SevenStepsDetail() {
               </div>
 
               {/* Right side Image */}
-              <div className="lg:col-span-6 flex flex-col h-full">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full h-full flex-1 min-h-[400px]">
+              <div className="lg:col-span-6 flex justify-center lg:flex-col lg:h-full">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[320px] sm:max-w-full lg:flex-1 lg:min-h-[400px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/The_real_problem/Four people four mobiles one bill.png"
@@ -291,8 +291,8 @@ export function SevenStepsDetail() {
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
               {/* Left side Image */}
-              <div className="lg:col-span-6 flex flex-col h-full">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full h-full flex-1 min-h-[400px]">
+              <div className="lg:col-span-6 flex justify-center lg:flex-col lg:h-full">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[320px] sm:max-w-full lg:flex-1 lg:min-h-[400px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/The_real_problem/Three checks before anything is cooked.png"
@@ -494,7 +494,7 @@ export function SevenStepsDetail() {
                 </div>
 
                 {/* 3 Pill Feature Box */}
-                <div className="bg-[#fff7f2] border border-orange-200/60 p-4 sm:p-5 rounded-2xl flex items-center justify-between gap-2 max-w-lg shadow-2xs mt-auto">
+                <div className="bg-[#fff7f2] border border-orange-200/60 p-4 sm:p-5 rounded-2xl flex flex-wrap items-center justify-center sm:justify-between gap-3 sm:gap-2 w-full max-w-lg shadow-2xs mt-4 lg:mt-auto">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-orange-200/60 text-[#f95722] flex items-center justify-center flex-none shadow-2xs">
                       <svg className="w-5 h-5 text-[#f95722]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -539,8 +539,8 @@ export function SevenStepsDetail() {
               </div>
 
               {/* Right side Image */}
-              <div className="lg:col-span-6 flex flex-col h-full">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full h-full flex-1 min-h-[400px]">
+              <div className="lg:col-span-6 flex justify-center lg:flex-col lg:h-full">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[320px] sm:max-w-full lg:flex-1 lg:min-h-[400px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/The_real_problem/step_5.png"
@@ -576,8 +576,8 @@ export function SevenStepsDetail() {
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
               {/* Left side Image */}
-              <div className="lg:col-span-6 flex flex-col h-full">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full h-full flex-1 min-h-[400px]">
+              <div className="lg:col-span-6 flex justify-center lg:flex-col lg:h-full">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[320px] sm:max-w-full lg:flex-1 lg:min-h-[400px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/The_real_problem/step_6.png"
@@ -634,7 +634,7 @@ export function SevenStepsDetail() {
                 </div>
 
                 {/* Green Callout Box */}
-                <div className="bg-[#e8f7f0] border border-emerald-200/60 p-4 sm:p-5 rounded-2xl flex items-start gap-3.5 max-w-lg shadow-xs mt-auto">
+                <div className="bg-[#e8f7f0] border border-emerald-200/60 p-4 sm:p-5 rounded-2xl flex items-start gap-3.5 w-full max-w-lg shadow-xs mt-4 lg:mt-auto">
                   <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center flex-none mt-0.5">
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
@@ -740,8 +740,8 @@ export function SevenStepsDetail() {
               </div>
 
               {/* Right side Image */}
-              <div className="lg:col-span-6 flex flex-col h-full">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full h-full flex-1 min-h-[400px]">
+              <div className="lg:col-span-6 flex justify-center lg:flex-col lg:h-full">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50 w-full max-w-[320px] sm:max-w-full lg:flex-1 lg:min-h-[400px]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/images/The_real_problem/step_7.png"

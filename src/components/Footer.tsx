@@ -139,7 +139,7 @@ export function Footer() {
 
           {/* Action Button */}
           <a
-            className="px-7 py-3.5 rounded-full bg-[#f95722] hover:bg-[#e04815] !text-white font-semibold text-sm sm:text-base transition-all shadow-md shadow-orange-500/20 whitespace-nowrap flex-none gap-2 inline-flex items-center"
+            className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-[#f95722] hover:bg-[#e04815] !text-white font-semibold text-sm sm:text-base transition-all shadow-md shadow-orange-500/20 whitespace-normal sm:whitespace-nowrap flex-none gap-2 inline-flex items-center justify-center"
             href="mailto:hello@novarestro.com?subject=Nova%20Restro%20walkthrough"
           >
             <span>Book a walkthrough</span>
@@ -151,12 +151,12 @@ export function Footer() {
 
           {/* Email right section */}
           <div className="flex items-center gap-4 flex-none text-left">
-            <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-orange-50/90 border border-orange-100/90 flex items-center justify-center p-3 flex-none shadow-2xs">
+            <div className="w-[52px] h-[52px] sm:w-14 sm:h-14 rounded-full bg-orange-50/90 border border-orange-100/90 flex items-center justify-center p-3 flex-none shadow-2xs">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/images/contact/email.png" alt="Email icon" className="w-full h-full object-contain" />
             </div>
             <div>
-              <a href="mailto:hello@novarestro.com" className="font-bold text-slate-900 text-sm sm:text-base hover:text-[#f95722] transition-colors block">
+              <a href="mailto:hello@novarestro.com" className="font-bold text-slate-900 text-sm sm:text-base hover:text-[#f95722] transition-colors block break-all">
                 hello@novarestro.com
               </a>
               <p className="text-xs text-slate-400 mt-0.5">We usually reply within a few hours.</p>

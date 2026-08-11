@@ -225,7 +225,7 @@ export function SevenStepsMap() {
               <li key={s.num} className="text-center group">
                 <a href={`#${s.target}`} className="block group">
                   {/* Circle container with soft orange aura shadow */}
-                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-b from-[#fff7f2] to-white border border-orange-100/90 shadow-[0_8px_20px_rgba(249,87,34,0.12)] group-hover:shadow-[0_12px_28px_rgba(249,87,34,0.22)] group-hover:scale-105 transition-all flex items-center justify-center mx-auto mb-4">
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full bg-gradient-to-b from-[#fff7f2] to-white border border-orange-100/90 shadow-[0_8px_20px_rgba(249,87,34,0.12)] group-hover:shadow-[0_12px_28px_rgba(249,87,34,0.22)] group-hover:scale-105 transition-all flex items-center justify-center mx-auto mb-4">
                     {/* Number Badge — top left */}
                     <div className="absolute -top-1 -left-1 w-6 h-6 rounded-full bg-[#f95722] text-white text-xs font-bold flex items-center justify-center shadow-sm">
                       {s.num}
@@ -246,7 +246,7 @@ export function SevenStepsMap() {
                   <div className="w-4 h-0.5 bg-[#f95722] mx-auto mb-2.5 rounded-full" />
 
                   {/* Description */}
-                  <span className="block text-xs text-slate-500 leading-snug max-w-[135px] mx-auto">
+                  <span className="block text-xs text-slate-500 leading-snug max-w-full break-words mx-auto">
                     {s.line}
                   </span>
                 </a>

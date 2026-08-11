@@ -62,7 +62,7 @@ export function DemoCta() {
             SEE IT IN ACTION
           </div>
           <div className="w-8 h-[2.5px] bg-orange-600 rounded-full mx-auto mb-3" />
-          <h2 className="text-4xl sm:text-5xl lg:text-[52px] font-bold font-serif-heading text-slate-900 leading-[1.12]">
+          <h2 className="text-3xl sm:text-5xl lg:text-[52px] font-bold font-serif-heading text-slate-900 leading-[1.12] break-words">
             Open it and try it yourself.
           </h2>
           <p className="text-base sm:text-lg text-slate-600 mt-3 leading-relaxed max-w-xl mx-auto">
@@ -116,7 +116,7 @@ export function DemoCta() {
         {/* Want it in your restaurant card banner - Matching exact reference image */}
         <div className="bg-[#fff8f5] border border-orange-200/60 rounded-[32px] p-7 sm:p-10 lg:p-12 max-w-4xl mx-auto mt-12 shadow-sm flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10">
           {/* Left info column */}
-          <div className="text-left flex-1">
+          <div className="text-center md:text-left flex-1">
             <span className="bg-orange-100/80 border border-orange-200/70 text-orange-600 text-[11px] font-extrabold tracking-wider uppercase px-3 py-1 rounded-full inline-block mb-3">
               YOUR RESTAURANT, LIVE
             </span>
@@ -133,7 +133,7 @@ export function DemoCta() {
           <div className="hidden md:block w-[1px] bg-slate-200/80 self-stretch my-1" />
 
           {/* Right action column */}
-          <div className="flex flex-col items-center justify-center gap-4 flex-none min-w-[240px] text-center">
+          <div className="flex flex-col items-center justify-center gap-4 w-full sm:w-auto sm:flex-none sm:min-w-[240px] text-center">
             <a
               className="inline-flex items-center justify-center px-7 py-3 sm:py-3.5 rounded-full bg-[#f95722] hover:bg-[#e04815] !text-white text-sm sm:text-base font-semibold transition-all shadow-md shadow-orange-500/25 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] gap-2"
               href="mailto:hello@novarestro.com?subject=Nova%20Restro%20walkthrough"
@@ -150,7 +150,7 @@ export function DemoCta() {
                 <rect x="2" y="4" width="20" height="16" rx="3" />
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
               </svg>
-              <span className="border-b border-[#f95722] pb-0.5 leading-none">hello@novarestro.com</span>
+              <span className="border-b border-[#f95722] pb-0.5 leading-none break-all">hello@novarestro.com</span>
             </a>
           </div>
         </div>

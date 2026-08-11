@@ -66,9 +66,9 @@ export function WhyDifferent() {
           {items.map((item, i) => (
             <article key={i} className="relative bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-orange-200 transition-all rise" data-delay={String(i + 1)}>
               <div className="flex items-start justify-between gap-4 mb-3">
-                <div className="flex items-start gap-4">
-                  <span className="text-2xl font-extrabold text-orange-600 leading-none mt-1">{item.num}</span>
-                  <h3 className="text-xl font-bold font-serif-heading text-slate-900 max-w-[220px]">{item.title}</h3>
+                <div className="flex items-start gap-4 min-w-0">
+                  <span className="text-2xl font-extrabold text-orange-600 leading-none mt-1 flex-none">{item.num}</span>
+                  <h3 className="text-xl font-bold font-serif-heading text-slate-900 max-w-full break-words">{item.title}</h3>
                 </div>
                 <div className="w-12 h-12 min-w-12 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center">
                   {item.icon}

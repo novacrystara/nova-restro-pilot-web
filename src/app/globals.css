@@ -297,3 +297,51 @@ img {
   font-weight: 700;
   letter-spacing: -0.025em;
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   MOBILE OVERFLOW PREVENTION
+   Belt-and-braces safety net. Prevents any text node, long URL, currency
+   string or flex item from pushing content wider than the viewport.
+   Does NOT affect desktop layout — overflow-wrap:anywhere only fires when
+   there is genuinely no valid break point inside the text run.
+───────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  /* Every text container honours the viewport width */
+  p, h1, h2, h3, h4, h5, h6, span, li, a, label, output, summary {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  /* Flex/grid children that contain text must be allowed to shrink */
+  .flex > * {
+    min-width: 0;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SAFE AREA INSETS — iPhone notch, Dynamic Island, home indicator
+   env() is only supported on iOS Safari 11.2+. The @supports guard ensures
+   the rule is silently ignored on Android and older browsers.
+───────────────────────────────────────────────────────────────────────────── */
+@supports (padding-left: env(safe-area-inset-left)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Sticky header needs extra top breathing room for notch in landscape */
+  header.sticky {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   TAP DELAY ELIMINATION
+   touch-action: manipulation removes the 300ms delay on all interactive
+   elements without breaking pinch-zoom on the page.
+───────────────────────────────────────────────────────────────────────────── */
+a, button, [role="button"], label, summary, input[type="range"],
+input[type="checkbox"], input[type="radio"] {
+  touch-action: manipulation;
+}

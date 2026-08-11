@@ -168,7 +168,7 @@ export function ControlRows() {
             <div className="text-xs font-extrabold tracking-[0.2em] uppercase text-[#f95722] mb-2">
               YOU&apos;RE IN CONTROL
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-[52px] font-bold font-serif-heading text-slate-900 leading-[1.12] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl lg:text-[52px] font-bold font-serif-heading text-slate-900 leading-[1.12] tracking-tight break-words">
               Change anything, any time.
               <br />
               No phone call to us<span className="text-[#f95722]">.</span>
@@ -331,7 +331,7 @@ export function ControlRows() {
       <section className="py-12 md:py-16 bg-slate-50 border-t border-slate-100">
         <div className="max-w-[1160px] mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
-            <h2 className="text-4xl sm:text-5xl lg:text-[52px] font-bold font-serif-heading text-slate-900 leading-[1.12]">
+            <h2 className="text-3xl sm:text-5xl lg:text-[52px] font-bold font-serif-heading text-slate-900 leading-[1.12] break-words">
               The paperwork is finished before you sit down to do it.
             </h2>
             <p className="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed max-w-2xl mx-auto">

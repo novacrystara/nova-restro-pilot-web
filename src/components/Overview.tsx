@@ -14,7 +14,7 @@ export function Overview() {
           </div>
 
           {/* Headline - Playfair Display Serif font */}
-          <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-bold font-serif-heading text-slate-900 tracking-tight leading-[1.12] mb-4">
+          <h2 className="text-3xl sm:text-5xl lg:text-[56px] font-bold font-serif-heading text-slate-900 tracking-tight leading-[1.12] mb-4 break-words">
             One system for
             <br />
             the whole restaurant<span className="text-orange-600">.</span>
@@ -22,17 +22,17 @@ export function Overview() {
 
           {/* Subtitle Paragraph */}
           <p className="text-base sm:text-lg lg:text-[19px] text-slate-600 leading-[1.65] max-w-3xl mx-auto">
-            Nova Restro is one system that runs a restaurant. Guests order from their phone.
-            <br className="hidden sm:inline" />
-            The kitchen gets the order instantly. Waiters know what to carry. Managers see
-            <br className="hidden sm:inline" />
+            Nova Restro is one system that runs a restaurant. Guests order from their phone.{" "}
+            <br className="hidden sm:inline" />{" "}
+            The kitchen gets the order instantly. Waiters know what to carry. Managers see{" "}
+            <br className="hidden sm:inline" />{" "}
             everything. Owners get the numbers, automatically.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {/* Card 1: For your guests */}
-          <article className="bg-white/90 p-8 sm:p-10 rounded-[28px] border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all flex flex-col justify-between group cursor-pointer min-h-[380px] relative scale-in" data-delay="1">
+          <article className="bg-white/90 p-5 sm:p-8 lg:p-10 rounded-[28px] border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all flex flex-col justify-between group cursor-pointer min-h-[320px] sm:min-h-[380px] relative scale-in" data-delay="1">
             <div>
               {/* Round Circle Icon Container with Soft Orange Glow */}
               <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-b from-[#fffaf4] to-[#fbf5eb] flex items-center justify-center mb-6 border border-amber-100/80 shadow-[0_10px_25px_-5px_rgba(234,88,12,0.15)] group-hover:scale-105 transition-transform">
@@ -47,13 +47,13 @@ export function Overview() {
               <div className="w-8 h-[3px] bg-orange-600 rounded-full my-3" />
               <p className="text-base text-slate-600 leading-relaxed">They order, track and pay from their own phone.</p>
             </div>
-            <div className="w-11 h-11 rounded-full border-2 border-orange-200 text-orange-600 flex items-center justify-center font-bold text-lg mt-7 group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600 group-hover:translate-x-1 transition-all">
+            <div className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full border-2 border-orange-200 text-orange-600 flex items-center justify-center font-bold text-lg mt-7 group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600 group-hover:translate-x-1 transition-all">
               →
             </div>
           </article>
 
           {/* Card 2: For your team (Middle Card with Soft Warm Tint Background matching Reference Image) */}
-          <article className="bg-gradient-to-b from-[#fffbf7] via-white to-white p-8 sm:p-10 rounded-[28px] border border-orange-100/90 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all flex flex-col justify-between group cursor-pointer min-h-[380px] relative scale-in" data-delay="2">
+          <article className="bg-gradient-to-b from-[#fffbf7] via-white to-white p-5 sm:p-8 lg:p-10 rounded-[28px] border border-orange-100/90 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all flex flex-col justify-between group cursor-pointer min-h-[320px] sm:min-h-[380px] relative scale-in" data-delay="2">
             <div>
               {/* Round Circle Icon Container with Soft Orange Glow */}
               <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-b from-[#fffaf4] to-[#fbf5eb] flex items-center justify-center mb-6 border border-amber-100/80 shadow-[0_10px_25px_-5px_rgba(234,88,12,0.15)] group-hover:scale-105 transition-transform">
@@ -68,13 +68,13 @@ export function Overview() {
               <div className="w-8 h-[3px] bg-orange-600 rounded-full my-3" />
               <p className="text-base text-slate-600 leading-relaxed">Kitchen, waiters and managers each get their own screen.</p>
             </div>
-            <div className="w-11 h-11 rounded-full border-2 border-orange-200 text-orange-600 flex items-center justify-center font-bold text-lg mt-7 group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600 group-hover:translate-x-1 transition-all">
+            <div className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full border-2 border-orange-200 text-orange-600 flex items-center justify-center font-bold text-lg mt-7 group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600 group-hover:translate-x-1 transition-all">
               →
             </div>
           </article>
 
           {/* Card 3: For you */}
-          <article className="bg-white/90 p-8 sm:p-10 rounded-[28px] border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all flex flex-col justify-between group cursor-pointer min-h-[380px] relative scale-in" data-delay="3">
+          <article className="bg-white/90 p-5 sm:p-8 lg:p-10 rounded-[28px] border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-orange-200 transition-all flex flex-col justify-between group cursor-pointer min-h-[320px] sm:min-h-[380px] relative scale-in" data-delay="3">
             <div>
               {/* Round Circle Icon Container with Soft Orange Glow */}
               <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-b from-[#fffaf4] to-[#fbf5eb] flex items-center justify-center mb-6 border border-amber-100/80 shadow-[0_10px_25px_-5px_rgba(234,88,12,0.15)] group-hover:scale-105 transition-transform">
@@ -89,7 +89,7 @@ export function Overview() {
               <div className="w-8 h-[3px] bg-orange-600 rounded-full my-3" />
               <p className="text-base text-slate-600 leading-relaxed">Sales, tax and tips are recorded while service happens.</p>
             </div>
-            <div className="w-11 h-11 rounded-full border-2 border-orange-200 text-orange-600 flex items-center justify-center font-bold text-lg mt-7 group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600 group-hover:translate-x-1 transition-all">
+            <div className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full border-2 border-orange-200 text-orange-600 flex items-center justify-center font-bold text-lg mt-7 group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600 group-hover:translate-x-1 transition-all">
               →
             </div>
           </article>
